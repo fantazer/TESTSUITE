@@ -1,0 +1,16 @@
+{
+	"item": ".contract",
+	"sizes": {
+		"size1": "/html/body/div[1]/div[4]/div[5]/div/div/div[2]/div[1]/div/div[1]",
+		"size2": "/html/body/div[1]/div[4]/div[5]/div/div/div[2]/div[1]/div/div[2]",
+		"size3": "/html/body/div[1]/div[4]/div[5]/div/div/div[2]/div[1]/div/div[3]",
+		"size4": "/html/body/div[1]/div[4]/div[5]/div/div/div[2]/div[1]/div/div[4]"
+	},
+	"checkbox": "/html/body/div[1]/div[4]/div[5]/div/div/div[2]/div[2]/div/label/div/div[1]",
+	"phoneSingle": "#order > div > div > div.contract-content > div:nth-child(4) > div > input",
+	"phoneVal": "1111111111",
+	"sandBtn": "#order > div > div > div.contract-footer > div.btn--md.btn--mark.btn--mobile.actionSubmitOrder",
+	"validateMsg": "/html/body/div[1]/div[4]/div[5]/div/div/div[2]/div[4]/div/div",
+	"modalGetOrderFast": "/html/body/div[1]/div[6]/div[2]/div[37]/div[2]/div[3]",
+	"modalGetOrderLong": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.action-modal-choose-type.modal__show > div.modal-content > div.btn--md.btn--light.btn--full.action-normal-order"
+}

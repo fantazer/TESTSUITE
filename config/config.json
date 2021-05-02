@@ -1,0 +1,11 @@
+{
+    "urls": {
+        "client": {
+            "root": "http://test.letbefit.ru/?new"
+        }
+    },
+    "timeouts": {
+        "waitForShow": 1000
+    }
+
+}

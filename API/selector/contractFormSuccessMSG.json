@@ -1,0 +1,4 @@
+{
+	"head": "#header > div.content.content--mark.content--mobile-clear > div > div > div > div.order-success-head",
+	"cost": "#header > div.content.content--mark.content--mobile-clear > div > div > div > div.contract-total.contract-total--clear.mt-24.mb-48 > div:nth-child(2)"
+}

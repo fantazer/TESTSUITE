@@ -1,0 +1,29 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "E2E test Hermione",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/hermione",
+    "client": "./node_modules/.bin/hermione -s client",
+    "admin": "./node_modules/.bin/hermione -s admin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:frontend-science/e2e-hermione.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frontend-science/e2e-hermione/issues"
+  },
+  "homepage": "https://github.com/frontend-science/e2e-hermione",
+  "dependencies": {
+    "chai": "^4.0.2",
+    "config": "^1.26.1",
+    "hermione": "^3.8.5"
+  },
+  "devDependencies": {
+    "html-reporter": "^5.16.4"
+  }
+}
