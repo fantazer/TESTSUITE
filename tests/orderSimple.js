@@ -1,9 +1,10 @@
+/*
 const assert = require('chai').assert;
-const config = require('../config/config.json');
+const config = require('/config/config.json');
 const url = config.urls.client;
-const actionSelf = require('../API/order');
-const contractFormStart = require('../API/selector/contractFormStart.json')
-const contractFormSuccessMSG = require('../API/selector/contractFormSuccessMSG.json')
+const actionSelf = require('/API/methods/order');
+const contractFormStart = require('/querySelector/mainPage/contractFormStart.json')
+const contractFormSuccessMSG = require('/querySelector/mainPage/contractFormSuccessMSG.json')
 
 const statement = [
 		{
@@ -28,9 +29,9 @@ describe('Test1', function () {
 				.click(el.value)
 				.pause(2000)
 				.setValue(contractFormStart.phoneSingle, contractFormStart.phoneVal)
-				/*.then(() => {
+				/!*.then(() => {
 					return actionSelf(browser, contractFormStart)
-				})*/
+				})*!/
 				.pause(1000)
 				.waitUntil(async function () {
 					return await browser.$(contractFormStart.sandBtn).click()
@@ -57,4 +58,4 @@ describe('Test1', function () {
 });
 
 // hermione gui --update-refs
-// selenium-standalone start
+// selenium-standalone start*/

@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"authStart": "//*[@id=\"header\"]/div[1]/div[2]/div/div/div[2]/div",
+		"authPhone": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalEnterLK.modal__show > div.modal-content > div.input-row.input-row--validate > input",
+		"authPhoneSendBtn": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalEnterLK.modal__show > div.modal-content > div.btn--md.btn--mark.btn--full.mb-24.action-enter",
+		"authName": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalRegisterForm.modal__show > div.modal-content > div.input-row.input-row--validate > input",
+		"authNameSendBtn": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalRegisterForm.modal__show > div.modal-content > div.btn--md.btn--mark.btn--full.action-enter"
+	},
+	"callBack": ".header-phone-link"
+}

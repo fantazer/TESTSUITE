@@ -1,22 +1,25 @@
 module.exports = {
 	sets: {
 		desktop: {
-			files: 'tests/'
+			files: 'tests/',
+			browsers: ['clientChrome']
 		}
 	},
 
 	browsers: {
-		chrome: {
+		clientChrome: {
+			windowSize: '1920x1000',
 			desiredCapabilities: {
 				browserName: 'chrome', // this browser should be installed on your OS
-
 			}
 		},
 	},
+	sessionsPerBrowser: 5,
 	plugins:{
 		'html-reporter/hermione':{
 			path:'hermione-html-reporter'
-		}
+		},
+		'hermione-create-el':true
 	},
 	windowSize: '1920x2000',
 	prepareBrowser: (browser) => {
