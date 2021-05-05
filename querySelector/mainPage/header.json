@@ -1,10 +1,27 @@
 {
 	"auth": {
-		"authStart": "//*[@id=\"header\"]/div[1]/div[2]/div/div/div[2]/div",
-		"authPhone": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalEnterLK.modal__show > div.modal-content > div.input-row.input-row--validate > input",
-		"authPhoneSendBtn": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalEnterLK.modal__show > div.modal-content > div.btn--md.btn--mark.btn--full.mb-24.action-enter",
-		"authName": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalRegisterForm.modal__show > div.modal-content > div.input-row.input-row--validate > input",
-		"authNameSendBtn": "#header > div.modal-layer.modal-layer-show > div.modal-wrap > div.modal.modalRegisterForm.modal__show > div.modal-content > div.btn--md.btn--mark.btn--full.action-enter"
+		"authStart": ".modal-get[data-modal='enter']",
+		"authModal": ".modal[data-modal='enter'] .modal-content",
+		"authPhoneInput": ".modal[data-modal='enter'] .input",
+		"authPhoneSendBtn": ".modal[data-modal='enter'] .btn--md",
+		"authModalName": ".modal[data-modal='getName'] .modal-content",
+		"authNameInput": ".modal[data-modal='getName'] .input",
+		"authNameSendBtn": ".modal[data-modal='getName'] .btn--md"
 	},
-	"callBack": ".header-phone-link"
+	"callBack": {
+		"callBackStart": ".modal-get[data-modal='getCall']",
+		"callBackModal": ".modal[data-modal='getCall'] .modal-content",
+		"callBackModalInput": ".modal[data-modal='getCall'] .input",
+		"callBackBtn": ".modal[data-modal='getCall'] .btn--md",
+		"callBackModalTrue": ".modal[data-modal='trueCallback'] .modal-content",
+		"callBackModalTrueTitle": ".modal[data-modal='trueCallback'] .modal-title.type--center"
+	},
+	"changeTown": {
+		"changeTownStart": ".modal-get[data-modal='location']",
+		"changeTownStartName": ".modal-get[data-modal='location'] .header-location__val",
+		"changeTownModal": ".modal[data-modal='location'] .modal-content",
+		"changeTownModalTitle": ".modal[data-modal='location'] .modal-title",
+		"changeTownModalFalse": ".modal[data-modal='location'] .btn--sm.btn--light.modal-hide",
+		"changeTownModalTrue": ".modal[data-modal='location'] .btn--sm.btn--mark"
+	}
 }

@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "./node_modules/.bin/hermione -s desktop",
 		"client": "./node_modules/.bin/hermione -s client",
-		"admin": "./node_modules/.bin/hermione -s admin"
+		"admin": "./node_modules/.bin/hermione -s admin",
+		"gui": "./node_modules/.bin/hermione gui"
 	},
 	"_moduleAliases": {
 		"@root": ".",
