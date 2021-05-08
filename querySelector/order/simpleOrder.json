@@ -1,0 +1,25 @@
+{
+	"contract": ".contract",
+	"size": {
+		"size1": {
+			"query": ".contract-config__el[data-item='start']",
+			"queryText": ".contract-config__el[data-item='start'] .style-input-text",
+			"queryTextValue": "Пробный день"
+		},
+		"size2": {
+			"query": ".contract-config__el[data-item='6days']",
+			"queryText": ".contract-config__el[data-item='6days'] .style-input-text",
+			"queryTextValue": "Неделя (6 дней)"
+		},
+		"size3": {
+			"query": ".contract-config__el[data-item='2week']",
+			"queryText": ".contract-config__el[data-item='2week'] .style-input-text",
+			"queryTextValue":"2 недели (12 дней)"
+		},
+		"size4": {
+			"query": ".contract-config__el[data-item='4week']",
+			"queryText": ".contract-config__el[data-item='4week'] .style-input-text",
+			"queryTextValue":"4 недели (24 дня)"
+		}
+	}
+}
