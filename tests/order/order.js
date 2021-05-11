@@ -265,42 +265,41 @@ describe('Order', function () {
 	});
 	it("orderSimple", function () {
 		let browser = this.browser
-
-		return browser.url(url.root)
-				.windowHandleSize({width: 1920, height: 2000})
-				.waitForExist(query.contract, 50000)
-				//.assertView("contractForm", query.contract, mainConfig.tolerance)
-				.pause(4000)
-				.$$(".program-type__el")
-				.then((data) => {
-					/*async function processArray(value) {
-						for (let item of value) {
-							await browser.click(item).pause(5000)
-							console.log(item);
-						}
-						console.log('Done!');
-					}
-					return processArray(list)*/
-					/*for (let item in browser.elements('.advant__el')){
-						console.log(item);
-					}*/
-					console.log(data);
-					async function processArray(income) {
-						for (let item of income) {
-							await browser.element(`${item.selector}:nth-child(${item.index+1})`).click().pause(2000)
-							console.log(item.selector);
-						}
-						console.log('Done!');
-					}
-					return processArray(data)
+		let heightEl
+		return browser
+				.url(url.root+"?new")
+				.url(url.root+"?ISTEST")
+				.windowHandleSize({width: 1920, height: 1200})
+				//.waitForExist(query.contract, 50000)
+				.waitForExist('.page', 50000)
+				.then((data)=>{
+					return (async ()=>{
+						heightEl = await browser.getCssProperty(".page", 'height').value
+						console.log(heightEl);
+						return heightEl
+					})()
 				})
-
-				/*.click(query.size.size1.query)
-				.pause(2000)
-				.getText(query.size.size1.queryText)
-				.then(function (text) {
-					mainConfig.assert.equal(text, query.size.size1.queryTextValue)
+				//.assertView("contractForm", query.contract, mainConfig.tolerance)
+				/*.$('.page')
+				.then((data)=>{
+					return (async ()=>{
+						El.heightEl = await browser.getCssProperty(".page", 'height').value
+						console.log(El.heightEl);
+						return El.heightEl
+					})()
 				})*/
+				.pause(1000)
+				.assertView("page", ".page",mainConfig.tolerance)
+			/*	.$$(".program-type__el")
+				.then((data) => {
+					return (async (data)=> {
+						for (let item of data) {
+							await browser.element(`${item.selector}:nth-child(${item.index+1})`).click().pause(2000)
+						}
+					})(data)
+				})*/
+
+
 				.pause(5000)
 	});
 });

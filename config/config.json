@@ -1,7 +1,7 @@
 {
     "urls": {
         "client": {
-            "root": "http://test.letbefit.ru/?new"
+            "root": "http://test.letbefit.ru/"
         }
     },
     "timeouts": {

@@ -6,8 +6,12 @@ module.exports = function () {
 	const assert = require('chai').assert;
 
 	let tolerance = {
-		tolerance: 5,
-		antialiasingTolerance: 8,
+		tolerance: 8,
+		antialiasingTolerance: 4,
+		allowViewportOverflow: true,
+		captureElementFromTop: true,
+		compositeImage: true,
+		screenshotDelay: 10
 	}
 
 

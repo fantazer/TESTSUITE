@@ -32,7 +32,8 @@
 		"module-alias": "^2.2.2"
 	},
 	"devDependencies": {
-		"html-reporter": "^5.16.4",
-		"node-fetch": "^2.6.1"
+		"html-reporter": "^6.0.0-alpha.30",
+		"node-fetch": "^2.6.1",
+		"prettier": "1.19.1"
 	}
 }
