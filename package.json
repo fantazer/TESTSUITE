@@ -28,8 +28,11 @@
 	"dependencies": {
 		"chai": "^4.3.4",
 		"config": "^1.26.1",
+		"form-data": "^4.0.0",
 		"hermione": "^3.8.5",
-		"module-alias": "^2.2.2"
+		"hermione-wdio-migrator": "^0.1.12",
+		"module-alias": "^2.2.2",
+		"hermione-create-el": "1.0.0"
 	},
 	"devDependencies": {
 		"html-reporter": "^6.0.0-alpha.30",

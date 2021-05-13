@@ -1,15 +1,12 @@
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
-
-const config = require('@config/config.json')
 const query = require('@querySelector/mainPage/header.json')
-const url = config.urls.client
 
 describe('Header', function() {
 	it('callBack', function() {
 		let browser = this.browser
 		return browser
-			.url(url.root + '?new')
+			.url(mainConfig.server.urls.test + '?new')
 			.waitForExist(query.callBack.callBackStart, 50000)
 			.click(query.callBack.callBackStart)
 			.pause(3000)

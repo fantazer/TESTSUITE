@@ -6,7 +6,9 @@
 		"authPhoneSendBtn": ".modal[data-modal='enter'] .btn--md",
 		"authModalName": ".modal[data-modal='getName'] .modal-content",
 		"authNameInput": ".modal[data-modal='getName'] .input",
-		"authNameSendBtn": ".modal[data-modal='getName'] .btn--md"
+		"authNameSendBtn": ".modal[data-modal='getName'] .btn--md",
+		"authSmsInput": ".modal[data-modal='getSms'] .input",
+		"authSmsSendBtn": ".modal[data-modal='getSms'] .btn--md"
 	},
 	"callBack": {
 		"callBackStart": ".modal-get[data-modal='getCall']",

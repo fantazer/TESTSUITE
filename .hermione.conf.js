@@ -19,7 +19,10 @@ module.exports = {
 		'html-reporter/hermione': {
 			path: 'report'
 		},
-		'hermione-create-el': true
+		'hermione-create-el': true,
+		'hermione-wdio-migrator': {
+			enabled: false
+		}
 	},
 	windowSize: '1920x2000',
 	//screenshotMode:'auto',
