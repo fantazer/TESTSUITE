@@ -1,12 +1,14 @@
+let path = require('path')
+let mainConfig = require(path.resolve('mainConfig.js'))()
+
 const fetch = require('node-fetch')
 const getToken = require('@api/methods/system/getToken.js')
-const profileData = require('@api/methods/system/systemConfig.js')
 
-let regUser = async () => {
+let regUser = async phoneVal => {
 	try {
 		let token = await getToken
 		//get USERDATA
-		let regUserAction = await fetch(profileData.urlRegUser, {
+		let regUserAction = await fetch(mainConfig.apiUrlList.urlRegUser, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -14,7 +16,7 @@ let regUser = async () => {
 			},
 			body: JSON.stringify({
 				name: 'GEROME',
-				phone: profileData.phone,
+				phone: phoneVal,
 				email: '',
 				addresses: [
 					{

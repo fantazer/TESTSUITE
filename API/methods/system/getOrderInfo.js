@@ -1,13 +1,16 @@
+let path = require('path')
+let mainConfig = require(path.resolve('mainConfig.js'))()
+
 const fetch = require('node-fetch')
 const getToken = require('@api/methods/system/getToken.js')
-const profileData = require('@api/methods/system/systemConfig.js')
 
-let getOrderInfo = async () => {
+let getOrderInfo = async phoneVal => {
 	try {
 		let token = await getToken
 		//get USERDATA
+
 		let resOrder = await fetch(
-			profileData.urlOrder + profileData.phone + '&orderCount=10',
+			mainConfig.apiUrlList.urlOrder + phoneVal + '&orderCount=10',
 			{
 				method: 'GET',
 				headers: {
