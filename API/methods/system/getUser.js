@@ -15,15 +15,12 @@ let getProfileInfo = async () => {
 				Authorization: 'Bearer ' + token.access_token
 			}
 		})
-		if (resProfile.status != 204) {
-			let resProfileData = await resProfile.text()
-			profileData.data = await JSON.parse(resProfileData)
-		} else {
-			profileData.exception = resProfile.status
+		if (resProfile.status !== 204) {
+			throw '===PHONE IS PRESENT==='
 		}
 		return profileData
 	} catch (e) {
-		console.log(e.message)
+		throw new Error(e)
 	}
 }
 

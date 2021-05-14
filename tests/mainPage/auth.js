@@ -22,6 +22,7 @@ describe('Header', function() {
 				.assertView('enterAuth', query.auth.authModal, mainConfig.tolerance)
 				.then(data => {
 					return (async () => {
+						console.log()
 						let getUserVal = await getUser()
 						//console.log(getUserVal)
 						if (getUserVal.data === null) {
@@ -63,9 +64,9 @@ describe('Header', function() {
 						console.log('===========')
 						console.log(profileVal.id)
 						console.log('===========')
-						if (profileVal == undefined) {
+						/*if (profileVal == undefined) {
 							throw new Error('USER IS LOST')
-						}
+						}*/
 						return profileVal
 					})()
 				})

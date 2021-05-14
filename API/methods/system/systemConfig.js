@@ -15,24 +15,22 @@ let generateNumber = function() {
 	}
 }
 
-console.log(generateNumber())
-
 let urlTestServer = 'http://148.251.246.45:1444'
 let generateNumberVal = generateNumber()
 let phone = '7' + generateNumberVal.number
-//phone = 79261939959
 let profileData = {
 	urlToken: urlTestServer + '/connect/token',
 	urlPhone: urlTestServer + '/api/account/getCustomerByPhone?phone=' + phone,
+	urlGetProfileInfo: urlTestServer + '/api/account/getCustomerByPhone?phone=',
+	urlRegUser: urlTestServer + '/api/account/register',
 	urlOrder:
-		urlTestServer +
-		'/api/customers/GetCustomerOrdersHistory?phoneNumber=' +
-		phone +
-		'&orderCount=10',
+		urlTestServer + '/api/customers/GetCustomerOrdersHistory?phoneNumber=',
 	phone: phone,
 	phoneArray: generateNumberVal.array,
 	data: null,
-	exception: null
+	exception: null,
+	name: null,
+	nameProgram: null
 }
 
 module.exports = profileData

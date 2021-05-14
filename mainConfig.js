@@ -12,7 +12,8 @@ module.exports = function() {
 		allowViewportOverflow: true,
 		captureElementFromTop: true,
 		compositeImage: true,
-		screenshotDelay: 10
+		screenshotDelay: 10,
+		ignoreElements: ['.spinner_block']
 	}
 
 	let server = {
