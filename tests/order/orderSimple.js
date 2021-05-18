@@ -1,22 +1,23 @@
 /*
-	Описание теста: Проверка Авторизации
+	Описание теста:
+	- Проверка дефолтной программы
+	- Проверка промокода
+	- Проверка телефона
+	- Проверка всех цен
+	- Проверка заказа быстрое оформление
 */
 
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/simpleOrder.json')
 
-const getUser = require('@api/methods/system/getUser.js')
-const getUserInfo = require('@api/methods/system/getUserInfo.js')
-const regUser = require('@api/methods/system/regUser.js')
-const getOrderInfo = require('@api/methods/system/getOrderInfo.js')
-const profileData = require('@api/methods/system/systemConfig.js')
-
 describe('Order', function() {
 	beforeEach(function(done) {
 		//return jsonData;
 	})
 	it('orderSimple', function() {
+		const generatePhone = require('@api/methods/system/generatePhone.js')
+		let generatePhoneVal = generatePhone()
 		let browser = this.browser
 		return (
 			browser
@@ -25,6 +26,7 @@ describe('Order', function() {
 				.windowHandleSize({width: 1920, height: 1200})
 				.waitForExist('.page', 50000)
 				.scroll('#order')
+
 				// Create screen contract
 				.$$(query.listSize)
 				.then(data => {
@@ -42,31 +44,21 @@ describe('Order', function() {
 						}
 					})(data)
 				})
+
 				//Check empty phone
 				.click(query.orderBtn)
 				.getText(query.phoneInputMsg)
 				.then(text => {
 					mainConfig.assert.equal(text, 'Введите корректный телефон')
 				})
+
 				//Enter phone
-				.then(() => {
-					return (async () => {
-						await getUser()
-						for (item of profileData.phoneArray) {
-							await browser.addValue(query.phoneInput, item)
-						}
-					})()
-				})
+				.getUser(generatePhoneVal.phone, false)
+				.regUser(generatePhoneVal.phone, false)
+				.insertPhone(query.phoneInput, false, generatePhoneVal.array)
 
-				//REG USER
-				.then(() => {
-					return (async () => {
-						await regUser()
-					})()
-				})
-
-				.pause(1000)
 				//Click checkbox
+				.pause(1000)
 				.isElement(query.checkBox, 'Error:После ввода телефона')
 				.setValue(query.couponInput, query.couponVal)
 				.isElement(query.couponBtn, 'Error:После ввода купона')
@@ -85,12 +77,7 @@ describe('Order', function() {
 									'contractForm + COUPON' + (item.index + 1),
 									query.contract,
 									{
-										tolerance: 8,
-										antialiasingTolerance: 4,
-										allowViewportOverflow: true,
-										captureElementFromTop: true,
-										compositeImage: true,
-										screenshotDelay: 10,
+										...mainConfig.tolerance,
 										ignoreElements: [query.phoneInputAddPromo]
 									}
 								)
@@ -106,30 +93,11 @@ describe('Order', function() {
 				.pause(2000)
 				.isElement('.order-success-head', 'Error:Подтверждение заказа')
 				.assertView('totalOrder', query.totalOrder, {
-					tolerance: 8,
-					antialiasingTolerance: 4,
-					allowViewportOverflow: true,
-					captureElementFromTop: true,
-					compositeImage: true,
-					screenshotDelay: 10,
+					...mainConfig.tolerance,
 					ignoreElements: [query.totalOrderPhone]
 				})
-				.pause(5000)
-				.then(data => {
-					//console.log('===userData===', userData)
-					return (async () => {
-						try {
-							let orderData = await getOrderInfo(profileData.phone)
-							console.log('===CHECK USER===')
-							console.log(JSON.parse(orderData))
-							console.log('===CHECK USER===')
-							return orderData
-						} catch (e) {
-							console.log(e)
-							throw new Error(e)
-						}
-					})()
-				})
+				.pause(7000)
+				.getOrderInfo(generatePhoneVal.phone, false)
 				.pause(2000)
 		)
 	})

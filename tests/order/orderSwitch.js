@@ -10,7 +10,6 @@ const getUser = require('@api/methods/system/getUser.js')
 const getUserInfo = require('@api/methods/system/getUserInfo.js')
 const regUser = require('@api/methods/system/regUser.js')
 const getOrderInfo = require('@api/methods/system/getOrderInfo.js')
-const profileData = require('@api/methods/system/systemConfig.js')
 
 describe('OrderList', function() {
 	/*	beforeEach(function(done) {

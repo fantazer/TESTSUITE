@@ -17,8 +17,12 @@ let getProfileInfo = async phoneVal => {
 				Authorization: 'Bearer ' + token.access_token
 			}
 		})
+
 		if (resProfile.status !== 204) {
+			console.log('Get User - FALSE')
 			throw '===PHONE IS PRESENT==='
+		} else {
+			console.log('Get User - TRUE')
 		}
 		return resProfile
 	} catch (e) {

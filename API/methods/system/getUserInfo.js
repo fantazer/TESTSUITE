@@ -20,7 +20,8 @@ let getUserInfo = async numberPhone => {
 		)
 		let resProfileData = await resProfile.text()
 		let resProfileDataValue = await JSON.parse(resProfileData)
-
+		console.log('===User Data===')
+		console.log(resProfileDataValue)
 		return resProfileData
 	} catch (e) {
 		console.log(e.message)

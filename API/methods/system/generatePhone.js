@@ -16,7 +16,4 @@ let generateNumber = function() {
 	}
 }
 
-//let generateNumberVal = generateNumber()
-//let phone = '7' + generateNumberVal.number
-
 module.exports = generateNumber

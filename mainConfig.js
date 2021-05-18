@@ -52,12 +52,15 @@ module.exports = function() {
 			urlTestServer + '/api/customers/GetCustomerOrdersHistory?phoneNumber='
 	}
 
+	let couponList = ['KATERINAFFIT', 'POLINKA']
+
 	return {
 		path,
 		assert,
 		moduleAlias,
 		tolerance,
 		server,
-		apiUrlList
+		apiUrlList,
+		couponList
 	}
 }

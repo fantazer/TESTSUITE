@@ -4,7 +4,7 @@ let mainConfig = require(path.resolve('mainConfig.js'))()
 const fetch = require('node-fetch')
 const getToken = require('@api/methods/system/getToken.js')
 
-let regUser = async phoneVal => {
+let regUser = async numberPhone => {
 	try {
 		let token = await getToken
 		//get USERDATA
@@ -16,7 +16,7 @@ let regUser = async phoneVal => {
 			},
 			body: JSON.stringify({
 				name: 'GEROME',
-				phone: phoneVal,
+				phone: numberPhone,
 				email: '',
 				addresses: [
 					{
@@ -29,11 +29,13 @@ let regUser = async phoneVal => {
 				]
 			})
 		})
-
 		let regUserActionData = await regUserAction.text()
 		let regUserActionDataVal = await JSON.parse(regUserActionData)
 		if (regUserActionDataVal.name === undefined) {
+			console.log('Reg User - FALSE')
 			throw '=== REG USER FALSE! ==='
+		} else {
+			console.log('Reg User - TRUE')
 		}
 		return regUserAction
 	} catch (e) {

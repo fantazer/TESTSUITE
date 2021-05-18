@@ -1,4 +1,7 @@
 {
+	"main": {
+		"header": ".header-top-wrap"
+	},
 	"auth": {
 		"authStart": ".modal-get[data-modal='enter']",
 		"authModal": ".modal[data-modal='enter'] .modal-content",
@@ -25,5 +28,7 @@
 		"changeTownModalTitle": ".modal[data-modal='location'] .modal-title",
 		"changeTownModalFalse": ".modal[data-modal='location'] .btn--sm.btn--light.modal-hide",
 		"changeTownModalTrue": ".modal[data-modal='location'] .btn--sm.btn--mark"
-	}
+	},
+	"phoneFalse": [1,2,3,4,5,6,7,8,9],
+	"phoneTrue": [1,2,3,4,5,6,7,8,9,9]
 }

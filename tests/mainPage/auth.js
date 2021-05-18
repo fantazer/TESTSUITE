@@ -4,13 +4,12 @@
 
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
-
 const query = require('@querySelector/mainPage/header.json')
-const getUser = require('@api/methods/system/getUser.js')
-const getUserInfo = require('@api/methods/system/getUserInfo.js')
 
 describe('Header', function() {
 	it('Auth', function() {
+		const generatePhone = require('@api/methods/system/generatePhone.js')
+		let generatePhoneVal = generatePhone()
 		let browser = this.browser
 		return (
 			browser
@@ -20,24 +19,12 @@ describe('Header', function() {
 				.pause(2000)
 				//Ввод телефона
 				.assertView('enterAuth', query.auth.authModal, mainConfig.tolerance)
-				.then(data => {
-					return (async () => {
-						console.log()
-						let getUserVal = await getUser()
-						//console.log(getUserVal)
-						if (getUserVal.data === null) {
-							for (item of getUserVal.phoneArray) {
-								await browser.addValue(query.auth.authPhoneInput, item)
-							}
-						} else {
-							throw new Error('Number is PRESENT')
-						}
-					})()
-				})
+				.getUser(generatePhoneVal.phone, false)
+				.insertPhone(query.auth.authPhoneInput, false, generatePhoneVal.array)
 				.pause(2000)
 				.click(query.auth.authPhoneSendBtn)
 				//Ввод Имени
-				.isElement(query.auth.authNameInput, 'test isElement')
+				.isElement(query.auth.authNameInput, 'Enter Name')
 				.pause(2000)
 				.assertView(
 					'authModalName',
@@ -58,18 +45,7 @@ describe('Header', function() {
 				})
 				.click(query.auth.authSmsSendBtn)
 				.pause(2000)
-				.then(data => {
-					return (async () => {
-						let profileVal = await getUserInfo()
-						console.log('===========')
-						console.log(profileVal.id)
-						console.log('===========')
-						/*if (profileVal == undefined) {
-							throw new Error('USER IS LOST')
-						}*/
-						return profileVal
-					})()
-				})
+				.getUserInfo(generatePhoneVal.phone, false)
 				.pause(2000)
 		)
 	})

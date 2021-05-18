@@ -20,6 +20,11 @@ module.exports = {
 			path: 'report'
 		},
 		'hermione-create-el': true,
+		'hermione-insertPhone': true,
+		'hermione-getUser': true,
+		'hermione-regUser': true,
+		'hermione-getUserInfo': true,
+		'hermione-getOrderInfo': true,
 		'hermione-wdio-migrator': {
 			enabled: false
 		}

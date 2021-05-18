@@ -23,6 +23,8 @@ let getOrderInfo = async phoneVal => {
 		let resOrderDataVal = await JSON.parse(resOrderData)
 		if (resOrderDataVal.name === undefined) {
 			throw '=== USER HAS NOT ORDER ==='
+		} else {
+			console.log('Get Order - TRUE')
 		}
 		return resOrderData
 	} catch (e) {

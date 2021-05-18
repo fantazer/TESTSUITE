@@ -1,3 +1,7 @@
+/*
+	Описание теста: Проверка "Перезвоните мне"
+*/
+
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/mainPage/header.json')
@@ -9,28 +13,31 @@ describe('Header', function() {
 			.url(mainConfig.server.urls.test + '?new')
 			.waitForExist(query.callBack.callBackStart, 50000)
 			.click(query.callBack.callBackStart)
-			.pause(3000)
+			.pause(2000)
 			.assertView(
 				'callBackModal',
 				query.callBack.callBackModal,
 				mainConfig.tolerance
 			)
-			.setValue(query.callBack.callBackModalInput, '001000000')
+			.insertPhone(query.callBack.callBackModalInput, false, query.phoneFalse)
+			.pause(2000)
 			.click(query.callBack.callBackBtn)
-			.pause(4000)
+			.pause(2000)
+			.assertView(
+				'callBackPhoneFalse',
+				query.callBack.callBackModal,
+				mainConfig.tolerance
+			)
+			.pause(2000)
+			.insertPhone(query.callBack.callBackModalInput, false, query.phoneTrue)
+			.pause(2000)
+			.click(query.callBack.callBackBtn)
+			.pause(2000)
 			.assertView(
 				'callBackModalTrue',
 				query.callBack.callBackModalTrue,
 				mainConfig.tolerance
 			)
-			.getText(query.callBack.callBackModalTrueTitle)
-			.then(function(text) {
-				mainConfig.assert.equal(
-					text,
-					'Ваш запрос отправлен! Мы свяжемся с вами в ближайшее время'
-				)
-			})
-			.pause(3000)
 	})
 })
 

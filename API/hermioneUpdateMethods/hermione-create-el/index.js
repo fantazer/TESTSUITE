@@ -7,7 +7,7 @@ module.exports = (hermione, opts) => {
 				async function() {
 					return await browser.$(selector).click()
 				},
-				15000,
+				25000,
 				msg
 			)
 		})
