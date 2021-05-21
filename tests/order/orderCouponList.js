@@ -4,7 +4,7 @@
 
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
-const query = require('@querySelector/order/simpleOrder.json')
+const query = require('@querySelector/order/order.json')
 
 describe('orderCouponList', function() {
 	/*	beforeEach(function(done) {

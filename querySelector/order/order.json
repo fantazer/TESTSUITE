@@ -35,5 +35,7 @@
 	"modalOrderBtnSpeed": "[data-modal='chooseTypeOrder'] .action-fast-order",
 	"modalOrderBtnNormal": "[data-modal='chooseTypeOrder'] .action-normal-order",
 	"totalOrder": ".contract-content",
-	"totalOrderPhone": ".contract-total.contract-total--clear:nth-child(4) .type--secondary"
+	"totalOrderPhone": ".contract-total.contract-total--clear:nth-child(4) .type--secondary",
+	"regFullOrderPhone": ".type--md.type--primary.mb-32",
+	"regFullOrderName": ".contract-content [data-placeholder='Имя и фамилия']"
 }

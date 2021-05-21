@@ -1,19 +1,13 @@
 {
-	"name": "e2e",
+	"name": "Testsuite",
 	"version": "1.0.0",
-	"description": "E2E test Hermione",
+	"description": "Testsuite",
 	"main": "index.js",
 	"scripts": {
 		"test": "./node_modules/.bin/hermione -s desktop",
 		"client": "./node_modules/.bin/hermione -s client",
 		"admin": "./node_modules/.bin/hermione -s admin",
 		"gui": "./node_modules/.bin/hermione gui"
-	},
-	"_moduleAliases": {
-		"@root": ".",
-		"@deep": "src/some/very/deep/directory/or/file",
-		"@my_module": "lib/some-file.js",
-		"something": "src/foo"
 	},
 	"repository": {
 		"type": "git",
@@ -22,17 +16,15 @@
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/frontend-science/e2e-hermione/issues"
+		"url": "https://github.com/"
 	},
-	"homepage": "https://github.com/frontend-science/e2e-hermione",
+	"homepage": "https://github.com/",
 	"dependencies": {
 		"chai": "^4.3.4",
 		"config": "^1.26.1",
 		"form-data": "^4.0.0",
 		"hermione": "^3.8.5",
-		"hermione-wdio-migrator": "^0.1.12",
-		"module-alias": "^2.2.2",
-		"hermione-create-el": "1.0.0"
+		"module-alias": "^2.2.2"
 	},
 	"devDependencies": {
 		"html-reporter": "^6.0.0-alpha.30",
