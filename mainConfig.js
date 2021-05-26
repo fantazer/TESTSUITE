@@ -6,15 +6,9 @@ module.exports = function() {
 	moduleAlias.addAlias('@api', path.resolve('./API/'))
 	const assert = require('chai').assert
 
-	let tolerance = {
-		tolerance: 8,
-		antialiasingTolerance: 4,
-		allowViewportOverflow: true,
-		captureElementFromTop: true,
-		compositeImage: true,
-		screenshotDelay: 10,
-		ignoreElements: ['.spinner_block']
-	}
+	//URLS
+
+	let urlTestSystem = 'http://148.251.246.45:1444'
 
 	let server = {
 		urls: {
@@ -37,19 +31,90 @@ module.exports = function() {
 				label: 'Яндекс-сотрудники'
 			}
 		],
-		timeouts: {
-			waitForShow: 1000
-		}
+		program: [
+			{
+				url: 'programmy/light/',
+				name: 'Extralight'
+			},
+			{
+				url: 'programmy/normal/',
+				name: 'Normal'
+			},
+			{
+				url: 'programmy/balance/',
+				name: 'Balance'
+			},
+			{
+				url: 'programmy/strong/',
+				name: 'Strong'
+			},
+			{
+				url: 'programmy/veggi/',
+				name: 'Vegan'
+			},
+			{
+				url: 'programmy/veggi/',
+				name: 'Vegetarian'
+			},
+			{
+				url: 'programmy/fish/',
+				name: 'Fish'
+			},
+			{
+				url: 'programmy/daily/',
+				name: 'Daily'
+			},
+			{
+				url: 'programmy/everydaily/',
+				name: 'Everydaily'
+			},
+			{
+				url: 'programmy/detox/',
+				name: 'Detox'
+			},
+			{url: 'programmy/post/', name: 'Post'},
+			{url: '/programmy/corp/', name: 'Corp'}
+		],
+		pages: [
+			{url: 'sertificat/', name: 'Подарочный сертификат'},
+			{url: 'aktsii/', name: 'Акции'},
+			{url: 'aktsii/', name: 'Акции'},
+			{url: 'otzyvy/', name: 'Отзывы'},
+			{url: 'dostavka/', name: 'Доставка'},
+			{url: 'oplata/', name: 'Оплата'},
+			{url: 'faq/', name: 'FAQ'},
+			{url: 'blog/', name: 'Блог'},
+			{url: 'blog/kak-pohudet-na-10-kg/', name: 'Блог-подробная'},
+			{url: 'chto-takoe-befit/', name: 'Что такое BeFit'},
+			{url: 'informatsiya/', name: 'Сотрудничество'},
+			{url: 'proizvodstvo/', name: 'Наше производство'},
+			{url: 'o-kompanii/', name: 'О компании'},
+			{url: 'smi/', name: 'О нас пишут СМИ'},
+			{url: 'coach-promo/', name: 'Лендинг тренеры'},
+			{url: 'franshiza/', name: 'Франшиза'},
+			{url: 'kontakty/', name: 'Контакты'},
+			{url: 'politika/', name: 'Политика конфиденциальности'}
+		]
 	}
 
-	let urlTestServer = 'http://148.251.246.45:1444'
 	let apiUrlList = {
-		urlToken: urlTestServer + '/connect/token',
-		urlPhone: urlTestServer + '/api/account/getCustomerByPhone?phone=',
-		urlGetProfileInfo: urlTestServer + '/api/account/getCustomerByPhone?phone=',
-		urlRegUser: urlTestServer + '/api/account/register',
+		urlToken: urlTestSystem + '/connect/token',
+		urlPhone: urlTestSystem + '/api/account/getCustomerByPhone?phone=',
+		urlGetProfileInfo: urlTestSystem + '/api/account/getCustomerByPhone?phone=',
+		urlRegUser: urlTestSystem + '/api/account/register',
 		urlOrder:
-			urlTestServer + '/api/customers/GetCustomerOrdersHistory?phoneNumber='
+			urlTestSystem + '/api/customers/GetCustomerOrdersHistory?phoneNumber='
+	}
+	//URLS === end
+
+	let tolerance = {
+		tolerance: 8,
+		antialiasingTolerance: 4,
+		allowViewportOverflow: true,
+		captureElementFromTop: true,
+		compositeImage: true,
+		screenshotDelay: 10,
+		ignoreElements: ['.spinner_block']
 	}
 
 	let couponList = ['KATERINAFFIT', 'POLINKA']

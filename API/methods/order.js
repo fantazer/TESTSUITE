@@ -1,31 +1,71 @@
-module.exports = function actionSelf(context,data) {
-	return context.waitForExist(data.item, 50000)
-			.scroll(data.item)
-			.click(data.sizes.size1)
-			.pause(2000)
-			.setValue(data.phoneSingle, data.phoneVal)
-			/*.click(sizes.size2)
-			.click(sizes.size3)
-			.click(sizes.size4)
-			.setValue(config.contract.phoneSingle, config.contract.phoneVal)
-			.pause(1000)
-			.click(config.contract.sand)
-			.pause(1000)
-			.waitForExist(config.contract.validateMsg, 5000)
-			.getText(config.contract.validateMsg)
-			.then(function(text) {
-            assert.equal(text, 'Введите корректный телефон!')
-      })
-			.pause(1000)
-			.click(sizes.size3)
-			.pause(1000)*/
-			//.setValue(config.contract.phoneSingle,'')
-			//.setValue(config.contract.phoneSingle, config.contract.phoneVal)
-			//.waitForExist('.spinner_block', 50000)
-			//.pause(4000)
-			//.click(sizes.size3)
-			//.pause(2000)
-			//.click(config.contract.checkbox)
-			//.pause(2000)
+let path = require('path')
+let mainConfig = require(path.resolve('mainConfig.js'))()
+const query = require('@querySelector/order/order.json')
 
+module.exports = async function createOrderTabPromo(
+	awaitBrowser,
+	generatePhoneVal
+) {
+	// Create screen contract
+	await awaitBrowser
+		.$$(query.listSize)
+		.then(data => {
+			return (async data => {
+				for (let item of data) {
+					await awaitBrowser
+						.element(`${item.selector}:nth-child(${item.index + 1})`)
+						.click()
+						.pause(2000)
+						.isElement(query.contract)
+						.assertView(
+							'contractForm' + (item.index + 1),
+							query.contract,
+							mainConfig.tolerance
+						)
+				}
+			})(data)
+		})
+
+		//Check empty phone
+		.click(query.orderBtn)
+		.getText(query.phoneInputMsg)
+		.then(text => {
+			mainConfig.assert.equal(text, 'Введите корректный телефон')
+		})
+
+		//Enter phone
+		.getUser(generatePhoneVal.phone, false)
+		.regUser(generatePhoneVal.phone, false)
+		.insertPhone(query.phoneInput, false, generatePhoneVal.array)
+
+		//Click checkbox
+		.pause(3000)
+		.isElement(query.checkBox, 'Error:После ввода телефона')
+		.setValue(query.couponInput, query.couponVal)
+		.isElement(query.couponBtn, 'Error:После ввода купона')
+
+		//Check all cost + coupon
+		.$$(query.listSize)
+		.then(data => {
+			return (async data => {
+				for (let item of data) {
+					await awaitBrowser
+						.element(`${item.selector}:nth-child(${item.index + 1})`)
+						.click()
+						.pause(1000)
+						.isElement('.contract-head', 'Error:Проверка промокодов')
+						.assertView(
+							'contractForm + COUPON' + (item.index + 1),
+							query.contract,
+							{
+								...mainConfig.tolerance,
+								ignoreElements: [query.phoneInputAddPromo]
+							}
+						)
+				}
+			})(data)
+		})
+		.pause(1000)
+		.isElement(query.orderBtn, 'Error:Начало заказа')
+		.isElement(query.modalOrder, 'Error:Ожидаю окно')
 }
