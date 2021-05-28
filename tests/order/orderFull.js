@@ -8,6 +8,7 @@
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/order.json')
+const fakeData = require('@querySelector/fakeData.json')
 
 describe('Order', function() {
 	beforeEach(function(done) {
@@ -27,28 +28,55 @@ describe('Order', function() {
 
 				.assertView('contractForm', query.contract, mainConfig.tolerance)
 
-				//Enter phone
+				//Create User + Enter phone
 				.getUser(generatePhoneVal.phone, false)
-
+				//.regUser(generatePhoneVal.phone, false)
 				.insertPhone(query.phoneInput, false, generatePhoneVal.array)
-
+				//Send form
 				.pause(1000)
 				.isElement(query.orderBtn, 'Error:Начало заказа')
+
+				//Check modal + send
 				.isElement(query.modalOrder, 'Error:Ожидаю окно')
 				.pause(1500)
 				.assertView('modalOrderStart', query.modalOrder, mainConfig.tolerance)
 				.click(query.modalOrderBtnNormal)
 				.pause(2000)
-				.isElement('#order-full .title.title--xl', 'Error:Подтверждение заказа')
-				.assertView('totalOrder', query.totalOrder, {
+				//Check modal + send === end
+
+				//Start form test
+				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
+				.assertView('totalOrder', query.contract, {
 					...mainConfig.tolerance,
-					ignoreElements: [query.regFullOrderPhone]
+					ignoreElements: [query.fullOrder.phone]
 				})
 				.pause(2000)
-				.setValue(query.regFullOrderName, 'GEROME')
+				.setValue(query.fullOrder.name, 'GEROME')
+
+				//check mail validation
+				.setValue(query.fullOrder.mail, fakeData.mailFalse)
+				.click(query.fullOrder.btnConfirm)
 				.pause(2000)
-				.regUser(generatePhoneVal.phone, false)
-				.getOrderInfo(generatePhoneVal.phone, false)
+				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
+				.assertView(
+					'fullOrderValidateEmailFalse',
+					query.fullOrder.mailContainer,
+					{
+						...mainConfig.tolerance
+					}
+				)
+				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
+				.setValue(query.fullOrder.name, fakeData.mailTrue)
+				.click(query.fullOrder.btnConfirm)
+				.assertView(
+					'fullOrderValidateEmailTrue',
+					query.fullOrder.mailContainer,
+					{
+						...mainConfig.tolerance
+					}
+				)
+				//check mail validation === end
+
 				.pause(2000)
 		)
 	})

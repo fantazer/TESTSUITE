@@ -20,32 +20,29 @@ describe('Order', function() {
 		const generatePhone = require('@api/methods/system/generatePhone.js')
 		let generatePhoneVal = generatePhone()
 		let browser = this.browser
-		return (
-			browser
-				.url(mainConfig.server.urls.test + '?new')
-				.url(mainConfig.server.urls.test + '?ISTEST')
-				.windowHandleSize({width: 1920, height: 1024})
-				.waitForExist('.page', 50000)
-				.pause(2000)
-				//.assertView('program - ' + el.name, '.page', mainConfig.tolerance)
-				.scroll(query.contract)
+		return browser
+			.url(mainConfig.server.urls.test + '?new')
+			.url(mainConfig.server.urls.test + '?ISTEST')
+			.windowHandleSize({width: 1920, height: 1024})
+			.waitForExist('.page', 50000)
+			.pause(2000)
+			.scroll(query.contract)
+			.then(() => {
 				//Check all tabs + Cost + Promocode
-				.then(() => {
-					return createOrderTabPromo(browser, generatePhoneVal)
-				})
-				.pause(1500)
-				.assertView('modalOrderStart', query.modalOrder, mainConfig.tolerance)
-				.click(query.modalOrderBtnSpeed)
-				.pause(2000)
-				.isElement('.order-success-head', 'Error:Подтверждение заказа')
-				.assertView('totalOrder', query.totalOrder, {
-					...mainConfig.tolerance,
-					ignoreElements: [query.totalOrderPhone]
-				})
-				.pause(7000)
-				.getOrderInfo(generatePhoneVal.phone, false)
-				.pause(2000)
-		)
+				return createOrderTabPromo(browser, generatePhoneVal)
+			})
+			.pause(1500)
+			.assertView('modalOrderStart', query.modalOrder, mainConfig.tolerance)
+			.click(query.modalOrderBtnSpeed)
+			.pause(2000)
+			.isElement('.order-success-head', 'Error:Подтверждение заказа')
+			.assertView('totalOrder', query.totalOrder, {
+				...mainConfig.tolerance,
+				ignoreElements: [query.totalOrderPhone]
+			})
+			.pause(7000)
+			.getOrderInfo(generatePhoneVal.phone, false)
+			.pause(2000)
 	})
 })
 

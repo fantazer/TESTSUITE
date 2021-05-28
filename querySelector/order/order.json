@@ -1,5 +1,9 @@
 {
 	"contract": ".contract",
+	"phoneFalse": [1,2,3,4,5,6,7,8,9],
+	"phoneTrue": [1,2,3,4,5,6,7,8,9,9],
+	"mailFalse": "falseMail",
+	"mailTrue": "true@mail.ru",
 	"size": {
 		"size1": {
 			"query": ".contract-config__el[data-item='start']",
@@ -36,6 +40,14 @@
 	"modalOrderBtnNormal": "[data-modal='chooseTypeOrder'] .action-normal-order",
 	"totalOrder": ".contract-content",
 	"totalOrderPhone": ".contract-total.contract-total--clear:nth-child(4) .type--secondary",
-	"regFullOrderPhone": ".type--md.type--primary.mb-32",
-	"regFullOrderName": ".contract-content [data-placeholder='Имя и фамилия']"
+	"fullOrder": {
+		"phone": ".type--md.type--primary.mb-32",
+		"name": "[data-test='orderName'] .input",
+		"mail": "[data-test='orderMail'] .input",
+		"mailContainer": "[data-test='orderMail']",
+		"btnConfirm": "[data-test='orderFinish']",
+		"checkFriend": "[data-test='orderCheckFriend']",
+		"friendPhone": "[data-test='orderCheckFriendPhone']"
+	}
+
 }

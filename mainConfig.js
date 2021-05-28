@@ -78,7 +78,6 @@ module.exports = function() {
 		pages: [
 			{url: 'sertificat/', name: 'Подарочный сертификат'},
 			{url: 'aktsii/', name: 'Акции'},
-			{url: 'aktsii/', name: 'Акции'},
 			{url: 'otzyvy/', name: 'Отзывы'},
 			{url: 'dostavka/', name: 'Доставка'},
 			{url: 'oplata/', name: 'Оплата'},
