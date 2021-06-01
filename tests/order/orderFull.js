@@ -48,15 +48,18 @@ describe('Order', function() {
 				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
 				.assertView('totalOrder', query.contract, {
 					...mainConfig.tolerance,
-					ignoreElements: [query.fullOrder.phone]
+					ignoreElements: [
+						query.fullOrder.phone,
+						query.fullOrder.selectConditionDelivery
+					]
 				})
-				.pause(2000)
+				.pause(1000)
 				.setValue(query.fullOrder.name, 'GEROME')
 
 				//check mail validation
 				.setValue(query.fullOrder.mail, fakeData.mailFalse)
 				.click(query.fullOrder.btnConfirm)
-				.pause(2000)
+				.pause(1000)
 				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
 				.assertView(
 					'fullOrderValidateEmailFalse',
@@ -66,17 +69,126 @@ describe('Order', function() {
 					}
 				)
 				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
-				.setValue(query.fullOrder.name, fakeData.mailTrue)
+				.setValue(query.fullOrder.mail, fakeData.mailTrue)
+				//check mail validation === end
+				.pause(1000)
+
+				//Check friend phone
+				.click(query.fullOrder.checkFriend)
+				.pause(1000)
+				.insertPhone(query.fullOrder.friendPhone, false, fakeData.phoneFalse)
+				.pause(1500)
 				.click(query.fullOrder.btnConfirm)
+				.pause(1500)
 				.assertView(
-					'fullOrderValidateEmailTrue',
-					query.fullOrder.mailContainer,
+					'fullOrderValidateFriendPhone',
+					query.fullOrder.friendPhone,
 					{
 						...mainConfig.tolerance
 					}
 				)
-				//check mail validation === end
+				.insertPhone(query.fullOrder.friendPhone, false, fakeData.phoneTrue)
+				.pause(1000)
+				//Check friend phone === end
 
+				//Check size program
+				.click(query.fullOrder.toggleSizeProgram)
+				.pause(2000)
+				.$$(query.fullOrder.orderChooseRangeEl)
+				.then(data => {
+					return (async data => {
+						for (let item of data) {
+							let elName = await browser.getText(
+								`${item.selector}:nth-child(${item.index +
+									1}) .style-input-text`
+							)
+							await browser
+								.element(`${item.selector}:nth-child(${item.index + 1})`)
+								.click()
+								.pause(2000)
+								.isElement(
+									'#order-full .title.title--xl',
+									'Error:Оформление заказа'
+								)
+								.assertView(
+									elName,
+									query.fullOrder.orderTotal,
+									mainConfig.tolerance
+								)
+						}
+					})(data)
+				})
+				//Check size program === end
+				.pause(1000)
+
+				//Check Box + Spoon
+				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
+				.click(query.fullOrder.checkRefreshBox)
+				.click(query.fullOrder.checkNeedSpoon)
+				//Check Box + Spoon === end
+
+				//Set address
+				.setValue(query.fullOrder.address, fakeData.address)
+
+				//Set pay card
+				//.click(query.fullOrder.payCard)
+
+				//Check coupon cost
+				.click(query.fullOrder.checkCoupon)
+				.pause(1000)
+				//false coupon
+				.setValue(query.fullOrder.orderCouponVal, fakeData.couponFalse)
+				.click(query.fullOrder.orderCouponBtn)
+				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
+				.pause(3000)
+				.assertView(
+					'Check coupon false',
+					query.fullOrder.couponContainer,
+					mainConfig.tolerance
+				)
+				//true coupon
+				.setValue(query.fullOrder.orderCouponVal, fakeData.couponTrue)
+				.click(query.fullOrder.orderCouponBtn)
+				.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
+				.pause(3000)
+				.scroll(query.fullOrder.orderTotal)
+				.assertView(
+					'Check coupon TRUE',
+					query.fullOrder.orderTotal,
+					mainConfig.tolerance
+				)
+				.pause(3000)
+				//Check coupon cost === end
+
+				//Set MSG
+				.click(query.fullOrder.checkComment)
+				.pause(1000)
+				.setValue(query.fullOrder.commentText, fakeData.comment)
+				//Set MSG === end
+
+				.click(query.fullOrder.btnConfirm)
+				.pause(2000)
+
+				//Payment
+				/*.isElement(query.payment.cardNumber, 'Error:Оплата картой')
+				.assertView('PaymentPage', query.payment.page, mainConfig.tolerance)
+				.pause(1000)
+				.setValue(query.payment.cardNumber, fakeData.cardNumber)
+				.pause(1000)
+				.setValue(query.payment.cardDate, fakeData.cardDate)
+				.pause(1000)
+				.setValue(query.payment.cardCVS, fakeData.cardCVS)
+				.pause(2000)
+				.click(query.payment.cardBtn)*/
+
+				//FINISH
+				.isElement(query.contract, 'Error:Конец оплаты')
+				.pause(2000)
+				.assertView('Finish', query.contract, {
+					...mainConfig.tolerance,
+					ignoreElements: [query.totalOrderPhone]
+				})
+				.getOrderInfo(generatePhoneVal.phone, false)
 				.pause(2000)
 		)
 	})

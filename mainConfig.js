@@ -92,7 +92,8 @@ module.exports = function() {
 			{url: 'coach-promo/', name: 'Лендинг тренеры'},
 			{url: 'franshiza/', name: 'Франшиза'},
 			{url: 'kontakty/', name: 'Контакты'},
-			{url: 'politika/', name: 'Политика конфиденциальности'}
+			{url: 'politika/', name: 'Политика конфиденциальности'},
+			{url: '/poll/whydidyouorder/', name: 'Опрос'}
 		]
 	}
 

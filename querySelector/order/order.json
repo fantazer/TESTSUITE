@@ -46,8 +46,33 @@
 		"mail": "[data-test='orderMail'] .input",
 		"mailContainer": "[data-test='orderMail']",
 		"btnConfirm": "[data-test='orderFinish']",
-		"checkFriend": "[data-test='orderCheckFriend']",
-		"friendPhone": "[data-test='orderCheckFriendPhone']"
-	}
+		"checkFriend": ".js-switch[data-item='isFriend']",
+		"friendPhone": "[data-test='orderCheckFriendPhone']",
+		"selectConditionDelivery": ".input-cont.input-cont--three.mb-32",
+		"toggleSizeProgram": ".js-config",
+		"programSizeConfig": "[data-test='orderForm']",
+		"orderChooseRange": "[data-test='orderChooseRange']",
+		"orderChooseRangeEl": "[data-test='orderChooseRange'] .contract-config__el",
+		"orderTotal": "[data-test='orderTotal']",
+		"checkRefreshBox": "[data-test='orderAddCheck'] .check-el:nth-child(1)",
+		"checkNeedSpoon": "[data-test='orderAddCheck'] .check-el:nth-child(2)",
+		"address": "[data-test='orderAddress'] .input",
+		"payCash": "[data-test='orderCash']",
+		"payCard": "[data-test='orderCard']",
+		"couponContainer": ".js-switch-cont[data-item='isCoupon'] .input-row--validate",
+		"checkCoupon": "[data-test='orderCheckCoupon']",
+		"orderCouponVal": "[data-test='orderCouponVal']",
+		"orderCouponBtn": "[data-test='orderCouponBtn']",
+		"checkComment": "[data-test='orderCheckComment'] .check-el",
+		"commentText": "[data-test='orderCommentValue'] .input"
 
+
+	},
+	"payment":{
+		"page": "body",
+		"cardNumber": "#pan",
+		"cardDate": "#expDate",
+		"cardCVS": "#card_cvc",
+		"cardBtn": "button[automation-id='main-layout__submit']"
+	}
 }

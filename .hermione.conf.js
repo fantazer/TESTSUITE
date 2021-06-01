@@ -15,6 +15,7 @@ module.exports = {
 		}
 	},
 	sessionsPerBrowser: 5,
+	testTimeout: 100000,
 	plugins: {
 		'html-reporter/hermione': {
 			path: 'report'

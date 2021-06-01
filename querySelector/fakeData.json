@@ -2,5 +2,12 @@
 	"phoneFalse": [1,2,3,4,5,6,7,8,9],
 	"phoneTrue": [1,2,3,4,5,6,7,8,9,9],
 	"mailFalse": "falseMail",
-	"mailTrue": "true@mail.ru"
+	"mailTrue": "Gerome@mail.ru",
+	"address": "City Gerome",
+	"couponFalse": "FALSECOUPON",
+	"couponTrue": "BEFITYANDEX",
+	"comment": "This is fake text ",
+	"cardNumber": "4543441897384535",
+	"cardDate": "11/22",
+	"cardCVS": "111"
 }

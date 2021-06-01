@@ -8,6 +8,7 @@ let generateNumber = function() {
 		return generateNumber()
 	} else {
 		randomPhoneVal = '9' + randomPhoneVal
+		console.log('TEST PHONE ===> ', randomPhoneVal)
 		return {
 			number: randomPhoneVal,
 			array: randomPhoneVal.toString().split(''),
