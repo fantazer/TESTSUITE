@@ -1,0 +1,9 @@
+{
+	"sertificat": {
+		"getSertBtn": ".btn--md[data-modal='sertificatModal']",
+		"modal": ".modal[data-modal='sertificatModal']",
+		"modalName": ".modal[data-modal='sertificatModal'] .input[data-placeholder='Имя']",
+		"modalPhone": ".modal[data-modal='sertificatModal'] .input[data-placeholder='Телефон']",
+		"modalBtn": ".modal[data-modal='sertificatModal'] .btn--md.btn--mark.btn--full"
+	}
+}

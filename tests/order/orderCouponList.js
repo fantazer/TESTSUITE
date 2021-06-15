@@ -32,13 +32,13 @@ describe('Order', function() {
 						//Checkbox + enter phone + promocode
 						.isElement(query.checkBox, 'Error:После ввода телефона')
 						.setValue(query.couponInput, itemCoupon)
+						.isElement(query.couponBtn, 'Error:После ввода купона')
+						.pause(4000)
 						.assertView(`contractForm - ${itemCoupon}`, query.contract, {
 							...mainConfig.tolerance,
 							ignoreElements: [query.phoneInputAddPromo]
 						})
-						.isElement(query.couponBtn, 'Error:После ввода купона')
 
-						.pause(4000)
 						.isElement(query.orderBtn, 'Error:Начало заказа')
 						.isElement(query.modalOrder, 'Error:Ожидаю окно')
 						.pause(1500)

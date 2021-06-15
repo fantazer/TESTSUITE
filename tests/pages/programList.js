@@ -24,7 +24,7 @@ describe('program', function() {
 					.windowHandleSize({width: 1920, height: 1024})
 					.waitForExist('.page', 50000)
 					.pause(2000)
-					//.assertView('program - ' + el.name, '.page', mainConfig.tolerance)
+					.assertView('program - ' + el.name, '.page', mainConfig.tolerance)
 					.scroll(query.contract)
 					//Check all tabs + Cost + Promocode
 					.then(() => {
@@ -40,8 +40,6 @@ describe('program', function() {
 						ignoreElements: [query.totalOrderPhone]
 					})
 					.pause(7000)
-					.getOrderInfo(generatePhoneVal.phone, false)
-					.pause(2000)
 			)
 		})
 	})

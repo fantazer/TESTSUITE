@@ -12,8 +12,8 @@ module.exports = function() {
 
 	let server = {
 		urls: {
-			test: 'http://test.letbefit.ru/',
-			testSpb: 'http://spbtest.letbefit.ru'
+			test: 'http://test.letbefit.ru',
+			testSpb: 'http://spbtest.letbefit.ru/'
 		},
 		ad: [
 			{
@@ -76,7 +76,7 @@ module.exports = function() {
 			{url: '/programmy/corp/', name: 'Corp'}
 		],
 		pages: [
-			{url: 'sertificat/', name: 'Подарочный сертификат'},
+			{url: '/sertificat/', name: 'Подарочный сертификат'},
 			{url: 'aktsii/', name: 'Акции'},
 			{url: 'otzyvy/', name: 'Отзывы'},
 			{url: 'dostavka/', name: 'Доставка'},

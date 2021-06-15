@@ -7,7 +7,7 @@ describe('Header', function() {
 		let browser = this.browser
 		return (
 			browser
-				.url(mainConfig.server.urls.test + '?new')
+				.url(mainConfig.server.urls.test)
 				.waitForExist(query.changeTown.changeTownStart, 50000)
 
 				//Проверка текущего города
@@ -49,7 +49,8 @@ describe('Header', function() {
 				.pause(3000)
 				.getUrl()
 				.then(data => {
-					data = data.replace(/\/oct\/|\/\?newsite/gi, '')
+					//data = data.replace(/\/oct\/|\/\?newsite/gi, '')
+					console.log(data)
 					mainConfig.assert.equal(data, mainConfig.server.urls.testSpb)
 				})
 				.getText(query.changeTown.changeTownStartName)
@@ -74,12 +75,12 @@ describe('Header', function() {
 				.pause(3000)
 				.click(query.changeTown.changeTownModalTrue)
 				.pause(3000)
-				.getUrl()
+			/*.getUrl()
 				.then(data => {
-					data = data.replace(/\/oct\/|\/\?newsite/gi, '')
+					//data = data.replace(/\/oct\/|\/\?newsite/gi, '')
 					mainConfig.assert.equal(data, mainConfig.server.urls.test)
-				})
-				.pause(3000)
+				})*/
+			//.pause(3000)
 		)
 	})
 })

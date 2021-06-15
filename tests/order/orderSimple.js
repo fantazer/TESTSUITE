@@ -31,6 +31,7 @@ describe('Order', function() {
 				//Check all tabs + Cost + Promocode
 				return createOrderTabPromo(browser, generatePhoneVal)
 			})
+			.regUser(generatePhoneVal.phone, false)
 			.pause(1500)
 			.assertView('modalOrderStart', query.modalOrder, mainConfig.tolerance)
 			.click(query.modalOrderBtnSpeed)
