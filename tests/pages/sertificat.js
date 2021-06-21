@@ -14,7 +14,7 @@ const fakeData = require('@querySelector/fakeData.json')
 const order = require('@querySelector/order/order.json')
 
 describe('Pages', function() {
-	it('Sertificat', function() {
+	it('Сертификат', function() {
 		const generatePhone = require('@api/methods/system/generatePhone.js')
 		let generatePhoneVal = generatePhone()
 		let browser = this.browser

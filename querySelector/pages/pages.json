@@ -5,5 +5,19 @@
 		"modalName": ".modal[data-modal='sertificatModal'] .input[data-placeholder='Имя']",
 		"modalPhone": ".modal[data-modal='sertificatModal'] .input[data-placeholder='Телефон']",
 		"modalBtn": ".modal[data-modal='sertificatModal'] .btn--md.btn--mark.btn--full"
+	},
+	"aktsii": {
+		"getModal": ".sale-el:nth-child(1)"
+	},
+	"otzyvy": {
+		"form": ".main-cont-sm .contract",
+		"formBtn": ".main-cont-sm .contract .js-add-review",
+		"name": ".main-cont-sm .contract .input[data-placeholder='Ваше имя']",
+		"phone": ".main-cont-sm .contract .input[data-placeholder='Телефон']",
+		"text": ".main-cont-sm .contract .input[data-placeholder='Ваш отзыв']",
+		"select": ".main-cont-sm .contract .dropdown-current",
+		"selectVal": ".main-cont-sm .contract .dropdown-menu__el[data-value='strong']",
+		"modalTrue": ".modal[data-modal='success']",
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
 	}
 }
