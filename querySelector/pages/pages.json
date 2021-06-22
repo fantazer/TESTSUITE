@@ -19,5 +19,24 @@
 		"selectVal": ".main-cont-sm .contract .dropdown-menu__el[data-value='strong']",
 		"modalTrue": ".modal[data-modal='success']",
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+	},
+	"faq": {
+		"list": ".faq-type__el",
+		"elQuestion": ".accordion.active .accordion__el:nth-child(1)",
+		"form": ".main-cont-sm .contract",
+		"name": ".main-cont-sm .contract .input[data-placeholder='Ваше имя']",
+		"phone": ".main-cont-sm .contract .input[data-placeholder='Почта или Телефон']",
+		"text": ".main-cont-sm .contract .input[data-placeholder='Комментарий']",
+		"formBtn": ".main-cont-sm .contract .js-faq-form",
+		"modalTrue": ".modal[data-modal='success']",
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+	},
+	"blog": {
+		"list": ".tag-el",
+		"form": ".subscribe-block",
+		"mail": ".subscribe-block .input[data-placeholder='Email']",
+		"formBtn": ".js-blog-subscribe",
+		"modalTrue": ".modal[data-modal='success']",
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
 	}
 }

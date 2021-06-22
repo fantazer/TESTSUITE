@@ -75,13 +75,7 @@ module.exports = function() {
 			{url: 'programmy/post/', name: 'Post'},
 			{url: '/programmy/corp/', name: 'Corp'}
 		],
-		pages: [
-			{url: '/sertificat/', name: 'Подарочный сертификат'},
-			{url: '/aktsii/', name: 'Акции'},
-			{url: '/otzyvy/', name: 'Отзывы'},
-			{url: '/dostavka/', name: 'Доставка'},
-			{url: '/oplata/', name: 'Оплата'},
-			{url: '/faq/', name: 'FAQ'},
+		/*pages: [
 			{url: '/blog/', name: 'Блог'},
 			{url: '/blog/kak-pohudet-na-10-kg/', name: 'Блог-подробная'},
 			{url: 'chto-takoe-befit/', name: 'Что такое BeFit'},
@@ -94,7 +88,37 @@ module.exports = function() {
 			{url: 'kontakty/', name: 'Контакты'},
 			{url: 'politika/', name: 'Политика конфиденциальности'},
 			{url: '/poll/whydidyouorder/', name: 'Опрос'}
-		]
+		]*/
+		pages: {
+			cert: {
+				url: '/sertificat/',
+				name: 'Подарочный сертификат'
+			},
+			sale: {
+				url: '/aktsii/',
+				name: 'Акции'
+			},
+			review: {
+				url: '/otzyvy/',
+				name: 'Отзывы'
+			},
+			delivery: {
+				url: '/dostavka/',
+				name: 'Доставка'
+			},
+			payment: {
+				url: '/oplata/',
+				name: 'Оплата'
+			},
+			faq: {
+				url: '/faq/',
+				name: 'FAQ'
+			},
+			blog: {
+				url: '/blog/',
+				name: 'Блог'
+			}
+		}
 	}
 
 	let apiUrlList = {
