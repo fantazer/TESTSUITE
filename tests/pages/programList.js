@@ -24,7 +24,10 @@ describe('program', function() {
 					.windowHandleSize({width: 1920, height: 1024})
 					.waitForExist('.page', 50000)
 					.pause(2000)
-					.assertView('program - ' + el.name, '.page', mainConfig.tolerance)
+					.assertView('program - ' + el.name, '.page', {
+						...mainConfig.tolerance,
+						ignoreElements: ['.program-days', '.program-el']
+					})
 					.scroll(query.contract)
 					//Check all tabs + Cost + Promocode
 					.then(() => {

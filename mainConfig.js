@@ -72,13 +72,9 @@ module.exports = function() {
 				url: '/programmy/detox/',
 				name: 'Detox'
 			},
-			{url: '/programmy/post/', name: 'Post'},
-			{url: '/programmy/corp/', name: 'Corp'}
+			{url: '/programmy/post/', name: 'Post'}
 		],
 		/*pages: [
-			{url: 'coach-promo/', name: 'Лендинг тренеры'},
-			{url: 'franshiza/', name: 'Франшиза'},
-			{url: 'kontakty/', name: 'Контакты'},
 			{url: 'politika/', name: 'Политика конфиденциальности'},
 			{url: '/poll/whydidyouorder/', name: 'Опрос'}
 			http://test.letbefit.ru/poll/whydidyouorder/
@@ -135,6 +131,22 @@ module.exports = function() {
 			coach: {
 				url: '/coach-promo/',
 				name: 'Тренеры'
+			},
+			franshiza: {
+				url: '/franshiza/',
+				name: 'Франшиза'
+			},
+			contact: {
+				url: '/kontakty/',
+				name: 'Контакты'
+			},
+			corp: {
+				url: '/programmy/corp/',
+				name: 'Корпоративные заказы'
+			},
+			micromarkets: {
+				url: '/micromarkets/',
+				name: 'Микромаркеты'
 			}
 		}
 	}

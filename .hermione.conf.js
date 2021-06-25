@@ -15,7 +15,7 @@ module.exports = {
 		}
 	},
 	sessionsPerBrowser: 5,
-	testTimeout: 100000,
+	testTimeout: 1000000,
 	plugins: {
 		'html-reporter/hermione': {
 			path: 'report'
@@ -25,10 +25,10 @@ module.exports = {
 		'hermione-getUser': true,
 		'hermione-regUser': true,
 		'hermione-getUserInfo': true,
-		'hermione-getOrderInfo': true,
-		'hermione-wdio-migrator': {
+		'hermione-getOrderInfo': true
+		/*'hermione-wdio-migrator': {
 			enabled: false
-		}
+		}*/
 	},
 	windowSize: '1920x2000',
 	//screenshotMode:'auto',
