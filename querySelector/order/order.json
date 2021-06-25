@@ -26,14 +26,14 @@
 			"queryTextValue":"4 недели (24 дня)"
 		}
 	},
-	"listSize": ".contract-config .contract-config__el",
+	"listSize": ".action-block-week .contract-config__el",
 	"orderBtn": ".contract-footer .btn--md",
 	"phoneInput": ".checkPhoneBlockWithoutCoupon .input-mask--phone",
 	"phoneInputAddPromo": ".checkPhoneBlock .input-mask--phone",
 	"phoneInputMsg": ".checkPhoneBlockWithoutCoupon .input-msg",
 	"checkBox": ".couponBlock",
 	"couponInput": ".contract-content [data-placeholder='Номер купона']",
-	"couponVal": "BEFITGAME",
+	"couponVal": "BEFITYANDEX",
 	"couponBtn": ".actionSetCoupon",
 	"modalOrder": "[data-modal='chooseTypeOrder'] .modal-content",
 	"modalOrderBtnSpeed": "[data-modal='chooseTypeOrder'] .action-fast-order",

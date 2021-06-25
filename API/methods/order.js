@@ -18,7 +18,7 @@ module.exports = async function createOrderTabPromo(
 						.pause(2000)
 						.isElement(query.contract)
 						.assertView(
-							'contractForm' + (item.index + 1),
+							'totalOrder' + (item.index + 1),
 							query.contract,
 							mainConfig.tolerance
 						)

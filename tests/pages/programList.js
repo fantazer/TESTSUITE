@@ -19,7 +19,7 @@ describe('program', function() {
 			let browser = this.browser
 			return (
 				browser
-					.url(mainConfig.server.urls.test + el.url + '?new')
+					.url(mainConfig.server.urls.test + el.url)
 					.url(mainConfig.server.urls.test + el.url + '?ISTEST')
 					.windowHandleSize({width: 1920, height: 1024})
 					.waitForExist('.page', 50000)

@@ -33,61 +33,55 @@ module.exports = function() {
 		],
 		program: [
 			{
-				url: 'programmy/light/',
+				url: '/programmy/light/',
 				name: 'Extralight'
 			},
 			{
-				url: 'programmy/normal/',
+				url: '/programmy/normal/',
 				name: 'Normal'
 			},
 			{
-				url: 'programmy/balance/',
+				url: '/programmy/balance/',
 				name: 'Balance'
 			},
 			{
-				url: 'programmy/strong/',
+				url: '/programmy/strong/',
 				name: 'Strong'
 			},
 			{
-				url: 'programmy/veggi/',
+				url: '/programmy/veggi/',
 				name: 'Vegan'
 			},
 			{
-				url: 'programmy/veggi/',
+				url: '/programmy/veggi/',
 				name: 'Vegetarian'
 			},
 			{
-				url: 'programmy/fish/',
+				url: '/programmy/fish/',
 				name: 'Fish'
 			},
 			{
-				url: 'programmy/daily/',
+				url: '/programmy/daily/',
 				name: 'Daily'
 			},
 			{
-				url: 'programmy/everydaily/',
+				url: '/programmy/everydaily/',
 				name: 'Everydaily'
 			},
 			{
-				url: 'programmy/detox/',
+				url: '/programmy/detox/',
 				name: 'Detox'
 			},
-			{url: 'programmy/post/', name: 'Post'},
+			{url: '/programmy/post/', name: 'Post'},
 			{url: '/programmy/corp/', name: 'Corp'}
 		],
 		/*pages: [
-			{url: '/blog/', name: 'Блог'},
-			{url: '/blog/kak-pohudet-na-10-kg/', name: 'Блог-подробная'},
-			{url: 'chto-takoe-befit/', name: 'Что такое BeFit'},
-			{url: 'informatsiya/', name: 'Сотрудничество'},
-			{url: 'proizvodstvo/', name: 'Наше производство'},
-			{url: 'o-kompanii/', name: 'О компании'},
-			{url: 'smi/', name: 'О нас пишут СМИ'},
 			{url: 'coach-promo/', name: 'Лендинг тренеры'},
 			{url: 'franshiza/', name: 'Франшиза'},
 			{url: 'kontakty/', name: 'Контакты'},
 			{url: 'politika/', name: 'Политика конфиденциальности'},
 			{url: '/poll/whydidyouorder/', name: 'Опрос'}
+			http://test.letbefit.ru/poll/whydidyouorder/
 		]*/
 		pages: {
 			cert: {
@@ -117,6 +111,30 @@ module.exports = function() {
 			blog: {
 				url: '/blog/',
 				name: 'Блог'
+			},
+			whatIsBefit: {
+				url: '/chto-takoe-befit/',
+				name: 'Что такое бефит'
+			},
+			cooperation: {
+				url: '/informatsiya/',
+				name: 'Сотрудничество'
+			},
+			production: {
+				url: '/proizvodstvo/',
+				name: 'Наше производство'
+			},
+			about: {
+				url: '/o-kompanii/',
+				name: 'О компании'
+			},
+			smi: {
+				url: '/smi/',
+				name: 'СМИ'
+			},
+			coach: {
+				url: '/coach-promo/',
+				name: 'Тренеры'
 			}
 		}
 	}

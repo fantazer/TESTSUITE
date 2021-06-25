@@ -38,5 +38,43 @@
 		"formBtn": ".js-blog-subscribe",
 		"modalTrue": ".modal[data-modal='success']",
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+	},
+	"about": {
+		"getModalBtn": ".action-admin-email[data-person='nastya']",
+		"modal": ".modal[data-modal='founders-callback']",
+		"name": ".modal[data-modal='founders-callback'] .input[data-placeholder='Ваше имя']",
+		"phone": ".modal[data-modal='founders-callback'] .input[data-placeholder='Телефон']",
+		"mail": ".modal[data-modal='founders-callback'] .input[data-placeholder='E-mail']",
+		"text": ".modal[data-modal='founders-callback'] .input[data-placeholder='Комментарий']",
+		"modalBtn": ".modal[data-modal='founders-callback'] .btn--md.btn--mark.btn--full.mb-24",
+		"modalTrue": ".modal[data-modal='founders-callbackTrue']",
+		"modalTrueBtn": ".modal[data-modal='founders-callbackTrue'] .btn--md.btn--light.btn--full"
+	},
+	"SMI": {
+		"form": ".subscribe-block",
+		"mail": ".subscribe-block .input[data-placeholder='Email']",
+		"formBtn": ".js-smi-subscribe",
+		"modalTrue": ".modal[data-modal='success']",
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+	},
+	"coach": {
+		"enterModalBtnOpen": ".js-couch-personal-btn",
+		"enterModal": ".modalEnterLK .modal-content",
+		"enterModalBtnSend": ".modalEnterLK .action-enter",
+		"enterModalPhone": ".modalEnterLK .input[data-placeholder='Телефон']",
+		"coachNumberFalse": [9,5,1,3,8,1,1,0,6,1],
+		"coachNumberTrue": [9,5,1,3,8,1,1,0,6,2],
+		"coachSmsModal": ".modal[data-modal='getSms'] .modal-content",
+		"coachSmsModalInput": ".modal[data-modal='getSms'] .input[data-placeholder='SMS код']",
+		"coachSmsModalBtn": ".modal[data-modal='getSms'] .action-enter",
+
+		"form": ".contract-content",
+		"name": ".contract-content .input[data-placeholder='Ваше имя']",
+		"phone": ".contract-content .input[data-placeholder='Телефон']",
+		"mail": ".contract-content .input[data-placeholder='Почта']",
+		"text": ".contract-content .input[data-placeholder='Комментарий']",
+		"formBtn": ".js-coach-registration",
+		"modalTrue": ".modal[data-modal='success'] .modal-content",
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
 	}
 }
