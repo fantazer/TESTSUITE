@@ -26,7 +26,7 @@ describe('program', function() {
 					.pause(2000)
 					.assertView('program - ' + el.name, '.page', {
 						...mainConfig.tolerance,
-						ignoreElements: ['.program-days', '.program-el']
+						ignoreElements: ['.program-days', '.program-el', '.size']
 					})
 					.scroll(query.contract)
 					//Check all tabs + Cost + Promocode

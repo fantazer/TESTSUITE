@@ -147,6 +147,14 @@ module.exports = function() {
 			micromarkets: {
 				url: '/micromarkets/',
 				name: 'Микромаркеты'
+			},
+			retail: {
+				url: '/retail/',
+				name: 'Ретейл'
+			},
+			quiz: {
+				url: '/poll/whydidyouorder/',
+				name: 'Опрос после заказа'
 			}
 		}
 	}

@@ -76,15 +76,15 @@
 		],
 		"coachNumberTrue": [
 			9,
-			5,
-			1,
-			3,
-			8,
-			1,
-			1,
-			0,
+			2,
 			6,
-			2
+			1,
+			9,
+			3,
+			9,
+			9,
+			5,
+			9
 		],
 		"coachSmsModal": ".modal[data-modal='getSms'] .modal-content",
 		"coachSmsModalInput": ".modal[data-modal='getSms'] .input[data-placeholder='SMS код']",
@@ -134,5 +134,27 @@
 		"formBtn": "#form .btn--md.btn--mark.btn--mobile",
 		"modalTrue": ".modal[data-modal='success'] .modal-content",
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+	},
+	"retail": {
+		"showMoreDish": ".js-show-more-retail-menu",
+		"form": ".main-cont-sm .contract",
+		"formBtn": ".js-retail-write-us",
+		"name": ".main-cont-sm .contract .input[data-placeholder='Ваше имя']",
+		"phone": ".main-cont-sm .contract .input[data-placeholder='Телефон']",
+		"mail": ".main-cont-sm .contract .input[data-placeholder='Email (необязательно)']",
+		"text": ".main-cont-sm .contract .input[data-placeholder='Сообщение']",
+		"modalTrue": ".modal[data-modal='success'] .modal-content",
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+	},
+	"quiz": {
+		"howKnow": ".contract-content .input-cont:nth-child(2) .check-el:nth-child(2)",
+		"recommend": ".contract-content .input-cont:nth-child(4) .check-el:nth-child(2)",
+		"whatLikeText": ".input[name='answer_356608']",
+		"whatBad": ".input[name='answer_356609']",
+		"whatRival": ".input[name='answer_356610']",
+		"whyChoose": ".contract-content .input-cont:nth-child(12) .check-el:nth-child(2)",
+		"howOften": ".contract-content .input-cont:nth-child(14) .check-el:nth-child(2)",
+		"howLong": ".contract-content .input-cont:nth-child(16) .check-el:nth-child(2)",
+		"formBtn": ".js-submit-poll"
 	}
 }
