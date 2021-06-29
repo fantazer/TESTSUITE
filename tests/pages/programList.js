@@ -42,7 +42,7 @@ describe('program', function() {
 						...mainConfig.tolerance,
 						ignoreElements: [query.totalOrderPhone]
 					})
-					.pause(7000)
+					.pause(1000)
 			)
 		})
 	})

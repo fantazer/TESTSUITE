@@ -134,6 +134,8 @@ describe('Order', function() {
 					//Payment
 					.isElement(query.payment.cardNumber, 'Error:Оплата картой')
 					.assertView('PaymentPage', query.payment.page, mainConfig.tolerance)
+					.getOrderInfo(generatePhoneVal.phone, false)
+					.pause(2000)
 			)
 		})
 	})

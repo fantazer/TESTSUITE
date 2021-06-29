@@ -14,7 +14,7 @@ module.exports = {
 			}
 		}
 	},
-	sessionsPerBrowser: 5,
+	sessionsPerBrowser: 2,
 	testTimeout: 1000000,
 	plugins: {
 		'html-reporter/hermione': {

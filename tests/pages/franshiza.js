@@ -48,7 +48,6 @@ describe('Pages', function() {
 
 				//Check false phone/mail
 				.insertPhone(query.franshiza.phone, false, fakeData.phoneFalse)
-				.setValue(query.franshiza.mail, fakeData.mailFalse)
 				.click(query.franshiza.formBtn)
 				.pause(1000)
 				.assertView(
@@ -59,8 +58,8 @@ describe('Pages', function() {
 
 				//Check true phone/mail
 				.insertPhone(query.franshiza.phone, false, fakeData.phoneTrue)
-				.setValue(query.franshiza.mail, fakeData.mailTrue)
 				.setValue(query.franshiza.text, fakeData.comment)
+				.setValue(query.franshiza.town, fakeData.address)
 				.click(query.franshiza.formBtn)
 
 				//check modal
