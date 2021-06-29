@@ -114,6 +114,10 @@ describe('Order', function() {
 					//Check coupon cost
 					.click(query.fullOrder.checkCoupon)
 					.pause(1000)
+					.isElement(
+						'#order-full .title.title--xl',
+						'Error:Промокод не доступен'
+					)
 
 					.setValue(query.fullOrder.orderCouponVal, fakeData.couponTrue)
 					.click(query.fullOrder.orderCouponBtn)
@@ -134,8 +138,6 @@ describe('Order', function() {
 					//Payment
 					.isElement(query.payment.cardNumber, 'Error:Оплата картой')
 					.assertView('PaymentPage', query.payment.page, mainConfig.tolerance)
-					.getOrderInfo(generatePhoneVal.phone, false)
-					.pause(2000)
 			)
 		})
 	})

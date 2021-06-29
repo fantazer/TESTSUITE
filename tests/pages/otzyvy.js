@@ -51,10 +51,10 @@ describe('Pages', function() {
 				.assertView('selectProgram', query.otzyvy.form, {
 					...mainConfig.tolerance
 				})
-				.pause(1000)
+				.pause(2000)
 				//Set Select Programs
 				.click(query.otzyvy.selectVal)
-				.pause(1000)
+				.pause(2000)
 				.assertView('selectProgramChange', query.otzyvy.form, {
 					...mainConfig.tolerance
 				})

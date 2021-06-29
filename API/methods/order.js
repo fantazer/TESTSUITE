@@ -27,7 +27,7 @@ module.exports = async function createOrderTabPromo(
 		})
 
 		//Check empty phone
-		.click(query.orderBtn)
+		.isElement(query.orderBtn, 'Error:Проверка пустого заказа')
 		.getText(query.phoneInputMsg)
 		.then(text => {
 			mainConfig.assert.equal(text, 'Введите корректный телефон')
@@ -35,7 +35,7 @@ module.exports = async function createOrderTabPromo(
 
 		//Enter phone
 		.getUser(generatePhoneVal.phone, false)
-		//.regUser(generatePhoneVal.phone, false)
+		.regUser(generatePhoneVal.phone, false)
 		.insertPhone(query.phoneInput, false, generatePhoneVal.array)
 
 		//Click checkbox

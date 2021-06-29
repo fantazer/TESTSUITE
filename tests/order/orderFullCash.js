@@ -133,6 +133,10 @@ describe('Order', function() {
 					//Check coupon cost
 					.click(query.fullOrder.checkCoupon)
 					.pause(1000)
+					.isElement(
+						'#order-full .title.title--xl',
+						'Error:Промокод не доступен'
+					)
 					//false coupon
 					.setValue(query.fullOrder.orderCouponVal, fakeData.couponFalse)
 					.click(query.fullOrder.orderCouponBtn)

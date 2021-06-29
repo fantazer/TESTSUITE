@@ -31,7 +31,7 @@ describe('Pages', function() {
 				.pause(1000)
 				.click(query.SMI.formBtn)
 				//check modal
-				.pause(2500)
+				.pause(3500)
 				.assertView('modal', query.SMI.modalTrue, {
 					...mainConfig.tolerance
 				})
