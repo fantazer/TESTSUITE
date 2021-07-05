@@ -29,6 +29,10 @@ module.exports = function() {
 				url:
 					'?utm_source=yandex_rsy&utm_campaign=my&utm_term=my&utm_content=my',
 				label: 'Яндекс-сотрудники'
+			},
+			{
+				url: '?utm_source=EMS',
+				label: 'EMS'
 			}
 		],
 		program: [
@@ -74,11 +78,7 @@ module.exports = function() {
 			},
 			{url: '/programmy/post/', name: 'Post'}
 		],
-		/*pages: [
-			{url: 'politika/', name: 'Политика конфиденциальности'},
-			{url: '/poll/whydidyouorder/', name: 'Опрос'}
-			http://test.letbefit.ru/poll/whydidyouorder/
-		]*/
+
 		pages: {
 			cert: {
 				url: '/sertificat/',
@@ -155,6 +155,10 @@ module.exports = function() {
 			quiz: {
 				url: '/poll/whydidyouorder/',
 				name: 'Опрос после заказа'
+			},
+			ecology: {
+				url: '/ecology/',
+				name: 'Экология'
 			}
 		}
 	}

@@ -29,6 +29,14 @@
 		"changeTownModalFalse": ".modal[data-modal='location'] .btn--sm.btn--light.modal-hide",
 		"changeTownModalTrue": ".modal[data-modal='location'] .btn--sm.btn--mark"
 	},
-	"phoneFalse": [1,2,3,4,5,6,7,8,9],
-	"phoneTrue": [1,2,3,4,5,6,7,8,9,9]
+	"fixHeader": {
+		"header": ".header.shrink",
+		"headerContent": ".nav-shrink",
+		"dropMenu": ".header.shrink .dropdown",
+		"dropMenuList": ".header.shrink .dropdown .dropdown-menu-list",
+		"dropMenuEL": ".header.shrink .dropdown-menu__el",
+		"dropMenuCurrent": ".header.shrink .dropdown-current__val",
+		"cost": ".nav-shrink__cost",
+		"initScrollEl": ".invite"
+	}
 }

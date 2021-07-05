@@ -5,6 +5,7 @@
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/mainPage/header.json')
+const fakeData = require('@querySelector/fakeData.json')
 
 describe('Header', function() {
 	it('callBack', function() {
@@ -19,7 +20,11 @@ describe('Header', function() {
 				query.callBack.callBackModal,
 				mainConfig.tolerance
 			)
-			.insertPhone(query.callBack.callBackModalInput, false, query.phoneFalse)
+			.insertPhone(
+				query.callBack.callBackModalInput,
+				false,
+				fakeData.phoneFalse
+			)
 			.pause(2000)
 			.click(query.callBack.callBackBtn)
 			.pause(2000)
@@ -29,7 +34,7 @@ describe('Header', function() {
 				mainConfig.tolerance
 			)
 			.pause(2000)
-			.insertPhone(query.callBack.callBackModalInput, false, query.phoneTrue)
+			.insertPhone(query.callBack.callBackModalInput, false, fakeData.phoneTrue)
 			.pause(2000)
 			.click(query.callBack.callBackBtn)
 			.pause(2000)

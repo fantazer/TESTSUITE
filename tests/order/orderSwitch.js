@@ -6,11 +6,6 @@ let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/order.json')
 
-const getUser = require('@api/methods/system/getUser.js')
-const getUserInfo = require('@api/methods/system/getUserInfo.js')
-const regUser = require('@api/methods/system/regUser.js')
-const getOrderInfo = require('@api/methods/system/getOrderInfo.js')
-
 describe('Order', function() {
 	describe('OrderList', function() {
 		/*	beforeEach(function(done) {
