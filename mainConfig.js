@@ -12,7 +12,7 @@ module.exports = function() {
 
 	let server = {
 		urls: {
-			test: 'http://test.letbefit.ru',
+			test: 'http://letbefit.ru',
 			testSpb: 'http://spbtest.letbefit.ru/'
 		},
 		ad: [

@@ -48,6 +48,7 @@ describe('Pages', function() {
 				.pause(1000)
 				//Open Select Programs
 				.click(query.otzyvy.select)
+				.pause(1000)
 				.assertView('selectProgram', query.otzyvy.form, {
 					...mainConfig.tolerance
 				})

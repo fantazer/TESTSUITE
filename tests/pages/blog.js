@@ -23,8 +23,7 @@ describe('Pages', function() {
 				.waitForExist('.page', 50000)
 				.pause(2000)
 				//Check all tags
-				.pause(2000)
-				.$$(query.blog.list)
+				/*.$$(query.blog.list)
 				.then(data => {
 					return (async data => {
 						for (let item of data) {
@@ -37,7 +36,7 @@ describe('Pages', function() {
 								})
 						}
 					})(data)
-				})
+				})*/
 				.pause(2000)
 				//Check false form
 				.click(query.blog.formBtn)
@@ -49,7 +48,7 @@ describe('Pages', function() {
 				.pause(1000)
 				.click(query.blog.formBtn)
 				//check modal
-				.pause(1500)
+				.pause(2500)
 				.assertView('modal', query.blog.modalTrue, {
 					...mainConfig.tolerance
 				})

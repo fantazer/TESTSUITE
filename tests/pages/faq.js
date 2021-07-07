@@ -33,9 +33,9 @@ describe('Pages', function() {
 							await browser
 								.element(`${item.selector}:nth-child(${item.index + 1})`)
 								.click()
-								.pause(1500)
+								.pause(2500)
 								.click(query.faq.elQuestion)
-								.pause(1500)
+								.pause(2500)
 								.assertView('TAB - ' + (item.index + 1), '.js-tab-wrap', {
 									...mainConfig.tolerance
 								})

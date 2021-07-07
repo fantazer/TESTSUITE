@@ -77,7 +77,7 @@ describe('Pages', function() {
 				//False SMS
 				.setValue(query.coach.coachSmsModalInput, fakeData.smsFalse)
 				.click(query.coach.coachSmsModalBtn)
-				.pause(1500)
+				.pause(2000)
 				.assertView(
 					'coachSmsModalFalse',
 					query.coach.coachSmsModal,
@@ -85,7 +85,7 @@ describe('Pages', function() {
 				)
 				//NO SMS
 				.click(".modal[data-modal='getSms'] .modal-close")
-				.pause(1500)
+				.pause(2000)
 				//NO SMS
 
 				//Сheck request form
