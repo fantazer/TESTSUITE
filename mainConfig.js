@@ -12,7 +12,7 @@ module.exports = function() {
 
 	let server = {
 		urls: {
-			test: 'http://letbefit.ru',
+			test: 'http://test.letbefit.ru',
 			testSpb: 'http://spbtest.letbefit.ru/'
 		},
 		ad: [
@@ -31,7 +31,7 @@ module.exports = function() {
 				label: 'Яндекс-сотрудники'
 			},
 			{
-				url: '?utm_source=EMS',
+				url: '?utm_source=marka',
 				label: 'EMS'
 			}
 		],

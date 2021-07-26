@@ -51,6 +51,11 @@ describe('Order', function() {
 							}
 						})
 						.pause(2000)
+						.then(() => {
+							console.log(
+								'=== TEST Order/orderAd-' + itemAd.label + 'END TRUE ==='
+							)
+						})
 				)
 			})
 		})

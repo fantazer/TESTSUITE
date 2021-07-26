@@ -35,7 +35,7 @@ let regUser = async numberPhone => {
 			console.log('Reg User - FALSE')
 			throw '=== REG USER FALSE! ==='
 		} else {
-			console.log('Reg User - TRUE')
+			//console.log('Reg User - TRUE')
 		}
 		return regUserAction
 	} catch (e) {

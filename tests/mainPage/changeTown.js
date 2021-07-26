@@ -33,7 +33,7 @@ describe('Header', function() {
 				//Проверка города куда
 				.getText(query.changeTown.changeTownModalTitle)
 				.then(function(text) {
-					mainConfig.assert.equal(text, 'Вы в Санк-Петербурге?')
+					mainConfig.assert.equal(text, 'Вы в Санкт-Петербурге?')
 				})
 
 				//Отмена действия
@@ -50,7 +50,7 @@ describe('Header', function() {
 				.getUrl()
 				.then(data => {
 					//data = data.replace(/\/oct\/|\/\?newsite/gi, '')
-					console.log(data)
+					//console.log(data)
 					mainConfig.assert.equal(data, mainConfig.server.urls.testSpb)
 				})
 				.getText(query.changeTown.changeTownStartName)
@@ -75,12 +75,9 @@ describe('Header', function() {
 				.pause(3000)
 				.click(query.changeTown.changeTownModalTrue)
 				.pause(3000)
-			/*.getUrl()
-				.then(data => {
-					//data = data.replace(/\/oct\/|\/\?newsite/gi, '')
-					mainConfig.assert.equal(data, mainConfig.server.urls.test)
-				})*/
-			//.pause(3000)
+				.then(() => {
+					console.log('=== TEST Header/changeTown END TRUE ===')
+				})
 		)
 	})
 })

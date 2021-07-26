@@ -25,7 +25,7 @@
 		"changeTownStart": ".modal-get[data-modal='location']",
 		"changeTownStartName": ".modal-get[data-modal='location'] .header-location__val",
 		"changeTownModal": ".modal[data-modal='location'] .modal-content",
-		"changeTownModalTitle": ".modal[data-modal='location'] .modal-title",
+		"changeTownModalTitle": ".modal[data-modal='location'] .type--md.type--bold.mb-24",
 		"changeTownModalFalse": ".modal[data-modal='location'] .btn--sm.btn--light.modal-hide",
 		"changeTownModalTrue": ".modal[data-modal='location'] .btn--sm.btn--mark"
 	},

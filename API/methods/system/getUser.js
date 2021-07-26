@@ -22,7 +22,7 @@ let getProfileInfo = async phoneVal => {
 			console.log('Get User - FALSE')
 			throw '===PHONE IS PRESENT==='
 		} else {
-			console.log('Get User - TRUE')
+			//console.log('Get User - TRUE')
 		}
 		return resProfile
 	} catch (e) {

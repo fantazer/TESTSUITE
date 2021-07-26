@@ -109,7 +109,7 @@ describe('Order', function() {
 						)
 						.pause(2000)
 						.then(data => {
-							console.log(urlListEl)
+							//console.log(urlListEl)
 							if (urlListEl.trainer) {
 								return browser.setValue(
 									query.couponInput,
@@ -185,6 +185,13 @@ describe('Order', function() {
 							}
 						})
 						.pause(2000)
+						.then(() => {
+							console.log(
+								`=== TEST Order/orderAd- ${i + 1}-OrderAdUTM-${
+									urlListEl.name
+								} END TRUE ===`
+							)
+						})
 				)
 			})
 		})

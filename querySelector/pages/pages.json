@@ -36,18 +36,18 @@
 		"form": ".subscribe-block",
 		"mail": ".subscribe-block .input[data-placeholder='Email']",
 		"formBtn": ".js-blog-subscribe",
-		"modalTrue": ".modal[data-modal='success']",
+		"modalTrue": ".modal[data-modal='success'] .modal-content",
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
 	},
 	"about": {
 		"getModalBtn": ".action-admin-email[data-person='nastya']",
-		"modal": ".modal[data-modal='founders-callback']",
+		"modal": ".modal[data-modal='founders-callback'] .modal-content",
 		"name": ".modal[data-modal='founders-callback'] .input[data-placeholder='Ваше имя']",
 		"phone": ".modal[data-modal='founders-callback'] .input[data-placeholder='Телефон']",
 		"mail": ".modal[data-modal='founders-callback'] .input[data-placeholder='E-mail']",
 		"text": ".modal[data-modal='founders-callback'] .input[data-placeholder='Комментарий']",
 		"modalBtn": ".modal[data-modal='founders-callback'] .btn--md.btn--mark.btn--full.mb-24",
-		"modalTrue": ".modal[data-modal='founders-callbackTrue']",
+		"modalTrue": ".modal[data-modal='founders-callbackTrue'] .modal-content",
 		"modalTrueBtn": ".modal[data-modal='founders-callbackTrue'] .btn--md.btn--light.btn--full"
 	},
 	"SMI": {

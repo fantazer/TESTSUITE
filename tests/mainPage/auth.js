@@ -38,7 +38,7 @@ describe('Header', function() {
 				.pause(2000)
 				.getCookie('SmsCode')
 				.then(data => {
-					console.log('======SMS======', data)
+					//console.log('======SMS======', data)
 					return (async () => {
 						await browser.setValue(query.auth.authSmsInput, data.value)
 					})()
@@ -47,6 +47,9 @@ describe('Header', function() {
 				.pause(2000)
 				.getUserInfo(generatePhoneVal.phone, false)
 				.pause(2000)
+				.then(() => {
+					console.log('=== TEST Header/Auth END TRUE ===')
+				})
 		)
 	})
 })

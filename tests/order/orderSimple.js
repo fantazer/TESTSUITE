@@ -11,7 +11,7 @@ let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/order.json')
 const createOrderTabPromo = require('@api/methods/order.js')
-
+//hermione.browser('clientChrome').version('90')
 describe('Order', function() {
 	beforeEach(function(done) {
 		//return jsonData;
@@ -31,6 +31,7 @@ describe('Order', function() {
 				//Check all tabs + Cost + Promocode
 				return createOrderTabPromo(browser, generatePhoneVal)
 			})
+			.getUser(generatePhoneVal.phone, false)
 			.regUser(generatePhoneVal.phone, false)
 			.pause(1500)
 			.assertView('modalOrderStart', query.modalOrder, mainConfig.tolerance)
@@ -49,3 +50,4 @@ describe('Order', function() {
 
 // hermione gui --update-refs
 // selenium-standalone start
+// webdriver-manager start

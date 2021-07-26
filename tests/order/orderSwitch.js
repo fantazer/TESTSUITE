@@ -6,11 +6,11 @@ let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/order.json')
 
-describe('Order', function() {
+/*describe('Order', function() {
 	describe('OrderList', function() {
-		/*	beforeEach(function(done) {
+		/!*	beforeEach(function(done) {
 		//return jsonData;
-	})*/
+	})*!/
 		for (let i = 1; i <= 12; ++i) {
 			it('orderSwitch' + i, function() {
 				let browser = this.browser
@@ -31,6 +31,6 @@ describe('Order', function() {
 			})
 		}
 	})
-})
+})*/
 // hermione gui --update-refs
 // selenium-standalone start

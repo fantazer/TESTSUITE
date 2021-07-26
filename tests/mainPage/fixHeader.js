@@ -34,5 +34,8 @@ describe('Header', function() {
 					}
 				})(data)
 			})
+			.then(() => {
+				console.log('=== TEST Header/fixHeader END TRUE ===')
+			})
 	})
 })

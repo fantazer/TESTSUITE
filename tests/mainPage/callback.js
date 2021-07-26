@@ -43,6 +43,9 @@ describe('Header', function() {
 				query.callBack.callBackModalTrue,
 				mainConfig.tolerance
 			)
+			.then(() => {
+				console.log('=== TEST Header/СallBack END TRUE ===')
+			})
 	})
 })
 

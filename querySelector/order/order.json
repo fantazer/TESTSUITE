@@ -54,6 +54,7 @@
 		"programSizeConfigEl": ".order-program-el",
 		"orderChooseRange": "[data-test='orderChooseRange']",
 		"orderAdd": "[data-test='orderAdd']",
+		"orderAddModal": "[data-modal='changeProgram'] .modal-content",
 		"orderAddEl": ".program-register-row[data-program='balance']",
 		"orderChooseRangeEl": "[data-test='orderChooseRange'] .contract-config__el",
 		"orderTotal": "[data-test='orderTotal']",

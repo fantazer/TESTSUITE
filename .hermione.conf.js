@@ -14,8 +14,11 @@ module.exports = {
 			}
 		}
 	},
-	sessionsPerBrowser: 3,
+	sessionsPerBrowser: 1,
+	//sessionsPerBrowser: 1,
 	testTimeout: 3000000,
+	testsPerSession: 1,
+	//httpTimeout: 3000000,
 	plugins: {
 		'html-reporter/hermione': {
 			path: 'report'

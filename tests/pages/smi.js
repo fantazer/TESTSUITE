@@ -31,7 +31,7 @@ describe('Pages', function() {
 				.pause(1000)
 				.click(query.SMI.formBtn)
 				//check modal
-				.pause(3500)
+				.pause(5500)
 				.assertView('modal', query.SMI.modalTrue, {
 					...mainConfig.tolerance
 				})
@@ -39,6 +39,9 @@ describe('Pages', function() {
 				.pause(2000)
 				.assertView('finish', query.SMI.form, {
 					...mainConfig.tolerance
+				})
+				.then(() => {
+					console.log('=== TEST Pages/СМИ END TRUE ===')
 				})
 		)
 	})

@@ -50,6 +50,11 @@ describe('Order', function() {
 					//add program
 					.click(query.fullOrder.orderAdd)
 					.pause(2000)
+					.assertView(
+						'addProgramModal',
+						query.fullOrder.orderAddModal,
+						mainConfig.tolerance
+					)
 					.click(query.fullOrder.orderAddEl)
 					.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
 					.click(
@@ -64,16 +69,13 @@ describe('Order', function() {
 							query.fullOrder.toggleSizeProgram
 					)
 					.pause(1500)
-					.assertView(
-						'addProgram',
-						query.fullOrder.programSizeConfig,
-						mainConfig.tolerance
-					)
-					.assertView(
-						'addProgramTotalCost',
-						query.fullOrder.orderTotal,
-						mainConfig.tolerance
-					)
+					.assertView('addProgram', query.contract, {
+						...mainConfig.tolerance,
+						ignoreElements: [
+							query.fullOrder.phone,
+							query.fullOrder.selectConditionDelivery
+						]
+					})
 					//Check size program
 					.click(
 						query.fullOrder.programSizeConfigEl +
@@ -83,11 +85,13 @@ describe('Order', function() {
 					)
 					.pause(1500)
 					.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
-					.assertView(
-						'addProgramChangeFirstRange',
-						query.fullOrder.orderTotal,
-						mainConfig.tolerance
-					)
+					.assertView('addProgramChangeFirstRange', query.contract, {
+						...mainConfig.tolerance,
+						ignoreElements: [
+							query.fullOrder.phone,
+							query.fullOrder.selectConditionDelivery
+						]
+					})
 					.click(
 						query.fullOrder.programSizeConfigEl +
 							':nth-child(2) ' +
@@ -96,11 +100,13 @@ describe('Order', function() {
 					)
 					.pause(1500)
 					.isElement('#order-full .title.title--xl', 'Error:Оформление заказа')
-					.assertView(
-						'addProgramChangeSecondRange',
-						query.fullOrder.orderTotal,
-						mainConfig.tolerance
-					)
+					.assertView('addProgramChangeSecondRange', query.contract, {
+						...mainConfig.tolerance,
+						ignoreElements: [
+							query.fullOrder.phone,
+							query.fullOrder.selectConditionDelivery
+						]
+					})
 					.pause(5000)
 
 					//Check size program === end

@@ -40,7 +40,7 @@ describe('Pages', function() {
 				.pause(2000)
 				//Check false form
 				.click(query.blog.formBtn)
-				.pause(1000)
+				.pause(2000)
 				.assertView('formFalse', query.blog.form, mainConfig.tolerance)
 				.pause(1000)
 				//Set name
