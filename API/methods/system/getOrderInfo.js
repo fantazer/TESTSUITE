@@ -24,7 +24,7 @@ let getOrderInfo = async phoneVal => {
 		if (resOrderDataVal.name === undefined) {
 			throw '=== USER HAS NOT ORDER ==='
 		} else {
-			//console.log('Get Order - TRUE')
+			console.log('Get Order - TRUE')
 			//console.log('=========')
 			//console.log(resOrderDataVal)
 			//console.log('=========')

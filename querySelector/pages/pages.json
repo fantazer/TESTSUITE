@@ -1,4 +1,18 @@
 {
+	"main": {
+		"advantBlock": ".advant__el",
+		"advantBlockModal": ".modal__show .modal-content",
+		"advantBlockModalClose": ".modal__show .modal-content .modal-hide",
+		"saleBlock": ".action-sale-popup",
+		"saleBlockModal": ".modal__show .modal-content",
+		"advantBlockModalClose": ".modal__show .modal-close",
+		"callBackInput": ".invite-subs .action-call-form .input",
+		"callBackBnt": ".invite-subs .btn--md.btn--mark",
+		"callBackModal": ".modal[data-modal='trueCallback'] .modal-content",
+		"callBackModalBtn": ".modal[data-modal='trueCallback'] .modal-content .js-true-callback-ok",
+		"seoTextCont": ".js-slide-wrap",
+		"seoTextContBtn": ".js-slide-wrap .js-slide"
+	},
 	"sertificat": {
 		"getSertBtn": ".btn--md[data-modal='sertificatModal']",
 		"modal": ".modal[data-modal='sertificatModal']",

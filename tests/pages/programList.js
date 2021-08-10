@@ -26,7 +26,12 @@ describe('program', function() {
 					.pause(1000)
 					.assertView('program - ' + el.name, '.page', {
 						...mainConfig.tolerance,
-						ignoreElements: ['.program-days', '.program-el', '.size']
+						ignoreElements: [
+							'.program-days',
+							'.program-el',
+							'.size',
+							'.schedule-list'
+						]
 					})
 					.scroll(query.contract)
 					.pause(1000)
@@ -34,6 +39,8 @@ describe('program', function() {
 					.then(() => {
 						return createOrderTabPromo(browser, generatePhoneVal)
 					})
+					//.getUser(generatePhoneVal.phone, false)
+					//.regUser(generatePhoneVal.phone, false)
 					.pause(1500)
 					.assertView('modalOrderStart', query.modalOrder, mainConfig.tolerance)
 					.click(query.modalOrderBtnSpeed)
@@ -43,7 +50,7 @@ describe('program', function() {
 						ignoreElements: [query.totalOrderPhone]
 					})
 					.pause(2000)
-					.getOrderInfo(generatePhoneVal.phone, false)
+					//.getOrderInfo(generatePhoneVal.phone, false)
 					.pause(2000)
 			)
 		})

@@ -14,6 +14,8 @@ module.exports = function() {
 		urls: {
 			test: 'http://test.letbefit.ru',
 			testSpb: 'http://spbtest.letbefit.ru/'
+			/*test: 'https://letbefit.ru',
+			testSpb: 'https://spb.letbefit.ru/'*/
 		},
 		ad: [
 			{
