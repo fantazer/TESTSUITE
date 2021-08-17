@@ -1,5 +1,12 @@
 /*
-	Описание теста: Проверка страницы /proizvodstvo/
+	Описание теста: Проверка страницы /contact/
+	- Скрин всей страницы
+	- Проверка формы заявки
+	- все поля пустые
+	- неверный телефон
+	- все поля заполнены
+	- отправи формы
+	- Проверка окна успеха
 	- Скрин всей страницы
 */
 
@@ -9,22 +16,19 @@ const query = require('@querySelector/pages/pages.json')
 
 for (let el in mainConfig.server.stateTest) {
 	let serverState = mainConfig.server.stateTest[el]
-	let serverStateURL = serverState.url + mainConfig.server.pages.production.url
+	let serverStateURL = serverState.url + mainConfig.server.pages.bonus.url
 	describe(serverState.name, function() {
 		describe('Pages', function() {
-			it('НашеПроизводство', function() {
+			it('Бонусы', function() {
 				let browser = this.browser
 				return browser
-					.url(serverStateURL)
 					.url(serverStateURL + '?ISTEST')
-					.windowHandleSize({width: 1920, height: 1024})
 					.waitForExist('.page', 50000)
 					.pause(2000)
 					.assertView('page', '.page', {
-						...mainConfig.tolerance,
-						ignoreElements: [query.about.video]
+						...mainConfig.tolerance
 					})
-					.pause(2000)
+					.pause(1000)
 			})
 		})
 	})

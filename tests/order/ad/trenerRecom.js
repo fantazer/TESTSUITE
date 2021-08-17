@@ -74,6 +74,7 @@ let urlList = [
 ]
 
 describe('Order', function() {
+	hermione.skip.notIn('clientChrome', 'Only Desktop')
 	describe('OrderAd', function() {
 		urlList.forEach((urlListEl, i) => {
 			it(`${i + 1}-OrderAdUTM-${urlListEl.name}`, function() {
@@ -101,39 +102,36 @@ describe('Order', function() {
 						//set coupone
 						.pause(3000)
 						.isElement(query.checkBox, 'Error:После ввода телефона')
-						.pause(2000)
+						.pause(3000)
 						.insertPhone(
 							query.phoneInputAddPromo,
 							false,
 							generatePhoneVal.array
 						)
-						.pause(2000)
+						.pause(3000)
 						.then(data => {
 							//console.log(urlListEl)
 							if (urlListEl.trainer) {
-								return browser.setValue(
-									query.couponInput,
-									mainConfig.couponList[1]
-								)
+								return browser
+									.setValue(query.couponInput, mainConfig.couponList[1])
+									.isElement(query.couponBtn, 'Error:После ввода купона')
 							} else {
-								return data
+								return browser
+									.click(query.checkBox)
+									.isElement(query.orderBtn, 'Error:После ввода телефона')
 							}
 						})
-						.isElement(query.couponBtn, 'Error:После ввода купона')
 						.click(query.orderBtn)
 
 						//Check modal + send
 						.isElement(query.modalOrder, 'Error:Ожидаю окно')
 						.pause(1500)
 						.click(query.modalOrderBtnNormal)
-						.pause(2000)
+						.pause(4000)
 						//Check modal + send === end
 
 						//Start form test
-						.isElement(
-							'#order-full .title.title--xl',
-							'Error:Оформление заказа'
-						)
+						.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
 						.pause(1000)
 						.setValue(query.fullOrder.name, 'GEROME')
 
@@ -185,6 +183,7 @@ describe('Order', function() {
 							}
 						})
 						.pause(2000)
+						.deleteCookie()
 						.then(() => {
 							console.log(
 								`=== TEST Order/orderAd- ${i + 1}-OrderAdUTM-${

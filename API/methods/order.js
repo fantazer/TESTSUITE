@@ -13,20 +13,49 @@ module.exports = async function createOrderTabPromo(
 			return (async data => {
 				for (let item of data) {
 					await awaitBrowser
-						.element(`${item.selector}:nth-child(${item.index + 1})`)
-						.click()
-						.pause(2000)
-						.isElement(query.contract)
+						.click(`${item.selector}:nth-child(${item.index + 1})`)
+						.pause(2500)
+						//.isElement(query.contract)
 						.assertView(
 							'totalOrder' + (item.index + 1),
 							query.contract,
 							mainConfig.tolerance
 						)
+					//console.log(`${item.selector}:nth-child(${item.index + 1})`)
 				}
 			})(data)
 		})
 
+		//Check Day Off
+		//Check dayOfCheckBox
+		.isVisible(query.checkBoxExcludeDayOff)
+		.then(data => {
+			if (data) {
+				return async () => {
+					await awaitBrowser.click(query.checkBoxExcludeDayOff)
+					$$(query.listSize).then(data => {
+						return (async data => {
+							for (let item of data) {
+								await awaitBrowser
+									.click(`${item.selector}:nth-child(${item.index + 1})`)
+									.pause(2000)
+									//.isElement(query.contract)
+									.assertView(
+										'totalOrderDayOff' + (item.index + 1),
+										query.contract,
+										mainConfig.tolerance
+									)
+							}
+						})(data)
+					})
+				}
+			} else {
+				return data
+			}
+		})
+
 		//Check empty phone
+		.pause(1000)
 		.isElement(query.orderBtn, 'Error:Проверка пустого заказа')
 		.getText(query.phoneInputMsg)
 		.then(text => {
@@ -34,7 +63,7 @@ module.exports = async function createOrderTabPromo(
 		})
 
 		//Enter phone
-		.insertPhone(query.phoneInput, false, generatePhoneVal.array)
+		.insertPhone(query.phoneInput, false, generatePhoneVal)
 
 		//Click checkbox
 		.pause(3000)
@@ -43,15 +72,26 @@ module.exports = async function createOrderTabPromo(
 		.isElement(query.couponBtn, 'Error:После ввода купона')
 
 		//Check all cost + coupon
+		//Check dayOfCheckBox
+		.isVisible(query.checkBoxExcludeDayOff)
+		.then(data => {
+			if (data) {
+				return async () => {
+					await awaitBrowser.click(query.checkBoxExcludeDayOff)
+				}
+			} else {
+				return data
+			}
+		})
+
+		.pause(3000)
 		.$$(query.listSize)
 		.then(data => {
 			return (async data => {
 				for (let item of data) {
 					await awaitBrowser
-						.element(`${item.selector}:nth-child(${item.index + 1})`)
-						.click()
-						.pause(1000)
-						.isElement('.contract-head', 'Error:Проверка промокодов')
+						.click(`${item.selector}:nth-child(${item.index + 1})`)
+						.pause(3000)
 						.assertView(
 							'contractForm + COUPON' + (item.index + 1),
 							query.contract,

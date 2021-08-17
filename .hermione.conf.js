@@ -2,23 +2,42 @@ module.exports = {
 	sets: {
 		desktop: {
 			files: 'tests/',
-			browsers: ['clientChrome']
+			browsers: ['clientChrome', 'clientChromeMobile']
 		}
 	},
 
 	browsers: {
 		clientChrome: {
-			windowSize: '1920x1000',
+			windowSize: {
+				width: 1920,
+				height: 1000
+			},
 			desiredCapabilities: {
-				browserName: 'chrome' // this browser should be installed on your OS
+				browserName: 'chrome', // this browser should be installed on your OS
+				chromeOptions: {}
+			}
+		},
+		clientChromeMobile: {
+			desiredCapabilities: {
+				windowSize: {
+					width: 375,
+					height: 812
+				},
+				browserName: 'chrome', // this browser should be installed on your OS
+				chromeOptions: {
+					mobileEmulation: {
+						deviceName: 'iPhone X'
+						//deviceName: 'Pixel 2'
+					}
+				}
 			}
 		}
 	},
 	sessionsPerBrowser: 1,
 	//sessionsPerBrowser: 1,
 	testTimeout: 3000000,
-	testsPerSession: 1,
-	//httpTimeout: 3000000,
+	testsPerSession: 2,
+	httpTimeout: 3000000,
 	plugins: {
 		'html-reporter/hermione': {
 			path: 'report'

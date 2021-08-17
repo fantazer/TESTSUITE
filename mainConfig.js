@@ -6,11 +6,30 @@ module.exports = function() {
 	moduleAlias.addAlias('@api', path.resolve('./API/'))
 	const assert = require('chai').assert
 
+	let resolution = {
+		pc: {name: 'xl', size: {width: 1920, height: 1024}},
+		tabletLand: {name: 'lg', size: {width: 1024, height: 768}},
+		tabletPort: {name: 'md', size: {width: 768, height: 640}},
+		mobile: {name: 'sm', size: {width: 375, height: 480}}
+	}
+
 	//URLS
 
 	let urlTestSystem = 'http://148.251.246.45:1444'
 
 	let server = {
+		stateTest: {
+			test: {
+				name: '',
+				url: 'http://test.letbefit.ru',
+				urlSPB: 'http://spbtest.letbefit.ru/'
+			},
+			production: {
+				name: 'PRODUCTION',
+				url: 'https://letbefit.ru',
+				urlSPB: 'https://spb.letbefit.ru/'
+			}
+		},
 		urls: {
 			test: 'http://test.letbefit.ru',
 			testSpb: 'http://spbtest.letbefit.ru/'
@@ -161,6 +180,10 @@ module.exports = function() {
 			ecology: {
 				url: '/ecology/',
 				name: 'Экология'
+			},
+			bonus: {
+				url: '/aktsii/bonus/',
+				name: 'Бонусы'
 			}
 		}
 	}
@@ -194,6 +217,7 @@ module.exports = function() {
 		tolerance,
 		server,
 		apiUrlList,
-		couponList
+		couponList,
+		resolution
 	}
 }

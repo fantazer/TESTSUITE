@@ -6,7 +6,7 @@
 		"saleBlock": ".action-sale-popup",
 		"saleBlockModal": ".modal__show .modal-content",
 		"advantBlockModalClose": ".modal__show .modal-close",
-		"callBackInput": ".invite-subs .action-call-form .input",
+		"callBackInput": ".invite-subs .input",
 		"callBackBnt": ".invite-subs .btn--md.btn--mark",
 		"callBackModal": ".modal[data-modal='trueCallback'] .modal-content",
 		"callBackModalBtn": ".modal[data-modal='trueCallback'] .modal-content .js-true-callback-ok",
@@ -62,7 +62,12 @@
 		"text": ".modal[data-modal='founders-callback'] .input[data-placeholder='Комментарий']",
 		"modalBtn": ".modal[data-modal='founders-callback'] .btn--md.btn--mark.btn--full.mb-24",
 		"modalTrue": ".modal[data-modal='founders-callbackTrue'] .modal-content",
-		"modalTrueBtn": ".modal[data-modal='founders-callbackTrue'] .btn--md.btn--light.btn--full"
+		"modalTrueBtn": ".modal[data-modal='founders-callbackTrue'] .btn--md.btn--light.btn--full",
+		"video": ".video"
+	},
+	"ecology": {
+		"video": ".video",
+		"map": ".map"
 	},
 	"SMI": {
 		"form": ".subscribe-block",
@@ -129,7 +134,8 @@
 		"text": ".contract .input[data-placeholder='Ваш вопрос*']",
 		"formBtn": ".contract .btn--md.btn--mark.btn--mobile",
 		"modalTrue": ".modal[data-modal='trueFaq'] .modal-content",
-		"modalTrueBtn": ".modal[data-modal='trueFaq'] .btn--md.btn--light.btn--full"
+		"modalTrueBtn": ".modal[data-modal='trueFaq'] .btn--md.btn--light.btn--full",
+		"map":".map"
 	},
 	"corp": {
 		"form": ".contract",
@@ -137,7 +143,9 @@
 		"phone": ".contract .input[data-placeholder='Телефон']",
 		"formBtn": ".contract .btn--md.btn--mark.btn--mobile",
 		"modalTrue": ".modal[data-modal='success'] .modal-content",
-		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full",
+		"schedule": ".schedule-list",
+		"items": ".program-el"
 	},
 	"mikromarket": {
 		"form": "#form",

@@ -5,20 +5,28 @@
 
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
-let urlPage = mainConfig.server.urls.test + mainConfig.server.pages.ecology.url
+const query = require('@querySelector/pages/pages.json')
 
-describe('Pages', function() {
-	it('Экология', function() {
-		let browser = this.browser
-		return browser
-			.url(urlPage)
-			.url(urlPage + '?ISTEST')
-			.windowHandleSize({width: 1920, height: 1024})
-			.waitForExist('.page', 50000)
-			.pause(2000)
-			.assertView('page', '.page', mainConfig.tolerance)
+for (let el in mainConfig.server.stateTest) {
+	let serverState = mainConfig.server.stateTest[el]
+	let serverStateURL = serverState.url + mainConfig.server.pages.ecology.url
+	describe(serverState.name, function() {
+		describe('Pages', function() {
+			it('Экология', function() {
+				let browser = this.browser
+				return browser
+					.url(serverStateURL)
+					.url(serverStateURL + '?ISTEST')
+					.windowHandleSize({width: 1920, height: 1024})
+					.waitForExist('.page', 50000)
+					.pause(2000)
+					.assertView('page', '.page', {
+						...mainConfig.tolerance,
+						ignoreElements: [query.ecology.video, query.ecology.map]
+					})
+			})
+		})
 	})
-})
-
+}
 // hermione gui --update-refs
 // selenium-standalone start

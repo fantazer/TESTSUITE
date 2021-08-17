@@ -9,21 +9,24 @@
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/pages/pages.json')
-const urlPage = mainConfig.server.urls.test + mainConfig.server.pages.blog.url
 const fakeData = require('@querySelector/fakeData.json')
 
-describe('Pages', function() {
-	it('БлогСписок', function() {
-		let browser = this.browser
-		return (
-			browser
-				.url(urlPage)
-				.url(urlPage + '?ISTEST')
-				.windowHandleSize({width: 1920, height: 1024})
-				.waitForExist('.page', 50000)
-				.pause(2000)
-				//Check all tags
-				/*.$$(query.blog.list)
+for (let el in mainConfig.server.stateTest) {
+	let serverState = mainConfig.server.stateTest[el]
+	let serverStateURL = serverState.url + mainConfig.server.pages.blog.url
+	describe(serverState.name, function() {
+		describe('Pages', function() {
+			it('БлогСписок', function() {
+				let browser = this.browser
+				return (
+					browser
+						.url(serverStateURL)
+						.url(serverStateURL + '?ISTEST')
+						.windowHandleSize({width: 1920, height: 1024})
+						.waitForExist('.page', 50000)
+						.pause(2000)
+						//Check all tags
+						/*.$$(query.blog.list)
 				.then(data => {
 					return (async data => {
 						for (let item of data) {
@@ -37,29 +40,30 @@ describe('Pages', function() {
 						}
 					})(data)
 				})*/
-				.pause(2000)
-				//Check false form
-				.click(query.blog.formBtn)
-				.pause(2000)
-				.assertView('formFalse', query.blog.form, mainConfig.tolerance)
-				.pause(1000)
-				//Set name
-				.setValue(query.blog.mail, fakeData.mailTrue)
-				.pause(1000)
-				.click(query.blog.formBtn)
-				//check modal
-				.pause(2500)
-				.assertView('modal', query.blog.modalTrue, {
-					...mainConfig.tolerance
-				})
-				.click(query.blog.modalTrueBtn)
-				.pause(2000)
-				.assertView('finish', query.blog.form, {
-					...mainConfig.tolerance
-				})
-		)
+						.pause(2000)
+						//Check false form
+						.click(query.blog.formBtn)
+						.pause(2000)
+						.assertView('formFalse', query.blog.form, mainConfig.tolerance)
+						.pause(1000)
+						//Set name
+						.setValue(query.blog.mail, fakeData.mailTrue)
+						.pause(1000)
+						.click(query.blog.formBtn)
+						//check modal
+						.pause(2500)
+						.assertView('modal', query.blog.modalTrue, {
+							...mainConfig.tolerance
+						})
+						.click(query.blog.modalTrueBtn)
+						.pause(2000)
+						.assertView('finish', query.blog.form, {
+							...mainConfig.tolerance
+						})
+				)
+			})
+		})
 	})
-})
-
+}
 // hermione gui --update-refs
 // selenium-standalone start

@@ -32,6 +32,7 @@
 	"phoneInputAddPromo": ".checkPhoneBlock .input-mask--phone",
 	"phoneInputMsg": ".checkPhoneBlockWithoutCoupon .input-msg",
 	"checkBox": ".couponBlock",
+	"checkBoxExcludeDayOff": ".constant-exclude-block",
 	"couponInput": ".contract-content [data-placeholder='Номер купона']",
 	"couponVal": "BEFITYANDEX",
 	"couponBtn": ".actionSetCoupon",
@@ -68,7 +69,8 @@
 		"orderCouponVal": "[data-test='orderCouponVal']",
 		"orderCouponBtn": "[data-test='orderCouponBtn']",
 		"checkComment": "[data-test='orderCheckComment'] .check-el",
-		"commentText": "[data-test='orderCommentValue'] .input"
+		"commentText": "[data-test='orderCommentValue'] .input",
+		"orderTitle": "#order-full .type--w700.mb-48.type--xl"
 
 
 	},
@@ -78,5 +80,9 @@
 		"cardDate": "#expDate",
 		"cardCVS": "#card_cvc",
 		"cardBtn": "button[automation-id='main-layout__submit']"
-	}
+	},
+	"advant":".work-step .work-step__el",
+	"advantBlockModal": ".modal__show .modal-content",
+	"advantBlockModalClose": ".modal__show .modal-content .modal-hide",
+	"orderTitle": ".contract-content .type--w700.mb-48.type--xl"
 }

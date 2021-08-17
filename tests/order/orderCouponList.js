@@ -7,6 +7,7 @@ let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/order.json')
 
 describe('Order', function() {
+	hermione.skip.notIn('clientChrome', 'Only Desktop')
 	describe('orderCouponList', function() {
 		/*	beforeEach(function(done) {
 		//return jsonData;

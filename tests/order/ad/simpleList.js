@@ -7,6 +7,7 @@ let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/order.json')
 
 describe('Order', function() {
+	hermione.skip.notIn('clientChrome', 'Only Desktop')
 	describe('OrderAd', function() {
 		mainConfig.server.ad.forEach(itemAd => {
 			it('orderAd - ' + itemAd.label, function() {
@@ -51,6 +52,7 @@ describe('Order', function() {
 							}
 						})
 						.pause(2000)
+						.deleteCookie()
 						.then(() => {
 							console.log(
 								'=== TEST Order/orderAd-' + itemAd.label + 'END TRUE ==='
