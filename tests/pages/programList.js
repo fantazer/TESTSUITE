@@ -10,7 +10,7 @@ let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
 const query = require('@querySelector/order/order.json')
 const createOrderTabPromo = require('@api/methods/order.js')
-const fakeData = require('@querySelector/fakeData.json')
+//const fakeData = require('@querySelector/fakeData.json')
 
 for (let el in mainConfig.server.stateTest) {
 	let serverState = mainConfig.server.stateTest[el]
@@ -20,14 +20,20 @@ for (let el in mainConfig.server.stateTest) {
 		describe('program', function() {
 			mainConfig.server.program.forEach(el => {
 				it('program - ' + el.name, function() {
+					let url = serverStateURL + el.url
+					let urlParam = el.param ? el.param : ''
 					let browser = this.browser
 					return (
 						browser
-							.url(serverStateURL + el.url + '?ISTEST')
+							.url(url + '?ISTEST' + urlParam)
 							.windowHandleSize({width: 1920, height: 1024})
 							.waitForExist('.page', 50000)
 							//.deleteCookie()
+
 							.pause(2000)
+							.selectorExecute('.modal-filter', function(el) {
+								return el[0].setAttribute('style', 'background-color: black;')
+							})
 							.assertView('program - ' + el.name, '.page', {
 								...mainConfig.tolerance,
 								ignoreElements: [
@@ -38,24 +44,33 @@ for (let el in mainConfig.server.stateTest) {
 								]
 							})
 							//check advant
-							.$$(query.advant)
+							.isVisible(query.advantHasPopUp)
 							.then(data => {
-								return (async data => {
-									for (let item of data) {
-										await browser
-											.element(`${item.selector}:nth-child(${item.index + 1})`)
-											.click()
-											.pause(2000)
-											.assertView(
-												'advant - ' + (item.index + 1),
-												query.advantBlockModal,
-												{
-													...mainConfig.tolerance
-												}
-											)
-											.click(query.advantBlockModalClose)
-									}
-								})(data)
+								if (data[0]) {
+									console.log(data[0])
+									return browser.$$(query.advant).then(data => {
+										return (async data => {
+											for (let item of data) {
+												await browser
+													.element(
+														`${item.selector}:nth-child(${item.index + 1})`
+													)
+													.click()
+													.pause(2000)
+													.assertView(
+														'advant - ' + (item.index + 1),
+														query.advantBlockModal,
+														{
+															...mainConfig.tolerance
+														}
+													)
+													.click(query.advantBlockModalClose)
+											}
+										})(data)
+									})
+								} else {
+									return data
+								}
 							})
 							.scroll(query.contract)
 							.pause(1000)
@@ -76,7 +91,7 @@ for (let el in mainConfig.server.stateTest) {
 							})
 							//.getUser(generatePhoneVal.phone, false)
 							//.regUser(generatePhoneVal.phone, false)
-							.pause(1500)
+							.pause(3000)
 							.assertView(
 								'modalOrderStart',
 								query.modalOrder,
@@ -89,9 +104,35 @@ for (let el in mainConfig.server.stateTest) {
 								ignoreElements: [query.totalOrderPhone]
 							})
 							.pause(2000)
+							.then(data => {
+								return (async data => {
+									for (let item in mainConfig.server.couponUrlList) {
+										let coupon = mainConfig.server.couponUrlList[item]
+										await browser
+											.url(url + '?ISTEST' + coupon.value)
+											.waitForExist('.page', 50000)
+											.pause(3000)
+											.assertView(
+												'mainBanner - ' + coupon.name,
+												query.mainBanner,
+												mainConfig.tolerance
+											)
+											.assertView(
+												'programListBanner - ' + coupon.name,
+												query.programListBanner,
+												mainConfig.tolerance
+											)
+											.assertView(
+												'programContract - ' + coupon.name,
+												query.contract,
+												mainConfig.tolerance
+											)
+									}
+								})(data)
+							})
 							.deleteCookie()
-							//.getOrderInfo(generatePhoneVal.phone, false)
-							.pause(2000)
+						//.getOrderInfo(generatePhoneVal.phone, false)
+						//check cost coupon
 					)
 				})
 			})

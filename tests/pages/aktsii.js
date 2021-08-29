@@ -21,9 +21,8 @@ for (let el in mainConfig.server.stateTest) {
 					browser
 						.url(serverStateURL)
 						.url(serverStateURL + '?ISTEST')
-						.isExisting('#notVisible')
-						.then(data => {
-							console.log(data)
+						.selectorExecute('.modal-filter', function(el) {
+							return el[0].setAttribute('style', 'background-color: black;')
 						})
 						.waitForExist('.page', 50000)
 						.pause(2000)

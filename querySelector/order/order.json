@@ -4,6 +4,7 @@
 	"phoneTrue": [1,2,3,4,5,6,7,8,9,9],
 	"mailFalse": "falseMail",
 	"mailTrue": "true@mail.ru",
+
 	"size": {
 		"size1": {
 			"query": ".contract-config__el[data-item='start']",
@@ -71,8 +72,6 @@
 		"checkComment": "[data-test='orderCheckComment'] .check-el",
 		"commentText": "[data-test='orderCommentValue'] .input",
 		"orderTitle": "#order-full .type--w700.mb-48.type--xl"
-
-
 	},
 	"payment":{
 		"page": "body",
@@ -82,7 +81,10 @@
 		"cardBtn": "button[automation-id='main-layout__submit']"
 	},
 	"advant":".work-step .work-step__el",
+	"advantHasPopUp":".work-step .work-step__el .action-get-popup",
 	"advantBlockModal": ".modal__show .modal-content",
 	"advantBlockModalClose": ".modal__show .modal-content .modal-hide",
-	"orderTitle": ".contract-content .type--w700.mb-48.type--xl"
+	"orderTitle": ".contract-content .type--w700.mb-48.type--xl",
+	"mainBanner": ".board__el",
+	"programListBanner": ".program-list .program-banner "
 }

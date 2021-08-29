@@ -27,9 +27,9 @@ for (let el in mainConfig.server.stateTest) {
 							for (let i = 1; i <= 12; ++i) {
 								await browser
 									.click(query.fixHeader.dropMenu)
-									.pause(1500)
+									.pause(2500)
 									.click(`${query.fixHeader.dropMenuEL}:nth-child(${i})`)
-									.pause(2000)
+									.pause(2500)
 									.assertView(
 										i + ' - Program',
 										query.fixHeader.headerContent,

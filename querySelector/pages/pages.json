@@ -11,7 +11,9 @@
 		"callBackModal": ".modal[data-modal='trueCallback'] .modal-content",
 		"callBackModalBtn": ".modal[data-modal='trueCallback'] .modal-content .js-true-callback-ok",
 		"seoTextCont": ".js-slide-wrap",
-		"seoTextContBtn": ".js-slide-wrap .js-slide"
+		"seoTextContBtn": ".js-slide-wrap .js-slide",
+		"page": ".page",
+		"programList": ".program-list-wrap"
 	},
 	"sertificat": {
 		"getSertBtn": ".btn--md[data-modal='sertificatModal']",

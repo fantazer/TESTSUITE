@@ -22,7 +22,14 @@ for (let el in mainConfig.server.stateTest) {
 						.url(serverState.url + '?ISTEST')
 						.windowHandleSize({width: 1920, height: 1024})
 						.waitForExist('.page', 50000)
-						.pause(2000)
+						.pause(1000)
+						.selectorExecute('.modal-filter', function(el) {
+							return el[0].setAttribute('style', 'background-color: black;')
+						})
+						.assertView('fullPage', query.main.page, {
+							...mainConfig.tolerance,
+							ignoreElements: [query.corp.items, query.corp.schedule]
+						})
 						//Check all advant
 						.$$(query.main.advantBlock)
 						.then(data => {
@@ -36,7 +43,8 @@ for (let el in mainConfig.server.stateTest) {
 											'advant - ' + (item.index + 1),
 											query.main.advantBlockModal,
 											{
-												...mainConfig.tolerance
+												...mainConfig.tolerance,
+												ignoreElements: [query.main.programList]
 											}
 										)
 										.click(query.main.advantBlockModalClose)
@@ -71,6 +79,7 @@ for (let el in mainConfig.server.stateTest) {
 							...mainConfig.tolerance
 						})
 						.click(query.main.callBackModalBtn)
+						.pause(2000)
 						.assertView('seoTextBlock', query.main.seoTextCont, {
 							...mainConfig.tolerance
 						})

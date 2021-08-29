@@ -30,10 +30,11 @@ module.exports = async function createOrderTabPromo(
 		//Check dayOfCheckBox
 		.isVisible(query.checkBoxExcludeDayOff)
 		.then(data => {
-			if (data) {
-				return async () => {
-					await awaitBrowser.click(query.checkBoxExcludeDayOff)
-					$$(query.listSize).then(data => {
+			if (data[0]) {
+				return awaitBrowser
+					.click(query.checkBoxExcludeDayOff)
+					.$$(query.listSize)
+					.then(data => {
 						return (async data => {
 							for (let item of data) {
 								await awaitBrowser
@@ -48,7 +49,6 @@ module.exports = async function createOrderTabPromo(
 							}
 						})(data)
 					})
-				}
 			} else {
 				return data
 			}
@@ -75,15 +75,15 @@ module.exports = async function createOrderTabPromo(
 		//Check dayOfCheckBox
 		.isVisible(query.checkBoxExcludeDayOff)
 		.then(data => {
-			if (data) {
-				return async () => {
-					await awaitBrowser.click(query.checkBoxExcludeDayOff)
-				}
+			if (data[0]) {
+				return awaitBrowser.isElement(
+					query.checkBoxExcludeDayOff,
+					'Error:Исключить выходные'
+				)
 			} else {
 				return data
 			}
 		})
-
 		.pause(3000)
 		.$$(query.listSize)
 		.then(data => {
@@ -103,7 +103,6 @@ module.exports = async function createOrderTabPromo(
 				}
 			})(data)
 		})
-		.pause(1000)
-		.isElement(query.orderBtn, 'Error:Начало заказа')
-		.isElement(query.modalOrder, 'Error:Ожидаю окно')
+		.pause(5000)
+		.click(query.orderBtn, 'Error:Начало заказа')
 }

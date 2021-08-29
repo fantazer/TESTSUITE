@@ -25,7 +25,9 @@ for (let el in mainConfig.server.stateTest) {
 							.windowHandleSize({width: 1920, height: 1200})
 							.waitForExist('.page', 50000)
 							.scroll('#order')
-
+							.selectorExecute('.modal-filter', function(el) {
+								return el[0].setAttribute('style', 'background-color: black;')
+							})
 							//Create User + Enter phone
 							//.getUser(generatePhoneVal.phone, false)
 							//.regUser(generatePhoneVal.phone, false)
@@ -35,10 +37,8 @@ for (let el in mainConfig.server.stateTest) {
 							.isElement(query.orderBtn, 'Error:Начало заказа')
 
 							//Check modal + send
-							.isElement(query.modalOrder, 'Error:Ожидаю окно')
-							.pause(1500)
+							.pause(4000)
 							.click(query.modalOrderBtnNormal)
-							.pause(2000)
 							//Check modal + send === end
 
 							//Start form test

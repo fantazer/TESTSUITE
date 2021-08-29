@@ -24,11 +24,11 @@ for (let el in mainConfig.server.stateTest) {
 						.url(serverStateURL + '?ISTEST')
 						.windowHandleSize({width: 1920, height: 1024})
 						.waitForExist('.page', 50000)
-						.pause(1000)
+						.selectorExecute('.modal-filter', function(el) {
+							return el[0].setAttribute('style', 'background-color: black;')
+						})
 						.assertView('page', '.page', mainConfig.tolerance)
-						.pause(1000)
 						//Check all tabs
-						.pause(2000)
 						.$$(query.faq.list)
 						.then(data => {
 							return (async data => {
@@ -36,16 +36,15 @@ for (let el in mainConfig.server.stateTest) {
 									await browser
 										.element(`${item.selector}:nth-child(${item.index + 1})`)
 										.click()
-										.pause(2500)
+										.pause(3500)
 										.click(query.faq.elQuestion)
-										.pause(2500)
+										.pause(3500)
 										.assertView('TAB - ' + (item.index + 1), '.js-tab-wrap', {
 											...mainConfig.tolerance
 										})
 								}
 							})(data)
 						})
-						.pause(2000)
 						//Check false form
 						.click(query.faq.formBtn)
 						.pause(1000)

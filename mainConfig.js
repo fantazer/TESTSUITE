@@ -18,9 +18,15 @@ module.exports = function() {
 	let urlTestSystem = 'http://148.251.246.45:1444'
 
 	let server = {
+		couponUrlList: {
+			befitYandex: {
+				name: 'befitYandex',
+				value: '&coupon=BEFITYANDEX'
+			}
+		},
 		stateTest: {
 			test: {
-				name: '',
+				name: 'TEST',
 				url: 'http://test.letbefit.ru',
 				urlSPB: 'http://spbtest.letbefit.ru/'
 			},
@@ -97,7 +103,21 @@ module.exports = function() {
 				url: '/programmy/detox/',
 				name: 'Detox'
 			},
-			{url: '/programmy/post/', name: 'Post'}
+			{
+				url: '/programmy/lightpremium/',
+				name: 'Light Premium',
+				param: '&elp'
+			},
+			{
+				url: '/programmy/normalpremium/',
+				name: 'Normal Premium',
+				param: '&elp'
+			},
+			{
+				url: '/programmy/slim/',
+				name: 'Slim',
+				param: '&complex'
+			}
 		],
 
 		pages: {
