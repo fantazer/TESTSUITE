@@ -18,38 +18,43 @@ for (let el in mainConfig.server.stateTest) {
 	let serverStateURL = serverState.url + mainConfig.server.pages.cert.url
 	describe(serverState.name, function() {
 		describe('Pages', function() {
-			it('Сертификат', function() {
-				const generatePhone = require('@api/methods/system/generatePhone.js')
-				let generatePhoneVal = generatePhone()
-				let browser = this.browser
-				return browser
-					.url(serverStateURL)
-					.url(serverStateURL + '?ISTEST')
-					.windowHandleSize({width: 1920, height: 1024})
-					.waitForExist('.page', 50000)
-					.pause(2000)
-					.assertView('page', '.page', mainConfig.tolerance)
-					.click(query.sertificat.getSertBtn)
-					.pause(2000)
-					.assertView('modal', query.sertificat.modal, mainConfig.tolerance)
-					.setValue(query.sertificat.modalName, fakeData.name)
-					.insertPhone(
-						query.sertificat.modalPhone,
-						false,
-						generatePhoneVal.array
-					)
-					.pause(1000)
-					.click(query.sertificat.modalBtn)
-					.pause(2000)
-					.isElement(order.totalOrder, 'Error:Подтверждение заказа')
-					.assertView('totalOrder', order.totalOrder, {
-						...mainConfig.tolerance,
-						ignoreElements: [
-							order.fullOrder.phone,
-							order.fullOrder.selectConditionDelivery
-						]
-					})
-					.pause(2000)
+			describe('FORM - Pages', function() {
+				if (serverState.name === 'PRODUCTION') {
+					hermione.skip.notIn('clientChrome', 'Only Desktop')
+				}
+				it('Сертификат', function() {
+					const generatePhone = require('@api/methods/system/generatePhone.js')
+					let generatePhoneVal = generatePhone()
+					let browser = this.browser
+					return browser
+						.url(serverStateURL)
+						.url(serverStateURL + '?ISTEST')
+						.windowHandleSize({width: 1920, height: 1024})
+						.waitForExist('.page', 50000)
+						.pause(2000)
+						.assertView('page', '.page', mainConfig.tolerance)
+						.click(query.sertificat.getSertBtn)
+						.pause(2000)
+						.assertView('modal', query.sertificat.modal, mainConfig.tolerance)
+						.setValue(query.sertificat.modalName, fakeData.name)
+						.insertPhone(
+							query.sertificat.modalPhone,
+							false,
+							generatePhoneVal.array
+						)
+						.pause(1000)
+						.click(query.sertificat.modalBtn)
+						.pause(2000)
+						.isElement(order.totalOrder, 'Error:Подтверждение заказа')
+						.assertView('totalOrder', order.totalOrder, {
+							...mainConfig.tolerance,
+							ignoreElements: [
+								order.fullOrder.phone,
+								order.fullOrder.selectConditionDelivery
+							]
+						})
+						.pause(2000)
+				})
 			})
 		})
 	})

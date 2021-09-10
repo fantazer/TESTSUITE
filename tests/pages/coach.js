@@ -26,117 +26,120 @@ for (let el in mainConfig.server.stateTest) {
 	let serverStateURL = serverState.url + mainConfig.server.pages.coach.url
 	describe(serverState.name, function() {
 		describe('Pages', function() {
-			it('Тренеры', function() {
-				let browser = this.browser
-				return (
-					browser
-						.url(serverStateURL)
-						.url(serverStateURL + '?ISTEST')
-						.windowHandleSize({width: 1920, height: 1024})
-						.waitForExist('.page', 50000)
-						.pause(2000)
-						.assertView('page', '.page', mainConfig.tolerance)
+			describe('FORM - Pages', function() {
+				hermione.skip.notIn('clientChrome', 'Only Desktop')
+				it('Тренеры', function() {
+					let browser = this.browser
+					return (
+						browser
+							.url(serverStateURL)
+							.url(serverStateURL + '?ISTEST')
+							.windowHandleSize({width: 1920, height: 1024})
+							.waitForExist('.page', 50000)
+							.pause(2000)
+							.assertView('page', '.page', mainConfig.tolerance)
 
-						//enter LK
-						.click(query.coach.enterModalBtnOpen)
-						.pause(2000)
-						.assertView(
-							'enterModal',
-							query.coach.enterModal,
-							mainConfig.tolerance
-						)
-						.click(query.coach.enterModalBtnSend)
-						.assertView(
-							'enterModalCheckValidation',
-							query.coach.enterModal,
-							mainConfig.tolerance
-						)
+							//enter LK
+							.click(query.coach.enterModalBtnOpen)
+							.pause(2000)
+							.assertView(
+								'enterModal',
+								query.coach.enterModal,
+								mainConfig.tolerance
+							)
+							.click(query.coach.enterModalBtnSend)
+							.assertView(
+								'enterModalCheckValidation',
+								query.coach.enterModal,
+								mainConfig.tolerance
+							)
 
-						//False coach
-						.insertPhone(
-							query.coach.enterModalPhone,
-							false,
-							query.coach.coachNumberFalse
-						)
-						.click(query.coach.enterModalBtnSend)
-						.pause(1500)
-						.assertView(
-							'enterModalCheckFalseCoach',
-							query.coach.enterModal,
-							mainConfig.tolerance
-						)
+							//False coach
+							.insertPhone(
+								query.coach.enterModalPhone,
+								false,
+								query.coach.coachNumberFalse
+							)
+							.click(query.coach.enterModalBtnSend)
+							.pause(1500)
+							.assertView(
+								'enterModalCheckFalseCoach',
+								query.coach.enterModal,
+								mainConfig.tolerance
+							)
 
-						//True coach
-						.setValue(query.coach.enterModalPhone, ' ')
-						.insertPhone(
-							query.coach.enterModalPhone,
-							false,
-							query.coach.coachNumberTrue
-						)
-						.pause(500)
-						.click(query.coach.enterModalBtnSend)
-						.pause(2500)
-						.assertView(
-							'coachSmsModal',
-							query.coach.coachSmsModal,
-							mainConfig.tolerance
-						)
+							//True coach
+							.setValue(query.coach.enterModalPhone, ' ')
+							.insertPhone(
+								query.coach.enterModalPhone,
+								false,
+								query.coach.coachNumberTrue
+							)
+							.pause(500)
+							.click(query.coach.enterModalBtnSend)
+							.pause(2500)
+							.assertView(
+								'coachSmsModal',
+								query.coach.coachSmsModal,
+								mainConfig.tolerance
+							)
 
-						//False SMS
-						.setValue(query.coach.coachSmsModalInput, fakeData.smsFalse)
-						.click(query.coach.coachSmsModalBtn)
-						.pause(2000)
-						.assertView(
-							'coachSmsModalFalse',
-							query.coach.coachSmsModal,
-							mainConfig.tolerance
-						)
-						//NO SMS
-						.click(".modal[data-modal='getSms'] .modal-close")
-						.pause(2000)
-						//NO SMS
+							//False SMS
+							.setValue(query.coach.coachSmsModalInput, fakeData.smsFalse)
+							.click(query.coach.coachSmsModalBtn)
+							.pause(2000)
+							.assertView(
+								'coachSmsModalFalse',
+								query.coach.coachSmsModal,
+								mainConfig.tolerance
+							)
+							//NO SMS
+							.click(".modal[data-modal='getSms'] .modal-close")
+							.pause(2000)
+							//NO SMS
 
-						//Сheck request form
-						.click(query.coach.formBtn)
-						.pause(1000)
-						.assertView(
-							'formInvalidation',
-							query.coach.form,
-							mainConfig.tolerance
-						)
+							//Сheck request form
+							.click(query.coach.formBtn)
+							.pause(1000)
+							.assertView(
+								'formInvalidation',
+								query.coach.form,
+								mainConfig.tolerance
+							)
 
-						//Set name
-						.setValue(query.coach.name, 'GEROME')
+							//Set name
+							.setValue(query.coach.name, 'GEROME')
 
-						//Check false phone/mail
-						.insertPhone(query.coach.phone, false, fakeData.phoneFalse)
-						.setValue(query.coach.mail, fakeData.mailFalse)
-						.click(query.coach.formBtn)
-						.pause(1000)
-						.assertView(
-							'formInvalidationMailPhone',
-							query.coach.form,
-							mainConfig.tolerance
-						)
+							//Check false phone/mail
+							.insertPhone(query.coach.phone, false, fakeData.phoneFalse)
+							.setValue(query.coach.mail, fakeData.mailFalse)
+							.click(query.coach.formBtn)
+							.pause(1000)
+							.assertView(
+								'formInvalidationMailPhone',
+								query.coach.form,
+								mainConfig.tolerance
+							)
 
-						//Check true phone/mail
-						.insertPhone(query.coach.phone, false, fakeData.phoneTrue)
-						.setValue(query.coach.mail, fakeData.mailTrue)
-						.setValue(query.coach.text, fakeData.comment)
-						.click(query.coach.formBtn)
+							//Check true phone/mail
+							.insertPhone(query.coach.phone, false, fakeData.phoneTrue)
+							.setValue(query.coach.mail, fakeData.mailTrue)
+							.setValue(query.coach.text, fakeData.comment)
+							.click(query.coach.formBtn)
 
-						//check modal
-						.pause(3500)
-						.assertView('modal', query.coach.modalTrue, {
-							...mainConfig.tolerance
-						})
-						.click(query.coach.modalTrueBtn)
-						.pause(2000)
+							//check modal
+							.pause(3500)
+							.assertView('modal', query.coach.modalTrue, {
+								...mainConfig.tolerance
+							})
+							.click(query.coach.modalTrueBtn)
+							.pause(2000)
 
-						//finish
-						.assertView('finish', '.page', mainConfig.tolerance)
-						.pause(1000)
-				)
+							//finish
+							.assertView('finish', '.page', mainConfig.tolerance)
+							.pause(1000)
+					)
+				})
 			})
 		})
 	})

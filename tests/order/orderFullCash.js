@@ -15,6 +15,9 @@ for (let el in mainConfig.server.stateTest) {
 	describe(serverState.name, function() {
 		describe('Order', function() {
 			describe('OrderPay', function() {
+				if (serverState.name === 'PRODUCTION') {
+					hermione.skip.notIn('clientChrome', 'Only Desktop')
+				}
 				it('OrderPayCash', function() {
 					const generatePhone = require('@api/methods/system/generatePhone.js')
 					let generatePhoneVal = generatePhone()

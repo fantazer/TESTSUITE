@@ -14,7 +14,6 @@ for (let el in mainConfig.server.stateTest) {
 	let serverStateURL = serverState.url + mainConfig.server.pages.sale.url
 	describe(serverState.name, function() {
 		describe('Pages', function() {
-			//hermione.only.in('clientChromeMobile')
 			it('Акции', function() {
 				let browser = this.browser
 				return (

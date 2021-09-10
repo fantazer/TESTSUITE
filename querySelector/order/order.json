@@ -34,6 +34,8 @@
 	"phoneInputMsg": ".checkPhoneBlockWithoutCoupon .input-msg",
 	"checkBox": ".couponBlock",
 	"checkBoxExcludeDayOff": ".constant-exclude-block",
+	"ExcludeDayModal": "[data-modal='popup_info'] .modal-content",
+	"ExcludeDayModalBtn": "[data-modal='popup_info'] .modal-content .btn--md",
 	"couponInput": ".contract-content [data-placeholder='Номер купона']",
 	"couponVal": "BEFITYANDEX",
 	"couponBtn": ".actionSetCoupon",

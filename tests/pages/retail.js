@@ -21,50 +21,55 @@ for (let el in mainConfig.server.stateTest) {
 	let serverStateURL = serverState.url + mainConfig.server.pages.retail.url
 	describe(serverState.name, function() {
 		describe('Pages', function() {
-			it('Ретеил', function() {
-				let browser = this.browser
-				return (
-					browser
-						.url(serverStateURL)
-						.url(serverStateURL + '?ISTEST')
-						.windowHandleSize({width: 1920, height: 1024})
-						.waitForExist('.page', 50000)
-						.pause(1000)
-						.assertView('page', '.page', mainConfig.tolerance)
-						//Check more dish
-						//.click(query.retail.showMoreDish)
-						//.pause(2000)
-						//.assertView('pageMoreDish', '.page', mainConfig.tolerance)
-						//Check false form
-						.click(query.retail.formBtn)
-						.pause(1000)
-						.assertView('formFalse', query.retail.form, mainConfig.tolerance)
-						.pause(1000)
-						//Set name
-						.setValue(query.retail.name, 'GEROME')
-						//Check false|true phone
-						.insertPhone(query.retail.phone, false, fakeData.phoneFalse)
-						.pause(1500)
-						.click(query.retail.formBtn)
-						.pause(1500)
-						.assertView('falsePhone', query.retail.form, {
-							...mainConfig.tolerance
-						})
-						.insertPhone(query.retail.phone, false, fakeData.phoneTrue)
-						.pause(1000)
+			describe('FORM - Pages', function() {
+				if (serverState.name === 'PRODUCTION') {
+					hermione.skip.notIn('clientChrome', 'Only Desktop')
+				}
+				it('Ретеил', function() {
+					let browser = this.browser
+					return (
+						browser
+							.url(serverStateURL)
+							.url(serverStateURL + '?ISTEST')
+							.windowHandleSize({width: 1920, height: 1024})
+							.waitForExist('.page', 50000)
+							.pause(1000)
+							.assertView('page', '.page', mainConfig.tolerance)
+							//Check more dish
+							//.click(query.retail.showMoreDish)
+							//.pause(2000)
+							//.assertView('pageMoreDish', '.page', mainConfig.tolerance)
+							//Check false form
+							.click(query.retail.formBtn)
+							.pause(1000)
+							.assertView('formFalse', query.retail.form, mainConfig.tolerance)
+							.pause(1000)
+							//Set name
+							.setValue(query.retail.name, 'GEROME')
+							//Check false|true phone
+							.insertPhone(query.retail.phone, false, fakeData.phoneFalse)
+							.pause(1500)
+							.click(query.retail.formBtn)
+							.pause(1500)
+							.assertView('falsePhone', query.retail.form, {
+								...mainConfig.tolerance
+							})
+							.insertPhone(query.retail.phone, false, fakeData.phoneTrue)
+							.pause(1000)
 
-						.setValue(query.retail.text, fakeData.comment)
-						.click(query.retail.formBtn)
-						.pause(2000)
-						.assertView('modal', query.retail.modalTrue, {
-							...mainConfig.tolerance
-						})
-						.click(query.retail.modalTrueBtn)
-						.pause(2000)
-						.assertView('finish', query.retail.form, {
-							...mainConfig.tolerance
-						})
-				)
+							.setValue(query.retail.text, fakeData.comment)
+							.click(query.retail.formBtn)
+							.pause(2000)
+							.assertView('modal', query.retail.modalTrue, {
+								...mainConfig.tolerance
+							})
+							.click(query.retail.modalTrueBtn)
+							.pause(2000)
+							.assertView('finish', query.retail.form, {
+								...mainConfig.tolerance
+							})
+					)
+				})
 			})
 		})
 	})

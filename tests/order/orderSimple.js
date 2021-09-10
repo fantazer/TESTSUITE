@@ -18,6 +18,9 @@ for (let el in mainConfig.server.stateTest) {
 	describe(serverState.name, function() {
 		describe('Order', function() {
 			it('orderSimple', function() {
+				if (serverState.name === 'PRODUCTION') {
+					hermione.skip.notIn('clientChrome', 'Only Desktop')
+				}
 				const generatePhone = require('@api/methods/system/generatePhone.js')
 				let generatePhoneVal = generatePhone()
 				let browser = this.browser

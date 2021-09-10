@@ -33,6 +33,14 @@ module.exports = async function createOrderTabPromo(
 			if (data[0]) {
 				return awaitBrowser
 					.click(query.checkBoxExcludeDayOff)
+					.pause(2000)
+					.assertView(
+						'ExcludeDayModal',
+						query.ExcludeDayModal,
+						mainConfig.tolerance
+					)
+					.click(query.ExcludeDayModalBtn)
+					.pause(2000)
 					.$$(query.listSize)
 					.then(data => {
 						return (async data => {
@@ -70,16 +78,15 @@ module.exports = async function createOrderTabPromo(
 		.isElement(query.checkBox, 'Error:После ввода телефона')
 		.setValue(query.couponInput, query.couponVal)
 		.isElement(query.couponBtn, 'Error:После ввода купона')
-
 		//Check all cost + coupon
+
 		//Check dayOfCheckBox
 		.isVisible(query.checkBoxExcludeDayOff)
 		.then(data => {
 			if (data[0]) {
-				return awaitBrowser.isElement(
-					query.checkBoxExcludeDayOff,
-					'Error:Исключить выходные'
-				)
+				return awaitBrowser
+					.isElement(query.checkBoxExcludeDayOff, 'Error:Исключить выходные')
+					.pause(2000)
 			} else {
 				return data
 			}

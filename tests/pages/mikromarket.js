@@ -27,61 +27,66 @@ for (let el in mainConfig.server.stateTest) {
 		serverState.url + mainConfig.server.pages.micromarkets.url
 	describe(serverState.name, function() {
 		describe('Pages', function() {
-			it('Микромаркеты', function() {
-				let browser = this.browser
-				return (
-					browser
-						.url(serverStateURL)
-						.url(serverStateURL + '?ISTEST')
-						.windowHandleSize({width: 1920, height: 1024})
-						.waitForExist('.page', 50000)
-						.pause(2000)
-						.assertView('page', '.page', {
-							...mainConfig.tolerance,
-							ignoreElements: ['.program-days', '.program-el']
-						})
+			describe('FORM - Pages', function() {
+				if (serverState.name === 'PRODUCTION') {
+					hermione.skip.notIn('clientChrome', 'Only Desktop')
+				}
+				it('Микромаркеты', function() {
+					let browser = this.browser
+					return (
+						browser
+							.url(serverStateURL)
+							.url(serverStateURL + '?ISTEST')
+							.windowHandleSize({width: 1920, height: 1024})
+							.waitForExist('.page', 50000)
+							.pause(2000)
+							.assertView('page', '.page', {
+								...mainConfig.tolerance,
+								ignoreElements: ['.program-days', '.program-el']
+							})
 
-						//Сheck request form
-						.click(query.mikromarket.formBtn)
-						.pause(1000)
-						.assertView(
-							'formInvalidation',
-							query.mikromarket.form,
-							mainConfig.tolerance
-						)
+							//Сheck request form
+							.click(query.mikromarket.formBtn)
+							.pause(1000)
+							.assertView(
+								'formInvalidation',
+								query.mikromarket.form,
+								mainConfig.tolerance
+							)
 
-						//Set name
-						.setValue(query.mikromarket.name, 'GEROME')
+							//Set name
+							.setValue(query.mikromarket.name, 'GEROME')
 
-						//Check false phone/mail
-						.insertPhone(query.mikromarket.phone, false, fakeData.phoneFalse)
-						.setValue(query.mikromarket.mail, fakeData.mailFalse)
-						.click(query.mikromarket.formBtn)
-						.pause(1000)
-						.assertView(
-							'formInvalidationMailPhone',
-							query.mikromarket.form,
-							mainConfig.tolerance
-						)
+							//Check false phone/mail
+							.insertPhone(query.mikromarket.phone, false, fakeData.phoneFalse)
+							.setValue(query.mikromarket.mail, fakeData.mailFalse)
+							.click(query.mikromarket.formBtn)
+							.pause(1000)
+							.assertView(
+								'formInvalidationMailPhone',
+								query.mikromarket.form,
+								mainConfig.tolerance
+							)
 
-						//Check true phone/mail
-						.insertPhone(query.mikromarket.phone, false, fakeData.phoneTrue)
-						.setValue(query.mikromarket.mail, fakeData.mailTrue)
-						.setValue(query.mikromarket.company, fakeData.company)
-						.click(query.mikromarket.formBtn)
+							//Check true phone/mail
+							.insertPhone(query.mikromarket.phone, false, fakeData.phoneTrue)
+							.setValue(query.mikromarket.mail, fakeData.mailTrue)
+							.setValue(query.mikromarket.company, fakeData.company)
+							.click(query.mikromarket.formBtn)
 
-						//check modal
-						.pause(3500)
-						.assertView('modal', query.mikromarket.modalTrue, {
-							...mainConfig.tolerance
-						})
-						.click(query.mikromarket.modalTrueBtn)
-						.pause(2000)
+							//check modal
+							.pause(3500)
+							.assertView('modal', query.mikromarket.modalTrue, {
+								...mainConfig.tolerance
+							})
+							.click(query.mikromarket.modalTrueBtn)
+							.pause(2000)
 
-						//finish
-						.assertView('finish', '.page', mainConfig.tolerance)
-						.pause(1000)
-				)
+							//finish
+							.assertView('finish', '.page', mainConfig.tolerance)
+							.pause(1000)
+					)
+				})
 			})
 		})
 	})

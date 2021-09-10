@@ -16,20 +16,19 @@ for (let el in mainConfig.server.stateTest) {
 			it('fixHeader', function() {
 				let browser = this.browser
 				return browser
-					.url(serverStateURL)
+					.url(serverStateURL + '?DISABLECHAT')
 					.windowHandleSize({width: 1920, height: 1200})
 					.waitForExist('.page', 50000)
-					.pause(1000)
 					.scroll(query.fixHeader.initScrollEl)
 					.pause(1000)
 					.then(data => {
 						return (async data => {
-							for (let i = 1; i <= 12; ++i) {
+							for (let i = 1; i <= 14; ++i) {
 								await browser
 									.click(query.fixHeader.dropMenu)
-									.pause(2500)
+									.pause(1000)
 									.click(`${query.fixHeader.dropMenuEL}:nth-child(${i})`)
-									.pause(2500)
+									.pause(1000)
 									.assertView(
 										i + ' - Program',
 										query.fixHeader.headerContent,

@@ -32,7 +32,7 @@
 	"fixHeader": {
 		"header": ".header.shrink",
 		"headerContent": ".nav-shrink",
-		"dropMenu": ".header.shrink .dropdown",
+		"dropMenu": ".header.shrink .dropdown-current__val",
 		"dropMenuList": ".header.shrink .dropdown .dropdown-menu-list",
 		"dropMenuEL": ".header.shrink .dropdown-menu__el",
 		"dropMenuCurrent": ".header.shrink .dropdown-current__val",
