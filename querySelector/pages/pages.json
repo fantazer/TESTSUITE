@@ -1,4 +1,11 @@
 {
+	"payment":{
+		"page": "body",
+		"cardNumber": "#pan",
+		"cardDate": "#expDate",
+		"cardCVS": "#card_cvc",
+		"cardBtn": "button[automation-id='main-layout__submit']"
+	},
 	"main": {
 		"advantBlock": ".advant__el",
 		"advantBlockModal": ".modal__show .modal-content",
@@ -180,5 +187,13 @@
 		"howOften": ".contract-content .input-cont:nth-child(14) .check-el:nth-child(2)",
 		"howLong": ".contract-content .input-cont:nth-child(16) .check-el:nth-child(2)",
 		"formBtn": ".js-submit-poll"
+	},
+	"recipe": {
+		"recipeGet":".modal-get[data-modal='recipeTrue']",
+		"recipeModal":".modal[data-modal='recipeTrue'] form",
+		"recipeFormGet": ".modal[data-modal='recipeTrue'] .btn--md",
+		"recipePhone": ".modal[data-modal='recipeTrue'] .input[data-placeholder='Телефон']",
+		"recipeName": ".modal[data-modal='recipeTrue'] .input[data-placeholder='Имя']",
+		"recipeEmail": ".modal[data-modal='recipeTrue'] .input[data-placeholder='Email']"
 	}
 }

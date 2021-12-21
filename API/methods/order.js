@@ -14,7 +14,7 @@ module.exports = async function createOrderTabPromo(
 				for (let item of data) {
 					await awaitBrowser
 						.click(`${item.selector}:nth-child(${item.index + 1})`)
-						.pause(2500)
+						.pause(1000)
 						//.isElement(query.contract)
 						.assertView(
 							'totalOrder' + (item.index + 1),
@@ -74,31 +74,34 @@ module.exports = async function createOrderTabPromo(
 		.insertPhone(query.phoneInput, false, generatePhoneVal)
 
 		//Click checkbox
-		.pause(3000)
+		//.isShowLoader('.loader')
 		.isElement(query.checkBox, 'Error:После ввода телефона')
 		.setValue(query.couponInput, query.couponVal)
 		.isElement(query.couponBtn, 'Error:После ввода купона')
 		//Check all cost + coupon
 
 		//Check dayOfCheckBox
+
+		.isShowLoader('.loader')
 		.isVisible(query.checkBoxExcludeDayOff)
 		.then(data => {
 			if (data[0]) {
 				return awaitBrowser
 					.isElement(query.checkBoxExcludeDayOff, 'Error:Исключить выходные')
-					.pause(2000)
+					.isShowLoader('.loader', 10000)
 			} else {
 				return data
 			}
 		})
-		.pause(3000)
+		.pause(1000)
 		.$$(query.listSize)
 		.then(data => {
 			return (async data => {
 				for (let item of data) {
 					await awaitBrowser
 						.click(`${item.selector}:nth-child(${item.index + 1})`)
-						.pause(3000)
+						.pause(5000)
+						//.isShowLoader('.loader', 10000)
 						.assertView(
 							'contractForm + COUPON' + (item.index + 1),
 							query.contract,
@@ -110,6 +113,6 @@ module.exports = async function createOrderTabPromo(
 				}
 			})(data)
 		})
-		.pause(5000)
+		.pause(1000)
 		.click(query.orderBtn, 'Error:Начало заказа')
 }

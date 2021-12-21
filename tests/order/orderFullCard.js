@@ -36,26 +36,23 @@ for (let el in mainConfig.server.stateTest) {
 							//.regUser(generatePhoneVal.phone, false)
 							.insertPhone(query.phoneInput, false, fakeData.phoneTrue)
 							//Send form
-							.pause(1000)
 							.isElement(query.orderBtn, 'Error:Начало заказа')
 
 							//Check modal + send
-							.pause(4000)
+							.pause(1500)
 							.click(query.modalOrderBtnNormal)
 							//Check modal + send === end
 
 							//Start form test
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
-							.pause(1000)
 							.setValue(query.fullOrder.name, 'GEROME')
 
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
 							.setValue(query.fullOrder.mail, fakeData.mailTrue)
-							.pause(1000)
 
 							//add program
 							.click(query.fullOrder.orderAdd)
-							.pause(2000)
+							.pause(1000)
 							.assertView(
 								'addProgramModal',
 								query.fullOrder.orderAddModal,
@@ -113,7 +110,7 @@ for (let el in mainConfig.server.stateTest) {
 									query.fullOrder.selectConditionDelivery
 								]
 							})
-							.pause(5000)
+							.pause(1000)
 
 							//Check size program === end
 
@@ -125,20 +122,16 @@ for (let el in mainConfig.server.stateTest) {
 
 							//Check coupon cost
 							.click(query.fullOrder.checkCoupon)
-							.pause(1000)
-							.isElement(query.orderTitle, 'Error:Промокод не доступен')
-
 							.setValue(query.fullOrder.orderCouponVal, fakeData.couponTrue)
 							.click(query.fullOrder.orderCouponBtn)
-							.isElement(query.orderTitle, 'Error:Оформление заказа')
-							.pause(3000)
+							.isShowLoader('.loader')
 							.scroll(query.fullOrder.orderTotal)
 							.assertView(
 								'Check coupon TRUE',
 								query.fullOrder.orderTotal,
 								mainConfig.tolerance
 							)
-							.pause(3000)
+							.pause(1000)
 							//Check coupon cost === end
 
 							.click(query.fullOrder.btnConfirm)

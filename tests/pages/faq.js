@@ -40,9 +40,9 @@ for (let el in mainConfig.server.stateTest) {
 										await browser
 											.element(`${item.selector}:nth-child(${item.index + 1})`)
 											.click()
-											.pause(3500)
+											.pause(1500)
 											.click(query.faq.elQuestion)
-											.pause(3500)
+											.pause(4500)
 											.assertView('TAB - ' + (item.index + 1), '.js-tab-wrap', {
 												...mainConfig.tolerance
 											})

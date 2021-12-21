@@ -46,7 +46,7 @@ for (let el in mainConfig.server.stateTest) {
 					)
 					.pause(2000)
 					.click(query.callBack.callBackBtn)
-					.pause(2000)
+					.pause(5000)
 					.assertView(
 						'callBackModalTrue',
 						query.callBack.callBackModalTrue,

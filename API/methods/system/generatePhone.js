@@ -1,13 +1,13 @@
 let generateNumber = function() {
-	let getRandomPhone = () => Math.floor(Math.random() * Math.pow(10, 9))
+	let getRandomPhone = () => Math.floor(Math.random() * Math.pow(8, 7))
 	let randomPhoneVal = getRandomPhone()
 	let phoneToString = randomPhoneVal.toString()
-	console.log(phoneToString.length)
-	if (phoneToString.length <= 8) {
-		console.log('FIND ZERO!')
+	//console.log(phoneToString.length)
+	if (phoneToString.length <= 6) {
+		//console.log('FIND ZERO!')
 		return generateNumber()
 	} else {
-		randomPhoneVal = '9' + randomPhoneVal
+		randomPhoneVal = '555' + randomPhoneVal
 		console.log('TEST PHONE ===> ', randomPhoneVal)
 		return {
 			number: randomPhoneVal,

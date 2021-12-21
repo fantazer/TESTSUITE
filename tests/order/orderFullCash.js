@@ -104,7 +104,6 @@ for (let el in mainConfig.server.stateTest) {
 								false,
 								fakeData.phoneFalse
 							)
-							.pause(1500)
 							.click(query.fullOrder.btnConfirm)
 							.pause(1500)
 							.assertView(
@@ -119,7 +118,6 @@ for (let el in mainConfig.server.stateTest) {
 								false,
 								fakeData.phoneTrue
 							)
-							.pause(1000)
 							//Check friend phone === end
 
 							//Check size program
@@ -136,8 +134,7 @@ for (let el in mainConfig.server.stateTest) {
 										await browser
 											.element(`${item.selector}:nth-child(${item.index + 1})`)
 											.click()
-											.pause(2000)
-											.isElement(query.orderTitle, 'Error:Оформление заказа')
+											.isShowLoader('.loader')
 											.assertView(
 												elName,
 												query.fullOrder.orderTotal,
@@ -164,12 +161,10 @@ for (let el in mainConfig.server.stateTest) {
 							//Check coupon cost
 							.click(query.fullOrder.checkCoupon)
 							.pause(1000)
-							.isElement(query.orderTitle, 'Error:Промокод не доступен')
 							//false coupon
 							.setValue(query.fullOrder.orderCouponVal, fakeData.couponFalse)
 							.click(query.fullOrder.orderCouponBtn)
-							.isElement(query.orderTitle, 'Error:Оформление заказа')
-							.pause(3000)
+							.isShowLoader('.loader')
 							.assertView(
 								'Check coupon false',
 								query.fullOrder.couponContainer,
@@ -178,15 +173,14 @@ for (let el in mainConfig.server.stateTest) {
 							//true coupon
 							.setValue(query.fullOrder.orderCouponVal, fakeData.couponTrue)
 							.click(query.fullOrder.orderCouponBtn)
-							.isElement(query.orderTitle, 'Error:Оформление заказа')
-							.pause(3000)
+							.isShowLoader('.loader', 10000)
 							.scroll(query.fullOrder.orderTotal)
+							.pause(1000)
 							.assertView(
 								'Check coupon TRUE',
 								query.fullOrder.orderTotal,
 								mainConfig.tolerance
 							)
-							.pause(3000)
 							//Check coupon cost === end
 
 							//Set MSG
@@ -196,19 +190,7 @@ for (let el in mainConfig.server.stateTest) {
 							//Set MSG === end
 
 							.click(query.fullOrder.btnConfirm)
-							.pause(2000)
-
-							//Payment
-							/*.isElement(query.payment.cardNumber, 'Error:Оплата картой')
-				.assertView('PaymentPage', query.payment.page, mainConfig.tolerance)
-				.pause(1000)
-				.setValue(query.payment.cardNumber, fakeData.cardNumber)
-				.pause(1000)
-				.setValue(query.payment.cardDate, fakeData.cardDate)
-				.pause(1000)
-				.setValue(query.payment.cardCVS, fakeData.cardCVS)
-				.pause(2000)
-				.click(query.payment.cardBtn)*/
+							.pause(1000)
 
 							//FINISH
 							.isElement(query.contract, 'Error:Конец оплаты')

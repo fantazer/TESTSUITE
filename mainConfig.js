@@ -15,6 +15,7 @@ module.exports = function() {
 
 	//URLS
 
+	//let urlTestSystem = 'http://vds46.b2b-group.org:1444/'
 	let urlTestSystem = 'http://148.251.246.45:1444'
 
 	let server = {
@@ -60,6 +61,11 @@ module.exports = function() {
 			{
 				url: '?utm_source=marka',
 				label: 'EMS'
+			},
+			{
+				url:
+					'?utm_campaign=111111&utm_medium=social_referral&utm_source=Flocktory',
+				label: 'flocktory'
 			}
 		],
 		program: [
@@ -117,6 +123,10 @@ module.exports = function() {
 				url: '/programmy/slim/',
 				name: 'Slim',
 				param: '&complex'
+			},
+			{
+				url: '/programmy/middlesea/',
+				name: 'middleSea'
 			}
 		],
 
@@ -204,6 +214,22 @@ module.exports = function() {
 			bonus: {
 				url: '/aktsii/bonus/',
 				name: 'Бонусы'
+			},
+			calcTiming: {
+				url: '/calc_timing/',
+				name: 'Калькулятор времени'
+			},
+			slimming: {
+				url: '/slimming/',
+				name: 'Истории похудения'
+			},
+			comparison: {
+				url: '/comparison/',
+				name: 'Сравнение рационов'
+			},
+			recipe: {
+				url: '/recipe/',
+				name: 'Рецепты'
 			}
 		}
 	}
@@ -219,13 +245,15 @@ module.exports = function() {
 	//URLS === end
 
 	let tolerance = {
-		tolerance: 8,
-		antialiasingTolerance: 4,
+		tolerance: 2.5,
+		antialiasingTolerance: 0,
+		ignoreAntialiasing: true,
+		ignoreCaret: true,
 		allowViewportOverflow: true,
 		captureElementFromTop: true,
 		compositeImage: true,
-		screenshotDelay: 10,
-		ignoreElements: ['.spinner_block']
+		screenshotDelay: 300,
+		ignoreElements: ['.loader']
 	}
 
 	let couponList = ['KATERINAFFIT', 'POLINKA']
@@ -238,6 +266,7 @@ module.exports = function() {
 		server,
 		apiUrlList,
 		couponList,
-		resolution
+		resolution,
+		urlTestSystem
 	}
 }

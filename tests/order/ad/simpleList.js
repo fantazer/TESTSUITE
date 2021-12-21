@@ -28,7 +28,7 @@ describe('TEST', function() {
 							.regUser(generatePhoneVal.phone, false)
 							.insertPhone(query.phoneInput, false, generatePhoneVal.array)
 
-							.pause(1000)
+							.pause(3000)
 							.isElement(query.orderBtn, 'Error:Начало заказа')
 							.isElement(query.modalOrder, 'Error:Ожидаю окно')
 							.pause(1500)

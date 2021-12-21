@@ -44,6 +44,13 @@ let urlList = [
 		recommend: true
 	},
 	{
+		name: 'RecomendFlocktory',
+		url: [mainConfig.server.ad[4].url],
+		UTM: 'Друзья',
+		trainer: false,
+		recommend: true
+	},
+	{
 		name: 'YandexGoogle',
 		url: [mainConfig.server.ad[2].url, mainConfig.server.ad[3].url],
 		UTM: 'Яндекс-сотрудники',
@@ -58,8 +65,22 @@ let urlList = [
 		recommend: false
 	},
 	{
+		name: 'YandexFlocktory',
+		url: [mainConfig.server.ad[2].url, mainConfig.server.ad[4].url],
+		UTM: 'flocktory',
+		trainer: false,
+		recommend: false
+	},
+	{
 		name: 'AdmitadYandex',
 		url: [mainConfig.server.ad[0].url, mainConfig.server.ad[2].url],
+		UTM: 'Яндекс-сотрудники',
+		trainer: false,
+		recommend: false
+	},
+	{
+		name: 'FlocktoryYandex',
+		url: [mainConfig.server.ad[4].url, mainConfig.server.ad[2].url],
 		UTM: 'Яндекс-сотрудники',
 		trainer: false,
 		recommend: false
@@ -102,9 +123,9 @@ describe('TEST', function() {
 							.regUser(generatePhoneVal.phone, false)
 
 							//set coupone
-							.pause(3000)
+							.pause(1000)
 							.isElement(query.checkBox, 'Error:После ввода телефона')
-							.pause(3000)
+							.pause(1000)
 							.insertPhone(
 								query.phoneInputAddPromo,
 								false,
@@ -118,16 +139,16 @@ describe('TEST', function() {
 										.setValue(query.couponInput, mainConfig.couponList[1])
 										.isElement(query.couponBtn, 'Error:После ввода купона')
 								} else {
-									return browser
-										.click(query.checkBox)
-										.isElement(query.orderBtn, 'Error:После ввода телефона')
+									return browser.click(query.checkBox)
+									//.isElement(query.orderBtn, 'Error:После ввода телефона')
 								}
 							})
+							.pause(4000)
 							.click(query.orderBtn)
 
 							//Check modal + send
-							.isElement(query.modalOrder, 'Error:Ожидаю окно')
-							.pause(1500)
+							//.isElement(query.modalOrder, 'Error:Ожидаю окно')
+							.pause(4500)
 							.click(query.modalOrderBtnNormal)
 							.pause(4000)
 							//Check modal + send === end

@@ -59,7 +59,7 @@
 		"orderChooseRange": "[data-test='orderChooseRange']",
 		"orderAdd": "[data-test='orderAdd']",
 		"orderAddModal": "[data-modal='changeProgram'] .modal-content",
-		"orderAddEl": ".program-register-row[data-program='balance']",
+		"orderAddEl": ".modal__show .program-register-row[data-program='balance']",
 		"orderChooseRangeEl": "[data-test='orderChooseRange'] .contract-config__el",
 		"orderTotal": "[data-test='orderTotal']",
 		"checkRefreshBox": "[data-test='orderAddCheck'] .check-el:nth-child(1)",
@@ -75,6 +75,7 @@
 		"commentText": "[data-test='orderCommentValue'] .input",
 		"orderTitle": "#order-full .type--w700.mb-48.type--xl"
 	},
+
 	"payment":{
 		"page": "body",
 		"cardNumber": "#pan",
@@ -83,7 +84,7 @@
 		"cardBtn": "button[automation-id='main-layout__submit']"
 	},
 	"advant":".work-step .work-step__el",
-	"advantHasPopUp":".work-step .work-step__el .action-get-popup",
+	"advantHasPopUp":".work-step .work-step__el.action-get-popup",
 	"advantBlockModal": ".modal__show .modal-content",
 	"advantBlockModalClose": ".modal__show .modal-content .modal-hide",
 	"orderTitle": ".contract-content .type--w700.mb-48.type--xl",

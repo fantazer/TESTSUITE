@@ -35,7 +35,7 @@ describe('TEST', function() {
 							.isElement(query.checkBox, 'Error:После ввода телефона')
 							.setValue(query.couponInput, itemCoupon)
 							.isElement(query.couponBtn, 'Error:После ввода купона')
-							.pause(4000)
+							.pause(5000)
 							.assertView(`contractForm - ${itemCoupon}`, query.contract, {
 								...mainConfig.tolerance,
 								ignoreElements: [query.phoneInputAddPromo]

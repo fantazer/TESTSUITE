@@ -1,6 +1,7 @@
+let path = require('path')
 let FormData = require('form-data')
 const fetch = require('node-fetch')
-let urlTestServer = 'http://148.251.246.45:1444'
+let mainConfig = require(path.resolve('mainConfig.js'))()
 
 let connectInfo = new FormData()
 connectInfo.append('client_id', 'clientApp')
@@ -12,7 +13,7 @@ connectInfo.append('username', 'api@test.com')
 let getToken = async () => {
 	//get TOKEN
 	try {
-		let response = await fetch(urlTestServer + '/connect/token', {
+		let response = await fetch(mainConfig.urlTestSystem + '/connect/token', {
 			method: 'POST',
 			body: connectInfo,
 			redirect: 'follow'

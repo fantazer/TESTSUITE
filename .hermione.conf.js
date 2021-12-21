@@ -36,7 +36,7 @@ module.exports = {
 	sessionsPerBrowser: 1,
 	//sessionsPerBrowser: 1,
 	testTimeout: 3000000,
-	testsPerSession: 2,
+	testsPerSession: 1,
 	httpTimeout: 3000000,
 	plugins: {
 		'html-reporter/hermione': {
@@ -47,7 +47,8 @@ module.exports = {
 		'hermione-getUser': true,
 		'hermione-regUser': true,
 		'hermione-getUserInfo': true,
-		'hermione-getOrderInfo': true
+		'hermione-getOrderInfo': true,
+		'hermione-isShowEL': true
 		/*'hermione-wdio-migrator': {
 			enabled: false
 		}*/

@@ -24,31 +24,28 @@ for (let el in mainConfig.server.stateTest) {
 				const generatePhone = require('@api/methods/system/generatePhone.js')
 				let generatePhoneVal = generatePhone()
 				let browser = this.browser
-				return (
-					browser
-						.url(serverStateURL + '?ISTEST')
-						.windowHandleSize({width: 1920, height: 1024})
-						.waitForExist('.page', 50000)
-						.pause(2000)
-						.scroll(query.contract)
-						.then(() => {
-							//Check all tabs + Cost + Promocode
-							return createOrderTabPromo(browser, generatePhoneVal.phone)
-						})
-						.pause(3500)
-						.click(query.modalOrderBtnSpeed)
-						.pause(3000)
-						//.isElement('.order-success-head', 'Error:Подтверждение заказа')
-						.assertView('totalOrder', query.totalOrder, {
-							...mainConfig.tolerance,
-							ignoreElements: [query.totalOrderPhone]
-						})
-						.pause(7000)
-						.getUser(generatePhoneVal.phone, false)
-						.regUser(generatePhoneVal.phone, false)
-						.getOrderInfo(generatePhoneVal.phone, false)
-						.pause(2000)
-				)
+				return browser
+					.url(serverStateURL + '?ISTEST')
+					.windowHandleSize({width: 1920, height: 1024})
+					.waitForExist('.page', 50000)
+					.pause(1000)
+					.scroll(query.contract)
+					.then(() => {
+						//Check all tabs + Cost + Promocode
+						return createOrderTabPromo(browser, generatePhoneVal.phone)
+					})
+					.pause(1500)
+					.click(query.modalOrderBtnSpeed)
+					.isElement('.order-success-head', 'Error:Подтверждение заказа')
+					.assertView('totalOrder', query.totalOrder, {
+						...mainConfig.tolerance,
+						ignoreElements: [query.totalOrderPhone]
+					})
+					.pause(5000)
+					.getUser(generatePhoneVal.phone, false)
+					.regUser(generatePhoneVal.phone, false)
+					.getOrderInfo(generatePhoneVal.phone, false)
+					.pause(1000)
 			})
 		})
 	})

@@ -6,7 +6,7 @@ module.exports = (hermione, opts) => {
 			return browser.then(() => {
 				return (async () => {
 					for (let item of data) {
-						await browser.addValue(selector, item)
+						await browser.addValue(selector, item).pause(100)
 					}
 				})()
 			})
