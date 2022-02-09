@@ -20,6 +20,9 @@ for (let el in mainConfig.server.stateTest) {
 					browser
 						.url(serverStateURL)
 						.waitForExist(query.auth.authStart, 20000)
+						.selectorExecute('.modal-filter', function(el) {
+							return el[0].setAttribute('style', 'background-color: black;')
+						})
 						.click(query.auth.authStart)
 						.pause(2000)
 						//Ввод телефона

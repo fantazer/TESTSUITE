@@ -62,6 +62,26 @@
 		"modalTrue": ".modal[data-modal='success'] .modal-content",
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
 	},
+	"blogItem": {
+		"form": ".js-client-no-MOS-block",
+		"formBtn": ".js-client-no-MOS-block .btn--md.btn--mark.btn--mobile",
+		"name": ".js-client-no-MOS-block .input[data-placeholder='Ваше имя']",
+		"phone": ".js-client-no-MOS-block .input[data-placeholder='Телефон']",
+		"modalTrue": ".modal__show[data-modal='trueCallback'] .modal-content",
+		"modalTrueBtn": ".modal__show[data-modal='trueCallback'] .btn--md.btn--light.btn--full",
+		"readMoreEl": ".blog-el.mobile-row-scroll-item",
+		"countDownForm": ".modal[data-modal='blogCountDown'] .modal-content",
+		"countDownFormBtn": ".modal[data-modal='blogCountDown'] .btn--md.btn--mark",
+		"countDownFormName": ".modal[data-modal='blogCountDown'] .input[data-placeholder='Ваше имя']",
+		"countDownFormPhone": ".modal[data-modal='blogCountDown'] .input[data-placeholder='Телефон']",
+		"countDownFormModalTrue": ".modal__show[data-modal='success'] .modal-content",
+		"countDownFormModalTrueBtn": ".modal__show[data-modal='success'] .btn--md.btn--light.btn--full",
+		"timer": ".js-timer",
+		"telegramForm": ".modal[data-modal='telegramSubs'] .modal-content",
+		"telegramFormClose": ".modal[data-modal='telegramSubs'] .js-modal-close",
+		"bubble": ".bubble",
+		"bubbleBtn": ".bubble .btn--sm.btn--mark"
+	},
 	"about": {
 		"getModalBtn": ".action-admin-email[data-person='nastya']",
 		"modal": ".modal[data-modal='founders-callback'] .modal-content",

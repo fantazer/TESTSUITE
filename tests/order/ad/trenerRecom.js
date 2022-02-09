@@ -108,7 +108,7 @@ describe('TEST', function() {
 								return (async data => {
 									for (let item of urlListEl.url) {
 										await browser
-											.url(mainConfig.server.urls.test + item)
+											.url(mainConfig.server.urls.test + item + '&ISTEST')
 											.pause()
 									}
 								})(data)
@@ -182,10 +182,10 @@ describe('TEST', function() {
 							//FINISH
 							.isElement(query.contract, 'Error:Конец оплаты')
 							.pause(2000)
-							.assertView('Finish', query.contract, {
+							/*.assertView('Finish', query.contract, {
 								...mainConfig.tolerance,
 								ignoreElements: [query.totalOrderPhone]
-							})
+							})*/
 
 							//CHECK ORDER
 							.getOrderInfo(generatePhoneVal.phone, false)

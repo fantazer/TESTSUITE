@@ -18,6 +18,9 @@ for (let el in mainConfig.server.stateTest) {
 				return browser
 					.url(serverStateURL)
 					.waitForExist(query.callBack.callBackStart, 50000)
+					.selectorExecute('.modal-filter', function(el) {
+						return el[0].setAttribute('style', 'background-color: black;')
+					})
 					.click(query.callBack.callBackStart)
 					.pause(2000)
 					.assertView(

@@ -29,6 +29,9 @@ for (let el in mainConfig.server.stateTest) {
 							.windowHandleSize({width: 1920, height: 1024})
 							.waitForExist('.page', 50000)
 							.pause(2000)
+							.selectorExecute('.modal-filter', function(el) {
+								return el[0].setAttribute('style', 'background-color: black;')
+							})
 							//Check all tags
 							/*.$$(query.blog.list)
 				.then(data => {

@@ -33,6 +33,9 @@ for (let el in mainConfig.server.stateTest) {
 							.url(serverStateURL + '?ISTEST')
 							.windowHandleSize({width: 1920, height: 1024})
 							.waitForExist('.page', 50000)
+							.selectorExecute('.modal-filter', function(el) {
+								return el[0].setAttribute('style', 'background-color: black;')
+							})
 							.pause(1000)
 							.assertView('page', '.page', mainConfig.tolerance)
 							//Check more dish

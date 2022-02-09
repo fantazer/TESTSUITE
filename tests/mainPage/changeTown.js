@@ -14,7 +14,9 @@ for (let el in mainConfig.server.stateTest) {
 					browser
 						.url(serverStateURL)
 						.waitForExist(query.changeTown.changeTownStart, 50000)
-
+						.selectorExecute('.modal-filter', function(el) {
+							return el[0].setAttribute('style', 'background-color: black;')
+						})
 						//Проверка текущего города
 						.getText(query.changeTown.changeTownStartName)
 						.then(function(text) {
@@ -57,6 +59,9 @@ for (let el in mainConfig.server.stateTest) {
 							//data = data.replace(/\/oct\/|\/\?newsite/gi, '')
 							//console.log(data)
 							mainConfig.assert.equal(data, serverState.urlSPB)
+						})
+						.selectorExecute('.modal-filter', function(el) {
+							return el[0].setAttribute('style', 'background-color: black;')
 						})
 						.getText(query.changeTown.changeTownStartName)
 						.then(function(text) {

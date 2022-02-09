@@ -159,6 +159,10 @@ module.exports = function() {
 				url: '/blog/',
 				name: 'Блог'
 			},
+			blogItem: {
+				url: '/blog/top-poleznyh-produktov/',
+				name: 'Блог подробная'
+			},
 			whatIsBefit: {
 				url: '/chto-takoe-befit/',
 				name: 'Что такое бефит'
@@ -230,6 +234,10 @@ module.exports = function() {
 			recipe: {
 				url: '/recipe/',
 				name: 'Рецепты'
+			},
+			newyear: {
+				url: '/newyear/',
+				name: 'Новый год'
 			}
 		}
 	}
