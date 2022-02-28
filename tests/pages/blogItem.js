@@ -28,10 +28,10 @@ for (let el in mainConfig.server.stateTest) {
 							.selectorExecute('.modal-filter', function(el) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
-							.assertView('page', '.page > .f-grow', {
+							/*.assertView('page', '.page > .f-grow', {
 								...mainConfig.tolerance,
 								ignoreElements: [query.blogItem.readMoreEl]
-							})
+							})*/
 
 							.click(query.blogItem.formBtn)
 							.assertView('form', query.blogItem.form, mainConfig.tolerance)

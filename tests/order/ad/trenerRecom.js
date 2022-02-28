@@ -10,7 +10,7 @@ const fakeData = require('@querySelector/fakeData.json')
 let urlList = [
 	{
 		name: 'TrenerRecomend',
-		url: [''],
+		url: ['?default'],
 		UTM: 'Тренер Полина',
 		trainer: true,
 		recommend: true

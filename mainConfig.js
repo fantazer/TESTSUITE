@@ -119,11 +119,11 @@ module.exports = function() {
 				name: 'Normal Premium',
 				param: '&elp'
 			},
-			{
+			/*		{
 				url: '/programmy/slim/',
 				name: 'Slim',
 				param: '&complex'
-			},
+			},*/
 			{
 				url: '/programmy/middlesea/',
 				name: 'middleSea'
