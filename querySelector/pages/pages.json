@@ -106,6 +106,7 @@
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
 	},
 	"coach": {
+		"banner": ".board__el",
 		"enterModalBtnOpen": ".js-couch-personal-btn",
 		"enterModal": ".modalEnterLK .modal-content",
 		"enterModalBtnSend": ".modalEnterLK .action-enter",
@@ -166,6 +167,9 @@
 		"modalTrueBtn": ".modal[data-modal='trueFaq'] .btn--md.btn--light.btn--full",
 		"map":".map"
 	},
+	"delivery": {
+		"map":".js-delivery-bg-img"
+	},
 	"corp": {
 		"form": ".contract",
 		"name": ".contract .input[data-placeholder='Ваше имя']",
@@ -174,7 +178,8 @@
 		"modalTrue": ".modal[data-modal='success'] .modal-content",
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full",
 		"schedule": ".schedule-list",
-		"items": ".program-el"
+		"items": ".program-el",
+		"banner": ".row.g-gap-20"
 	},
 	"mikromarket": {
 		"form": "#form",
@@ -184,9 +189,12 @@
 		"mail": "#form .input[data-placeholder='Электронная почта']",
 		"formBtn": "#form .btn--md.btn--mark.btn--mobile",
 		"modalTrue": ".modal[data-modal='success'] .modal-content",
-		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"
+		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full",
+		"item": ".js-retail-menu-item"
 	},
 	"retail": {
+		"banner": ".board__el",
+		"items": ".js-retail-menu-item",
 		"showMoreDish": ".js-show-more-retail-menu",
 		"form": ".main-cont-sm .contract",
 		"formBtn": ".js-retail-write-us",

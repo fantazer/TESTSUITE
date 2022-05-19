@@ -36,7 +36,7 @@ for (let el in mainConfig.server.stateTest) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
 							.pause(2000)
-							.assertView('page', '.page', {
+							.assertView('page', '.content', {
 								...mainConfig.tolerance,
 								ignoreElements: [query.contact.map]
 							})
@@ -65,7 +65,9 @@ for (let el in mainConfig.server.stateTest) {
 							.pause(2000)
 
 							//finish
-							.assertView('finish', '.page', mainConfig.tolerance)
+							.assertView('end', '.header', {
+								...mainConfig.tolerance
+							})
 							.pause(1000)
 					)
 				})

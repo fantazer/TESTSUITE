@@ -138,7 +138,7 @@ for (let el in mainConfig.server.stateTest) {
 							.pause(2000)
 
 							//Payment
-							.isElement(query.payment.cardNumber, 'Error:Оплата картой')
+							.isElement('body', 'Error:Оплата картой')
 							.assertView(
 								'PaymentPage',
 								query.payment.page,

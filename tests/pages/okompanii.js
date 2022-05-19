@@ -29,7 +29,7 @@ for (let el in mainConfig.server.stateTest) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
 							.pause(2000)
-							.assertView('page', '.page', {
+							.assertView('page', '.content', {
 								...mainConfig.tolerance,
 								ignoreElements: [query.about.video]
 							})

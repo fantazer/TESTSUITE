@@ -40,7 +40,10 @@ for (let el in mainConfig.server.stateTest) {
 									'.program-days',
 									'.program-el',
 									'.size',
-									'.schedule-list'
+									'.schedule-list',
+									'.header',
+									'.footer',
+									'.js-header-banner-newclient'
 								]
 							})
 							//check advant
@@ -124,13 +127,16 @@ for (let el in mainConfig.server.stateTest) {
 											)
 											.assertView(
 												'programContract - ' + coupon.name,
-												query.contract,
+												query.contractNav,
 												mainConfig.tolerance
 											)
 									}
 								})(data)
 							})
 							.deleteCookie()
+							.then(() => {
+								console.log(`=== TEST PROGRAM/${el.name} END TRUE ===`)
+							})
 						//.getOrderInfo(generatePhoneVal.phone, false)
 						//check cost coupon
 					)

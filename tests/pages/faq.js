@@ -31,7 +31,7 @@ for (let el in mainConfig.server.stateTest) {
 							.selectorExecute('.modal-filter', function(el) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
-							.assertView('page', '.page', mainConfig.tolerance)
+							.assertView('page', '.content', mainConfig.tolerance)
 							//Check all tabs
 							.$$(query.faq.list)
 							.then(data => {
@@ -67,7 +67,7 @@ for (let el in mainConfig.server.stateTest) {
 								...mainConfig.tolerance
 							})
 							.click(query.faq.modalTrueBtn)
-							.pause(2000)
+							.pause(3000)
 							.assertView('finish', query.faq.form, {
 								...mainConfig.tolerance
 							})

@@ -34,7 +34,7 @@ for (let el in mainConfig.server.stateTest) {
 							.windowHandleSize({width: 1920, height: 1024})
 							.waitForExist('.page', 50000)
 							.pause(1000)
-							.assertView('page', '.page', mainConfig.tolerance)
+							.assertView('page', '.content', mainConfig.tolerance)
 							//check validate
 							.click(query.quiz.formBtn)
 							.pause(500)

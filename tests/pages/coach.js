@@ -40,7 +40,11 @@ for (let el in mainConfig.server.stateTest) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
 							.pause(2000)
-							.assertView('page', '.page', mainConfig.tolerance)
+							.assertView('banner', query.retail.banner, {
+								...mainConfig.tolerance,
+								ignoreElements: [query.retail.items]
+							})
+							.assertView('page', '.content', mainConfig.tolerance)
 
 							//enter LK
 							.click(query.coach.enterModalBtnOpen)

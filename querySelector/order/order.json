@@ -1,5 +1,6 @@
 {
 	"contract": ".contract",
+	"contractNav": ".contract-content",
 	"phoneFalse": [1,2,3,4,5,6,7,8,9],
 	"phoneTrue": [1,2,3,4,5,6,7,8,9,9],
 	"mailFalse": "falseMail",
@@ -50,8 +51,8 @@
 		"mail": "[data-test='orderMail'] .input",
 		"mailContainer": "[data-test='orderMail']",
 		"btnConfirm": "[data-test='orderFinish']",
-		"checkFriend": ".js-switch[data-item='isFriend']",
-		"friendPhone": "[data-test='orderCheckFriendPhone']",
+		"checkFriend": ".js-switch[data-item='recommendFriend']",
+		"friendPhone": "[data-test='recommendFriendPhone']",
 		"selectConditionDelivery": ".input-cont.input-cont--three.mb-32",
 		"toggleSizeProgram": ".js-config",
 		"programSizeConfig": "[data-test='orderForm']",
@@ -89,5 +90,5 @@
 	"advantBlockModalClose": ".modal__show .modal-content .modal-hide",
 	"orderTitle": ".contract-content .type--w700.mb-48.type--xl",
 	"mainBanner": ".board__el",
-	"programListBanner": ".program-list .program-banner "
+	"programListBanner": ".js-program-banner"
 }

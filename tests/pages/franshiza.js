@@ -42,7 +42,7 @@ for (let el in mainConfig.server.stateTest) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
 							.pause(2000)
-							.assertView('page', '.page', mainConfig.tolerance)
+							.assertView('page', '.content', mainConfig.tolerance)
 
 							//Сheck request form
 							.click(query.franshiza.formBtn)
@@ -81,7 +81,7 @@ for (let el in mainConfig.server.stateTest) {
 							.pause(2000)
 
 							//finish
-							.assertView('finish', '.page', mainConfig.tolerance)
+							.assertView('finish', query.franshiza.form, mainConfig.tolerance)
 							.pause(1000)
 					)
 				})

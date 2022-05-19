@@ -5,6 +5,7 @@
 
 let path = require('path')
 let mainConfig = require(path.resolve('mainConfig.js'))()
+const query = require('@querySelector/pages/pages.json')
 
 for (let el in mainConfig.server.stateTest) {
 	let serverState = mainConfig.server.stateTest[el]
@@ -19,7 +20,10 @@ for (let el in mainConfig.server.stateTest) {
 					.windowHandleSize({width: 1920, height: 1024})
 					.waitForExist('.page', 50000)
 					.pause(2000)
-					.assertView('page', '.page', mainConfig.tolerance)
+					.assertView('page', '.page', {
+						...mainConfig.tolerance,
+						ignoreElements: [query.delivery.map]
+					})
 					.pause(2000)
 			})
 		})

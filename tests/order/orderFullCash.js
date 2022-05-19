@@ -97,7 +97,7 @@ for (let el in mainConfig.server.stateTest) {
 							.pause(1000)
 
 							//Check friend phone
-							.click(query.fullOrder.checkFriend)
+							/*.click(query.fullOrder.checkFriend)
 							.pause(1000)
 							.insertPhone(
 								query.fullOrder.friendPhone,
@@ -117,7 +117,7 @@ for (let el in mainConfig.server.stateTest) {
 								query.fullOrder.friendPhone,
 								false,
 								fakeData.phoneTrue
-							)
+							)*/
 							//Check friend phone === end
 
 							//Check size program

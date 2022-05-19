@@ -33,7 +33,10 @@ for (let el in mainConfig.server.stateTest) {
 							.windowHandleSize({width: 1920, height: 1024})
 							.waitForExist('.page', 50000)
 							.pause(2000)
-							.assertView('page', '.page', {
+							.assertView('banner', query.corp.banner, {
+								...mainConfig.tolerance
+							})
+							.assertView('page', '.content', {
 								...mainConfig.tolerance,
 								ignoreElements: [query.corp.items, query.corp.schedule]
 							})
@@ -73,7 +76,7 @@ for (let el in mainConfig.server.stateTest) {
 							.pause(2000)
 
 							//finish
-							.assertView('finish', '.page', mainConfig.tolerance)
+							.assertView('end', '.header', mainConfig.tolerance)
 							.pause(1000)
 					)
 				})

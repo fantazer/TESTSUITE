@@ -25,7 +25,7 @@ for (let el in mainConfig.server.stateTest) {
 					.url(serverStateURL + '?ISTEST')
 					.waitForExist('.page', 50000)
 					.pause(2000)
-					.assertView('page', '.page', {
+					.assertView('page', '.content', {
 						...mainConfig.tolerance
 					})
 					.pause(1000)

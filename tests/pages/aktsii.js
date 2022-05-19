@@ -25,7 +25,7 @@ for (let el in mainConfig.server.stateTest) {
 						})
 						.waitForExist('.page', 50000)
 						.pause(2000)
-						.assertView('page', '.page', mainConfig.tolerance)
+						.assertView('page', '.content', mainConfig.tolerance)
 						//Check all tabs + Cost + Promocode
 						.click(query.aktsii.getModal)
 						.pause(2000)

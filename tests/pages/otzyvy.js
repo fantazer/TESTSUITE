@@ -38,7 +38,7 @@ for (let el in mainConfig.server.stateTest) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
 							.pause(1000)
-							.assertView('page', '.page', mainConfig.tolerance)
+							.assertView('page', '.content', mainConfig.tolerance)
 							//Check false form
 							.click(query.otzyvy.formBtn)
 							.pause(1000)

@@ -28,7 +28,14 @@ for (let el in mainConfig.server.stateTest) {
 							return el[0].setAttribute('style', 'background-color: black;')
 						})
 						.pause(2000)
-						.assertView('page', '.page', mainConfig.tolerance)
+						.assertView('page', '.page', {
+							...mainConfig.tolerance,
+							ignoreElements: [
+								'.header',
+								'.footer',
+								'.js-header-banner-newclient'
+							]
+						})
 						.click(query.recipe.recipeGet)
 						.pause(1000)
 						.assertView(
@@ -51,8 +58,8 @@ for (let el in mainConfig.server.stateTest) {
 						.setValue(query.payment.cardDate, fakeData.cardDate)
 						.setValue(query.payment.cardCVS, fakeData.cardCVS)
 						.click(query.payment.cardBtn)
-						.pause(2000)
-						.assertView('payment', 'body', mainConfig.tolerance)
+						.pause(5000)
+						.assertView('payment', '.content', mainConfig.tolerance)
 						.pause(2000)
 				})
 			})

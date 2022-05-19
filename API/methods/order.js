@@ -18,7 +18,7 @@ module.exports = async function createOrderTabPromo(
 						//.isElement(query.contract)
 						.assertView(
 							'totalOrder' + (item.index + 1),
-							query.contract,
+							query.contractNav,
 							mainConfig.tolerance
 						)
 					//console.log(`${item.selector}:nth-child(${item.index + 1})`)
@@ -51,7 +51,7 @@ module.exports = async function createOrderTabPromo(
 									//.isElement(query.contract)
 									.assertView(
 										'totalOrderDayOff' + (item.index + 1),
-										query.contract,
+										query.contractNav,
 										mainConfig.tolerance
 									)
 							}
@@ -104,7 +104,7 @@ module.exports = async function createOrderTabPromo(
 						//.isShowLoader('.loader', 10000)
 						.assertView(
 							'contractForm + COUPON' + (item.index + 1),
-							query.contract,
+							query.contractNav,
 							{
 								...mainConfig.tolerance,
 								ignoreElements: [query.phoneInputAddPromo]

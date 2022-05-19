@@ -143,21 +143,7 @@ describe('TEST', function() {
 									//.isElement(query.orderBtn, 'Error:После ввода телефона')
 								}
 							})
-							.pause(4000)
-							.click(query.orderBtn)
-
-							//Check modal + send
-							//.isElement(query.modalOrder, 'Error:Ожидаю окно')
-							.pause(4500)
-							.click(query.modalOrderBtnNormal)
-							.pause(4000)
-							//Check modal + send === end
-
-							//Start form test
-							.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
-							.pause(1000)
-							.setValue(query.fullOrder.name, 'GEROME')
-
+							.pause(3000)
 							//Check friend phone
 							.then(data => {
 								if (urlListEl.recommend) {
@@ -175,6 +161,21 @@ describe('TEST', function() {
 								}
 							})
 							//Check friend phone === end
+
+							.pause(4000)
+							.click(query.orderBtn)
+
+							//Check modal + send
+							//.isElement(query.modalOrder, 'Error:Ожидаю окно')
+							.pause(4500)
+							.click(query.modalOrderBtnNormal)
+							.pause(4000)
+							//Check modal + send === end
+
+							//Start form test
+							.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
+							.pause(1000)
+							.setValue(query.fullOrder.name, 'GEROME')
 
 							.click(query.fullOrder.btnConfirm)
 							.pause(2000)
