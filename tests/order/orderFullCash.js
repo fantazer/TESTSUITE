@@ -59,12 +59,12 @@ for (let el in mainConfig.server.stateTest) {
 
 							//Check modal + send
 							.pause(4000)
-							.assertView(
+							/*.assertView(
 								'modalOrderStart',
 								query.modalOrder,
 								mainConfig.tolerance
-							)
-							.isElement(query.modalOrderBtnNormal, 'Error:Ожидаю окно')
+							)*/
+							//.isElement(query.modalOrderBtnNormal, 'Error:Ожидаю окно')
 							//Check modal + send === end
 
 							//Start form test
@@ -164,7 +164,7 @@ for (let el in mainConfig.server.stateTest) {
 							//false coupon
 							.setValue(query.fullOrder.orderCouponVal, fakeData.couponFalse)
 							.click(query.fullOrder.orderCouponBtn)
-							.isShowLoader('.loader')
+							.isShowLoader('.loader', 10000)
 							.assertView(
 								'Check coupon false',
 								query.fullOrder.couponContainer,

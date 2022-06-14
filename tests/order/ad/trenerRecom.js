@@ -167,9 +167,9 @@ describe('TEST', function() {
 
 							//Check modal + send
 							//.isElement(query.modalOrder, 'Error:Ожидаю окно')
-							.pause(4500)
-							.click(query.modalOrderBtnNormal)
-							.pause(4000)
+							//.pause(4500)
+							//.click(query.modalOrderBtnNormal)
+							//.pause(4000)
 							//Check modal + send === end
 
 							//Start form test

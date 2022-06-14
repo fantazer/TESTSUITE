@@ -95,12 +95,13 @@ for (let el in mainConfig.server.stateTest) {
 							//.getUser(generatePhoneVal.phone, false)
 							//.regUser(generatePhoneVal.phone, false)
 							.pause(3000)
-							.assertView(
-								'modalOrderStart',
-								query.modalOrder,
-								mainConfig.tolerance
-							)
-							.click(query.modalOrderBtnSpeed)
+							//create order
+							.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
+							.pause(1000)
+							.setValue(query.fullOrder.name, 'GEROME')
+							.click(query.fullOrder.btnConfirm)
+							.pause(2000)
+
 							.isElement('.order-success-head', 'Error:Подтверждение заказа')
 							.assertView('totalOrder', query.totalOrder, {
 								...mainConfig.tolerance,

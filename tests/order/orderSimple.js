@@ -24,28 +24,37 @@ for (let el in mainConfig.server.stateTest) {
 				const generatePhone = require('@api/methods/system/generatePhone.js')
 				let generatePhoneVal = generatePhone()
 				let browser = this.browser
-				return browser
-					.url(serverStateURL + '?ISTEST')
-					.windowHandleSize({width: 1920, height: 1024})
-					.waitForExist('.page', 50000)
-					.pause(1000)
-					.scroll(query.contract)
-					.then(() => {
-						//Check all tabs + Cost + Promocode
-						return createOrderTabPromo(browser, generatePhoneVal.phone)
-					})
-					.pause(1500)
-					.click(query.modalOrderBtnSpeed)
-					.isElement('.order-success-head', 'Error:Подтверждение заказа')
-					.assertView('totalOrder', query.totalOrder, {
-						...mainConfig.tolerance,
-						ignoreElements: [query.totalOrderPhone]
-					})
-					.pause(5000)
-					.getUser(generatePhoneVal.phone, false)
-					.regUser(generatePhoneVal.phone, false)
-					.getOrderInfo(generatePhoneVal.phone, false)
-					.pause(1000)
+				return (
+					browser
+						.url(serverStateURL + '?ISTEST')
+						.windowHandleSize({width: 1920, height: 1024})
+						.waitForExist('.page', 50000)
+						.pause(1000)
+						.scroll(query.contract)
+						.then(() => {
+							//Check all tabs + Cost + Promocode
+							return createOrderTabPromo(browser, generatePhoneVal.phone)
+						})
+						.pause(1500)
+						//Start form test
+						.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
+						.pause(1000)
+						.setValue(query.fullOrder.name, 'GEROME')
+
+						.click(query.fullOrder.btnConfirm)
+						.pause(2000)
+
+						.isElement('.order-success-head', 'Error:Подтверждение заказа')
+						.assertView('totalOrder', query.totalOrder, {
+							...mainConfig.tolerance,
+							ignoreElements: [query.totalOrderPhone]
+						})
+						.pause(5000)
+						.getUser(generatePhoneVal.phone, false)
+						.regUser(generatePhoneVal.phone, false)
+						.getOrderInfo(generatePhoneVal.phone, false)
+						.pause(1000)
+				)
 			})
 		})
 	})

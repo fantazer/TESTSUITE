@@ -40,7 +40,7 @@ for (let el in mainConfig.server.stateTest) {
 
 							//Check modal + send
 							.pause(1500)
-							.click(query.modalOrderBtnNormal)
+							//.click(query.modalOrderBtnNormal)
 							//Check modal + send === end
 
 							//Start form test
@@ -135,7 +135,7 @@ for (let el in mainConfig.server.stateTest) {
 							//Check coupon cost === end
 
 							.click(query.fullOrder.btnConfirm)
-							.pause(2000)
+							.pause(5000)
 
 							//Payment
 							.isElement('body', 'Error:Оплата картой')

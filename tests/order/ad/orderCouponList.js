@@ -42,10 +42,20 @@ describe('TEST', function() {
 							})
 
 							.isElement(query.orderBtn, 'Error:Начало заказа')
-							.isElement(query.modalOrder, 'Error:Ожидаю окно')
-							.pause(1500)
-							.click(query.modalOrderBtnSpeed)
-							.isElement('.order-success-head', 'Error:Подтверждение заказа')
+							//.isElement(query.modalOrder, 'Error:Ожидаю окно')
+							//.pause(1500)
+							//.click(query.modalOrderBtnSpeed)
+
+							//Start form test
+							.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
+							.pause(1000)
+							.setValue(query.fullOrder.name, 'GEROME')
+
+							.click(query.fullOrder.btnConfirm)
+							.pause(2000)
+
+							//FINISH
+							.isElement(query.contract, 'Error:Конец оплаты')
 							.pause(5000)
 							//CHECK ORDER
 							.getOrderInfo(generatePhoneVal.phone, false)

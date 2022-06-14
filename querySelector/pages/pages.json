@@ -152,7 +152,7 @@
 		"name": ".contract .input[data-placeholder='Ваше имя']",
 		"phone": ".contract .input[data-placeholder='Телефон']",
 		"town": ".contract .input[data-placeholder='Город']",
-		"text": ".contract .input[data-placeholder='Описание']",
+		"text": ".contract .input[data-placeholder='Комментарий']",
 		"formBtn": ".js-franchise-send",
 		"modalTrue": ".modal[data-modal='success'] .modal-content",
 		"modalTrueBtn": ".modal[data-modal='success'] .btn--md.btn--light.btn--full"

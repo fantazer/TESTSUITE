@@ -17,7 +17,7 @@ describe('TEST', function() {
 					let browser = this.browser
 					return (
 						browser
-							.url(mainConfig.server.urls.test + '?new')
+							.url(mainConfig.server.urls.test + '?new&ISTEST')
 							.url(mainConfig.server.urls.test + itemAd.url)
 							.windowHandleSize({width: 1920, height: 1200})
 							.waitForExist('.page', 50000)
@@ -30,11 +30,19 @@ describe('TEST', function() {
 
 							.pause(3000)
 							.isElement(query.orderBtn, 'Error:Начало заказа')
-							.isElement(query.modalOrder, 'Error:Ожидаю окно')
-							.pause(1500)
-							.click(query.modalOrderBtnSpeed)
-							.isElement('.order-success-head', 'Error:Подтверждение заказа')
+							//.isElement(query.modalOrder, 'Error:Ожидаю окно')
+							//.pause(1500)
+							//.click(query.modalOrderBtnSpeed)
+							//.isElement('.order-success-head', 'Error:Подтверждение заказа')
+							.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
 							.pause(5000)
+							.setValue(query.fullOrder.name, 'GEROME')
+
+							.click(query.fullOrder.btnConfirm)
+							.pause(5000)
+
+							.isElement(query.contract, 'Error:Конец оплаты')
+							.pause(2000)
 							//CHECK ORDER
 							.getOrderInfo(generatePhoneVal.phone, false)
 							.then(data => {
