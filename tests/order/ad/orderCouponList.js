@@ -10,74 +10,58 @@ describe('TEST', function() {
 	describe('Order', function() {
 		hermione.skip.notIn('clientChrome', 'Only Desktop')
 		describe('orderCouponList', function() {
-			/*	beforeEach(function(done) {
-		//return jsonData;
-	})*/
-			mainConfig.couponList.forEach(itemCoupon => {
-				it('couponList - ' + itemCoupon, function() {
-					const generatePhone = require('@api/methods/system/generatePhone.js')
-					let generatePhoneVal = generatePhone()
-					let browser = this.browser
-					return (
-						browser
-							.url(mainConfig.server.urls.test + '?new')
-							.url(mainConfig.server.urls.test + '?ISTEST')
-							.windowHandleSize({width: 1920, height: 1200})
-							.waitForExist('.page', 50000)
-							.pause(2000)
+			it('couponList', function() {
+				const generatePhone = require('@api/methods/system/generatePhone.js')
+				let generatePhoneVal = generatePhone()
+				let browser = this.browser
+				return (
+					browser
+						.url(mainConfig.server.urls.test + '?new')
+						.url(mainConfig.server.urls.test + '?ISTEST')
+						.windowHandleSize({width: 1920, height: 1200})
+						.waitForExist('.page', 50000)
+						.pause(2000)
 
-							//Enter phone
-							.getUser(generatePhoneVal.phone, false)
-							.regUser(generatePhoneVal.phone, false)
-							.insertPhone(query.phoneInput, false, generatePhoneVal.array)
+						//Enter phone
+						.getUser(generatePhoneVal.phone, false)
+						.regUser(generatePhoneVal.phone, false)
+						.insertPhone(query.phoneInput, false, generatePhoneVal.array)
 
-							//Checkbox + enter phone + promocode
-							.isElement(query.checkBox, 'Error:После ввода телефона')
-							.setValue(query.couponInput, itemCoupon)
-							.isElement(query.couponBtn, 'Error:После ввода купона')
-							.pause(5000)
-							.assertView(`contractForm - ${itemCoupon}`, query.contract, {
-								...mainConfig.tolerance,
-								ignoreElements: [query.phoneInputAddPromo]
-							})
-
-							.isElement(query.orderBtn, 'Error:Начало заказа')
-							//.isElement(query.modalOrder, 'Error:Ожидаю окно')
-							//.pause(1500)
-							//.click(query.modalOrderBtnSpeed)
-
-							//Start form test
-							.isElement(query.fullOrder.orderTitle, 'Error:Оформление заказа')
-							.pause(1000)
-							.setValue(query.fullOrder.name, 'GEROME')
-
-							.click(query.fullOrder.btnConfirm)
-							.pause(2000)
-
-							//FINISH
-							.isElement(query.contract, 'Error:Конец оплаты')
-							.pause(5000)
-							//CHECK ORDER
-							.getOrderInfo(generatePhoneVal.phone, false)
-							.then(data => {
-								try {
-									let orderDataValue = JSON.parse(data)
-									let adItem = orderDataValue.orders[0].coupon
-									console.log(adItem)
-									if (adItem !== itemCoupon) {
-										throw '!!!COUPON ERROR - ' + itemCoupon
-									} else {
-										console.log('UTM Label - TRUE ', adItem)
-									}
-									return data
-								} catch (e) {
-									console.log(e)
-									throw new Error(e)
+						//Checkbox + enter phone + promocode
+						.isElement(query.checkBox, 'Error:После ввода телефона')
+						.then(data => {
+							return (async data => {
+								for (let el of mainConfig.couponList) {
+									await browser
+										.setValue(query.couponInput, el)
+										.isElement(query.couponBtn, 'Error:После ввода купона')
+										.isShowLoader('.loader', 20000)
+										.$$(query.listSize)
+										.then(data => {
+											return (async data => {
+												for (let item of data) {
+													let elName = await browser.getText(
+														`${item.selector}:nth-child(${item.index +
+															1}) .style-input-text`
+													)
+													await browser
+														.click(
+															`${item.selector}:nth-child(${item.index + 1})`
+														)
+														.isShowLoader('.loader', 5000)
+														.assertView(
+															el + ' - ' + elName,
+															query.contractTotalWrap,
+															mainConfig.tolerance
+														)
+												}
+											})(data)
+										})
+										.pause(3000)
 								}
-							})
-							.pause(2000)
-					)
-				})
+							})(data)
+						})
+				)
 			})
 		})
 	})

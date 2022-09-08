@@ -23,7 +23,7 @@ for (let el in mainConfig.server.stateTest) {
 					.pause(1000)
 					.then(data => {
 						return (async data => {
-							for (let i = 1; i <= 14; ++i) {
+							for (let i = 1; i <= 16; ++i) {
 								await browser
 									.click(query.fixHeader.dropMenu)
 									.pause(1000)

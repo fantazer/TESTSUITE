@@ -21,6 +21,7 @@ for (let el in mainConfig.server.stateTest) {
 	let serverStateURL = serverState.url + mainConfig.server.pages.quiz.url
 	describe(serverState.name, function() {
 		describe('Pages', function() {
+			hermione.skip.notIn('clientChrome', 'Only Desktop')
 			describe('FORM - Pages', function() {
 				if (serverState.name === 'PRODUCTION') {
 					hermione.skip.notIn('clientChrome', 'Only Desktop')

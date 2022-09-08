@@ -1,6 +1,7 @@
 {
 	"contract": ".contract",
 	"contractNav": ".contract-content",
+	"contractTotalWrap": ".contract-total-wrap",
 	"phoneFalse": [1,2,3,4,5,6,7,8,9],
 	"phoneTrue": [1,2,3,4,5,6,7,8,9,9],
 	"mailFalse": "falseMail",

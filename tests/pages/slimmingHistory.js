@@ -19,7 +19,7 @@ for (let el in mainConfig.server.stateTest) {
 					.windowHandleSize({width: 1920, height: 1024})
 					.waitForExist('.page', 50000)
 					.pause(2000)
-					.assertView('page', '.f-grow', mainConfig.tolerance)
+					.assertView('page', '.f-grow.pt-64.pb-80', mainConfig.tolerance)
 					.pause(2000)
 			})
 		})

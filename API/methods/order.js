@@ -65,10 +65,11 @@ module.exports = async function createOrderTabPromo(
 		//Check empty phone
 		.pause(1000)
 		.isElement(query.orderBtn, 'Error:Проверка пустого заказа')
-		.getText(query.phoneInputMsg)
+		.pause(2000)
+		/*.getText(query.phoneInputMsg)
 		.then(text => {
 			mainConfig.assert.equal(text, 'Введите корректный телефон')
-		})
+		})*/
 
 		//Enter phone
 		.insertPhone(query.phoneInput, false, generatePhoneVal)

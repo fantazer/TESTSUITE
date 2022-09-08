@@ -134,7 +134,8 @@ for (let el in mainConfig.server.stateTest) {
 										await browser
 											.element(`${item.selector}:nth-child(${item.index + 1})`)
 											.click()
-											.isShowLoader('.loader')
+											.pause(5000)
+											//.isShowLoader('.loader', 20000)
 											.assertView(
 												elName,
 												query.fullOrder.orderTotal,

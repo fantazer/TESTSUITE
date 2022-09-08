@@ -16,7 +16,7 @@
 		"callBackInput": ".invite-subs .input",
 		"callBackBnt": ".invite-subs .btn--md.btn--mark",
 		"callBackModal": ".modal[data-modal='trueCallback'] .modal-content",
-		"callBackModalBtn": ".modal[data-modal='trueCallback'] .modal-content .js-true-callback-ok",
+		"callBackModalBtn": ".modal[data-modal='trueCallback'] .modal-content .btn--md.btn--light.btn--full",
 		"seoTextCont": ".js-slide-wrap",
 		"seoTextContBtn": ".js-slide-wrap .js-slide",
 		"page": ".page",
@@ -208,12 +208,12 @@
 	"quiz": {
 		"howKnow": ".contract-content .input-cont:nth-child(2) .check-el:nth-child(2)",
 		"recommend": ".contract-content .input-cont:nth-child(4) .check-el:nth-child(2)",
-		"whatLikeText": ".input[name='answer_356608']",
-		"whatBad": ".input[name='answer_356609']",
-		"whatRival": ".input[name='answer_356610']",
-		"whyChoose": ".contract-content .input-cont:nth-child(12) .check-el:nth-child(2)",
-		"howOften": ".contract-content .input-cont:nth-child(14) .check-el:nth-child(2)",
-		"howLong": ".contract-content .input-cont:nth-child(16) .check-el:nth-child(2)",
+		"whatLikeText": ".input[name='answer_558339']",
+		"whatBad": ".input[name='answer_558340']",
+		"whatRival": ".input[name='answer_558341']",
+		"whyChoose": ".contract-content .input-cont:nth-child(14) .check-el:nth-child(2)",
+		"howOften": ".contract-content .input-cont:nth-child(16) .check-el:nth-child(2)",
+		"howLong": ".contract-content .input-cont:nth-child(18) .check-el:nth-child(2)",
 		"formBtn": ".js-submit-poll"
 	},
 	"recipe": {

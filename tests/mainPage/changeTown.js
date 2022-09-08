@@ -60,6 +60,7 @@ for (let el in mainConfig.server.stateTest) {
 							//console.log(data)
 							mainConfig.assert.equal(data, serverState.urlSPB)
 						})
+
 						.selectorExecute('.modal-filter', function(el) {
 							return el[0].setAttribute('style', 'background-color: black;')
 						})
@@ -75,6 +76,8 @@ for (let el in mainConfig.server.stateTest) {
 
 						//Возврат обратно в МСК
 						//Открытие окна
+						.url(serverStateURL + '?ISTEST')
+						.pause(9000)
 						.click(query.changeTown.changeTownStart)
 						.pause(3000)
 						.assertView(

@@ -45,6 +45,11 @@ module.exports = function() {
 		},
 		ad: [
 			{
+				url:
+					'?utm_source=cityads&utm_medium=cpa&click_id=%7Bclick_id%7D&utm_campaign=%7Bwm_id%7D',
+				label: 'CityAds'
+			},
+			{
 				url: '?admitad_uid=fea1bf6ff244195dc4fceb7091e32169&utm_source=admitad',
 				label: 'Admitad'
 			},
@@ -90,7 +95,7 @@ module.exports = function() {
 				name: 'Vegan'
 			},
 			{
-				url: '/programmy/veggi/',
+				url: '/programmy/vegetarian/',
 				name: 'Vegetarian'
 			},
 			{
@@ -119,6 +124,10 @@ module.exports = function() {
 				name: 'Normal Premium',
 				param: '&elp'
 			},
+			{
+				url: '/programmy/balancepremium/',
+				name: 'Balance Premium'
+			},
 			/*		{
 				url: '/programmy/slim/',
 				name: 'Slim',
@@ -127,6 +136,10 @@ module.exports = function() {
 			{
 				url: '/programmy/middlesea/',
 				name: 'middleSea'
+			},
+			{
+				url: '/programmy/gluten_free/',
+				name: 'Gluten'
 			}
 		],
 
@@ -238,6 +251,18 @@ module.exports = function() {
 			newyear: {
 				url: '/newyear/',
 				name: 'Новый год'
+			},
+			oferta: {
+				url: '/oferta/',
+				name: 'Оферта'
+			},
+			politika: {
+				url: '/politika/',
+				name: 'Политика'
+			},
+			apps: {
+				url: '/apps/',
+				name: 'Скачать приложение'
 			}
 		}
 	}
@@ -264,7 +289,13 @@ module.exports = function() {
 		ignoreElements: ['.loader']
 	}
 
-	let couponList = ['KATERINAFFIT', 'POLINKA']
+	let couponList = [
+		'BEFITNEW',
+		'SURVEY',
+		'PRIMEZONE',
+		'BEFITAUGUST',
+		'BEFITCHOICE'
+	]
 
 	return {
 		path,
