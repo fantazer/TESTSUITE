@@ -29,7 +29,7 @@
 			"queryTextValue":"4 недели (24 дня)"
 		}
 	},
-	"listSize": ".action-block-week .contract-config__el",
+	"listSize": ".action-contract-config .contract-config__el",
 	"orderBtn": ".contract-footer .btn--md",
 	"phoneInput": ".checkPhoneBlockWithoutCoupon .input-mask--phone",
 	"phoneInputAddPromo": ".checkPhoneBlock .input-mask--phone",

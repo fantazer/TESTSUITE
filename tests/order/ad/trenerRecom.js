@@ -136,7 +136,7 @@ describe('TEST', function() {
 								//console.log(urlListEl)
 								if (urlListEl.trainer) {
 									return browser
-										.setValue(query.couponInput, mainConfig.couponList[1])
+										.setValue(query.couponInput, mainConfig.couponList[0])
 										.isElement(query.couponBtn, 'Error:После ввода купона')
 								} else {
 									return browser.click(query.checkBox)

@@ -45,11 +45,6 @@ module.exports = function() {
 		},
 		ad: [
 			{
-				url:
-					'?utm_source=cityads&utm_medium=cpa&click_id=%7Bclick_id%7D&utm_campaign=%7Bwm_id%7D',
-				label: 'CityAds'
-			},
-			{
 				url: '?admitad_uid=fea1bf6ff244195dc4fceb7091e32169&utm_source=admitad',
 				label: 'Admitad'
 			},
@@ -71,6 +66,11 @@ module.exports = function() {
 				url:
 					'?utm_campaign=111111&utm_medium=social_referral&utm_source=Flocktory',
 				label: 'flocktory'
+			},
+			{
+				url:
+					'?utm_source=cityads&utm_medium=cpa&click_id=%7Bclick_id%7D&utm_campaign=%7Bwm_id%7D',
+				label: 'CityAds'
 			}
 		],
 		program: [
@@ -290,6 +290,7 @@ module.exports = function() {
 	}
 
 	let couponList = [
+		'POLINKA',
 		'BEFITNEW',
 		'SURVEY',
 		'PRIMEZONE',
