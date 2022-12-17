@@ -30,7 +30,7 @@ for (let el in mainConfig.server.stateTest) {
 							.waitForExist('.page', 50000)
 							//.deleteCookie()
 
-							.pause(2000)
+							.pause(6000)
 							.selectorExecute('.modal-filter', function(el) {
 								return el[0].setAttribute('style', 'background-color: black;')
 							})
@@ -107,7 +107,7 @@ for (let el in mainConfig.server.stateTest) {
 								...mainConfig.tolerance,
 								ignoreElements: [query.totalOrderPhone]
 							})
-							.pause(2000)
+							.pause(7000)
 							.then(data => {
 								return (async data => {
 									for (let item in mainConfig.server.couponUrlList) {
@@ -115,7 +115,7 @@ for (let el in mainConfig.server.stateTest) {
 										await browser
 											.url(url + '?ISTEST' + coupon.value)
 											.waitForExist('.page', 50000)
-											.pause(3000)
+											.pause(6000)
 											.assertView(
 												'mainBanner - ' + coupon.name,
 												query.mainBanner,

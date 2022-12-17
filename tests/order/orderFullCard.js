@@ -84,9 +84,9 @@ for (let el in mainConfig.server.stateTest) {
 								query.fullOrder.programSizeConfigEl +
 									':nth-child(1) ' +
 									query.fullOrder.orderChooseRangeEl +
-									':nth-child(3) '
+									':nth-child(4) '
 							)
-							.pause(1500)
+							.pause(3500)
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
 							.assertView('addProgramChangeFirstRange', query.contract, {
 								...mainConfig.tolerance,
@@ -99,7 +99,7 @@ for (let el in mainConfig.server.stateTest) {
 								query.fullOrder.programSizeConfigEl +
 									':nth-child(2) ' +
 									query.fullOrder.orderChooseRangeEl +
-									':nth-child(3) '
+									':nth-child(4) '
 							)
 							.pause(1500)
 							.isElement(query.orderTitle, 'Error:Оформление заказа')

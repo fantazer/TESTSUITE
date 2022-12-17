@@ -140,6 +140,10 @@ module.exports = function() {
 			{
 				url: '/programmy/gluten_free/',
 				name: 'Gluten'
+			},
+			{
+				url: '/programmy/post/',
+				name: 'post'
 			}
 		],
 
