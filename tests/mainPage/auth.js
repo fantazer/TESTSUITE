@@ -18,7 +18,7 @@ for (let el in mainConfig.server.stateTest) {
 				let browser = this.browser
 				return (
 					browser
-						.url(serverStateURL)
+						.url(serverStateURL + '?ISTEST')
 						.waitForExist(query.auth.authStart, 20000)
 						.selectorExecute('.modal-filter', function(el) {
 							return el[0].setAttribute('style', 'background-color: black;')

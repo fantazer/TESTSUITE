@@ -79,6 +79,10 @@ module.exports = function() {
 				name: 'Extralight'
 			},
 			{
+				url: '/programmy/extralightpremium/',
+				name: 'Extralight Premium'
+			},
+			{
 				url: '/programmy/normal/',
 				name: 'Normal'
 			},
@@ -101,6 +105,10 @@ module.exports = function() {
 			{
 				url: '/programmy/fish/',
 				name: 'Fish'
+			},
+			{
+				url: '/programmy/fishpremium/',
+				name: 'Fish premium'
 			},
 			{
 				url: '/programmy/daily/',

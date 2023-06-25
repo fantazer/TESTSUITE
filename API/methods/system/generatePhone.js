@@ -7,7 +7,7 @@ let generateNumber = function() {
 		//console.log('FIND ZERO!')
 		return generateNumber()
 	} else {
-		randomPhoneVal = '555' + randomPhoneVal
+		randomPhoneVal = '222' + randomPhoneVal
 		console.log('TEST PHONE ===> ', randomPhoneVal)
 		return {
 			number: randomPhoneVal,

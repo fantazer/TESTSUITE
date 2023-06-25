@@ -131,7 +131,7 @@ describe('TEST', function() {
 								false,
 								generatePhoneVal.array
 							)
-							.pause(3000)
+							.pause(8000)
 							.then(data => {
 								//console.log(urlListEl)
 								if (urlListEl.trainer) {

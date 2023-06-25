@@ -12,7 +12,7 @@ for (let el in mainConfig.server.stateTest) {
 				let browser = this.browser
 				return (
 					browser
-						.url(serverStateURL)
+						.url(serverStateURL + '?ISTEST')
 						.waitForExist(query.changeTown.changeTownStart, 50000)
 						.selectorExecute('.modal-filter', function(el) {
 							return el[0].setAttribute('style', 'background-color: black;')

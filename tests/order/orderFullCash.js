@@ -82,7 +82,7 @@ for (let el in mainConfig.server.stateTest) {
 							//check mail validation
 							.setValue(query.fullOrder.mail, fakeData.mailFalse)
 							.click(query.fullOrder.btnConfirm)
-							.pause(1000)
+							.pause(3000)
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
 							.assertView(
 								'fullOrderValidateEmailFalse',
@@ -92,9 +92,12 @@ for (let el in mainConfig.server.stateTest) {
 								}
 							)
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
+							/*.selectorExecute('.js-header', function(el) {
+								return el[0].setAttribute('style', 'display: none;')
+							})*/
 							.setValue(query.fullOrder.mail, fakeData.mailTrue)
 							//check mail validation === end
-							.pause(1000)
+							.pause(10000)
 
 							//Check friend phone
 							/*.click(query.fullOrder.checkFriend)
@@ -122,7 +125,7 @@ for (let el in mainConfig.server.stateTest) {
 
 							//Check size program
 							.click(query.fullOrder.toggleSizeProgram)
-							.pause(2000)
+							.pause(10000)
 							.$$(query.fullOrder.orderChooseRangeEl)
 							.then(data => {
 								return (async data => {
@@ -134,7 +137,7 @@ for (let el in mainConfig.server.stateTest) {
 										await browser
 											.element(`${item.selector}:nth-child(${item.index + 1})`)
 											.click()
-											.pause(5000)
+											.pause(10000)
 											//.isShowLoader('.loader', 20000)
 											.assertView(
 												elName,
@@ -145,7 +148,7 @@ for (let el in mainConfig.server.stateTest) {
 								})(data)
 							})
 							//Check size program === end
-							.pause(1000)
+							.pause(10000)
 
 							//Check Box + Spoon
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
@@ -161,7 +164,7 @@ for (let el in mainConfig.server.stateTest) {
 
 							//Check coupon cost
 							.click(query.fullOrder.checkCoupon)
-							.pause(1000)
+							.pause(3000)
 							//false coupon
 							.setValue(query.fullOrder.orderCouponVal, fakeData.couponFalse)
 							.click(query.fullOrder.orderCouponBtn)

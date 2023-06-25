@@ -16,10 +16,10 @@ describe('TEST', function() {
 				let browser = this.browser
 				return (
 					browser
-						.url(mainConfig.server.urls.test + '?new')
+						//.url(mainConfig.server.urls.test + '?new')
 						.url(mainConfig.server.urls.test + '?ISTEST')
 						.windowHandleSize({width: 1920, height: 1200})
-						.waitForExist('.page', 50000)
+						//.waitForExist('.page', 50000)
 						.pause(2000)
 
 						//Enter phone

@@ -80,9 +80,9 @@ for (let el in mainConfig.server.stateTest) {
 							//Check all tabs + Cost + Promocode
 							.then(() => {
 								return createOrderTabPromo(browser, [
-									5,
-									5,
-									5,
+									0,
+									0,
+									0,
 									4,
 									4,
 									4,

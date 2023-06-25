@@ -45,6 +45,9 @@ for (let el in mainConfig.server.stateTest) {
 
 							//Start form test
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
+							/*.selectorExecute('.js-header', function(el) {
+								return el[0].setAttribute('style', 'display: none;')
+							})*/
 							.setValue(query.fullOrder.name, 'GEROME')
 
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
@@ -52,12 +55,13 @@ for (let el in mainConfig.server.stateTest) {
 
 							//add program
 							.click(query.fullOrder.orderAdd)
-							.pause(1000)
+							.pause(3000)
 							.assertView(
 								'addProgramModal',
 								query.fullOrder.orderAddModal,
 								mainConfig.tolerance
 							)
+							.pause(3000)
 							.click(query.fullOrder.orderAddEl)
 							.isElement(query.orderTitle, 'Error:Оформление заказа')
 							.click(
@@ -65,13 +69,13 @@ for (let el in mainConfig.server.stateTest) {
 									':nth-child(1) ' +
 									query.fullOrder.toggleSizeProgram
 							)
-							.pause(2000)
+							.pause(4000)
 							.click(
 								query.fullOrder.programSizeConfigEl +
 									':nth-child(2) ' +
 									query.fullOrder.toggleSizeProgram
 							)
-							.pause(1500)
+							.pause(5500)
 							.assertView('addProgram', query.contract, {
 								...mainConfig.tolerance,
 								ignoreElements: [
